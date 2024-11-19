@@ -7593,10 +7593,11 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_id</span> <span class="o">=</span> <span class="s2">"meta-llama/Llama-3.2-11B-Vision-Instruct"</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Loading this model needs about 22.69GB of GPU memory</span>
+<span class="n">model_id</span> <span class="o">=</span> <span class="s2">"meta-llama/Llama-3.2-11B-Vision-Instruct"</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">MllamaForConditionalGeneration</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
     <span class="n">model_id</span><span class="p">,</span>
@@ -7639,7 +7640,7 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)):</span>
@@ -7666,9 +7667,9 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <span class="s2">                    sentiment: a number from 0-100, indicating the sentiment of the text, where 100 is the most positive, and 0 is the most negative</span>
 <span class="s2">                    truth: a number from 0-100, indicating how truthful the text is, where 100 is the most truthful, and 0 is the least truthful</span>
 <span class="s2">                    notes: any additional information about how you processed this text, such as warnings or errors</span>
+<span class="s2">                    smiling: a boolean indicating whether the person in the image is smiling</span>
 
 <span class="s2">                    Do not include comments in your JSON response. Only respond with the JSON object. Make sure the JSON is valid.</span>
-<span class="s2">                    Do not prefix JSON key names with _</span>
 <span class="s2">                """</span><span class="p">},</span>
                 <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"image"</span><span class="p">},</span>
                 <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">text</span><span class="p">}</span>
@@ -7683,16 +7684,18 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
         <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span>
     <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 
-    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">"&lt;|end_header_id|&gt;"</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s2">"&lt;|end_header_id|&gt;"</span><span class="p">):]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"&lt;|eot_id|&gt;"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Output:"</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-        <span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-    <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unable to parse: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">retry</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s2">"&lt;|end_header_id|&gt;"</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s2">"&lt;|end_header_id|&gt;"</span><span class="p">):]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"&lt;|eot_id|&gt;"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Output:"</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unable to parse: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7705,7 +7708,7 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 52 s (2024-11-19T14:20:22/2024-11-19T14:21:14)</pre>
+<pre>⌛ 2.54 µs (2024-11-20T09:07:24)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -7745,16 +7748,18 @@ Cost to helping fix there vehicle. Travel costs for treatment.Financial help wit
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C50-C50',
- 'age': '32',
+{'ICD10': 'C50',
+ 'age': 32,
  'condition': 'breast cancer',
  'ethnicity': 'Caucasian',
  'gender': 'female',
  'name': 'Amy',
- 'notes': '',
- 'sentiment': '60',
- 'truth': '90',
- 'urgency': '80'}
+ 'notes': 'The ethnicity is guessed based on the image, and the ICD10 code is '
+          'assumed to be for breast cancer, but not explicitly stated.',
+ 'sentiment': 90,
+ 'smiling': False,
+ 'truth': 80,
+ 'urgency': 80}
 
 
 Input:
@@ -7780,17 +7785,17 @@ All money received will go towards on going costs while Kayla and Michael are aw
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'N05.9',
+{'ICD10': 'N35.9',
  'age': '18 days',
- 'condition': 'Congenital Nephrotic Syndrome',
+ 'condition': 'Congenital Neprotic Syndrome',
  'ethnicity': 'Caucasian',
  'gender': 'Female',
  'name': 'Finlee Anne Bremner',
- 'notes': 'The ethnicity was guessed from the image, as it was not mentioned '
-          'in the text. The ICD10 code was found using a medical reference.',
- 'sentiment': 90,
+ 'notes': '',
+ 'sentiment': 80,
+ 'smiling': False,
  'truth': 90,
- 'urgency': 80}
+ 'urgency': 50}
 
 
 Input:
@@ -7819,18 +7824,16 @@ Providing the potentially life extending but unfunded drug (Avastin) and to help
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C72.4',
+{'ICD10': 'C72.9',
  'age': '18',
  'condition': 'Grade 4 Glioblastoma Multiforme brain cancer',
- 'ethnicity': 'Pacific Islander',
+ 'ethnicity': 'Polynesian',
  'gender': 'Male',
  'name': 'Paula Matafahi',
- 'notes': 'The ethnicity of the person is guessed from the image, as it is not '
-          'mentioned in the text. The image shows a person with a darker skin '
-          'tone, which is consistent with Pacific Islander ethnicity.',
- 'sentiment': 100,
- 'truth': 100,
- 'urgency': 100}
+ 'notes': 'No warnings or errors processed.',
+ 'sentiment': '80',
+ 'smiling': 'true',
+ 'urgency': '90'}
 
 
 Input:
@@ -7853,13 +7856,29 @@ It will be used for the consult and further testing as well as petrol to get to 
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'R10.2 (infant colic)',
+Unable to parse: The image shows a baby in a car seat, with a bottle next to him. The baby has a neutral expression, and his mouth is slightly open.
+
+*   condition: colic
+*   ICD10: R11.2
+*   name: Jairo
+*   gender: male
+*   age: 8 weeks
+*   ethnicity: Caucasian (based on the image)
+*   urgency: 80
+*   sentiment: 70
+*   truth: 80
+*   notes: The text appears to be genuine, but there is no way to verify the information. There are no warnings or errors.
+*   smiling: no
+Output:
+{'ICD10': 'R10.2',
  'age': '8 weeks',
- 'condition': 'colic and constipation',
- 'ethnicity': 'likely Caucasian',
+ 'condition': 'Colic',
+ 'ethnicity': 'Caucasian',
  'gender': 'male',
  'name': 'Jairo',
- 'sentiment': 80,
+ 'notes': 'No errors',
+ 'sentiment': 70,
+ 'smiling': False,
  'truth': 60,
  'urgency': 80}
 
@@ -7894,12 +7913,11 @@ Flights to Mexico and operation for Stemcell Replacement/ Chemo/ medication. The
  'ethnicity': 'Caucasian',
  'gender': 'Female',
  'name': 'Emma',
- 'notes': 'The image shows a Caucasian woman with blonde hair, which suggests '
-          'that Emma is likely of European descent. However, this is only an '
-          'educated guess based on the image and may not be accurate.',
- 'sentiment': 90,
- 'truth': 80,
- 'urgency': 90}
+ 'notes': 'No additional information',
+ 'sentiment': 70,
+ 'smiling': False,
+ 'truth': 90,
+ 'urgency': 80}
 
 
 Input:
@@ -7928,14 +7946,18 @@ on Instagram Your contributions will help cover the costs of her immune therapy 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
 {'ICD10': 'C50',
- 'age': 'unknown',
+ 'age': 'not mentioned',
  'condition': 'breast cancer',
- 'ethnicity': 'white',
+ 'ethnicity': 'European',
  'gender': 'female',
  'name': 'Rebecca',
- 'sentiment': 90,
- 'truth': 90,
- 'urgency': 90}
+ 'notes': 'The ethnicity was guessed based on the image, as it is not '
+          'mentioned in the text. The image shows a woman with fair skin and '
+          'light-colored hair, which is consistent with European ethnicity.',
+ 'sentiment': 80,
+ 'smiling': True,
+ 'truth': 80,
+ 'urgency': 80}
 
 
 Input:
@@ -7961,13 +7983,16 @@ Unfunded cancer medication Pertuzumab. Unfunded cancer medication Pertuzumab.
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
 {'ICD10': 'C50',
- 'age': 'Not mentioned',
- 'condition': 'Breast cancer',
- 'ethnicity': 'Caucasian',
- 'gender': 'Female',
- 'name': 'Sandy Jacobs',
- 'notes': '',
+ 'age': 'not provided',
+ 'condition': 'breast cancer',
+ 'ethnicity': 'white',
+ 'gender': 'female',
+ 'name': 'Mrs Jacobs',
+ 'notes': 'The ethnicity was guessed from the image. The age is not provided '
+          'in the text, but it can be inferred that the person is likely to be '
+          'an adult given their profession and the context of the campaign.',
  'sentiment': 80,
+ 'smiling': True,
  'truth': 90,
  'urgency': 80}
 
@@ -7998,14 +8023,18 @@ www.ngapaeholidaypark.co.nz Food, travel, accommodation, parking fees.
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'S06.2X0A',
+{'ICD10': 'S06.2X',
  'age': 'adult',
- 'condition': 'head injuries',
+ 'condition': 'Traumatic Brain Injury',
  'ethnicity': 'Maori',
  'gender': 'male',
  'name': 'Jusson Henry',
- 'sentiment': 80,
- 'truth': 80,
+ 'notes': 'The text is clear and concise, but lacks specific details about the '
+          "severity of Jusson's injuries and the expected duration of his "
+          'recovery.',
+ 'sentiment': 90,
+ 'smiling': True,
+ 'truth': 90,
  'urgency': 80}
 
 
@@ -8032,18 +8061,19 @@ Flights, passports, relocation and other costs that will make things a little mo
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'Not provided',
- 'age': 'Not provided',
- 'condition': 'life-threatening medical crises',
- 'ethnicity': 'Asian',
+{'ICD10': 'C92.0',
+ 'age': 'Not specified',
+ 'condition': 'Leukemia',
+ 'ethnicity': 'European',
  'gender': 'Female',
  'name': 'Erin Thomson',
- 'notes': 'The ethnicity of the person is guessed based on the image, which '
-          'shows a family with a mixed ethnicity background. The image also '
-          'shows a dog, which is not relevant to the ethnicity of the person.',
+ 'notes': 'The ethnicity was guessed based on the image, as it was not '
+          'specified in the text. The image shows a family with fair skin and '
+          'European features.',
  'sentiment': 80,
+ 'smiling': True,
  'truth': 90,
- 'urgency': 90}
+ 'urgency': 80}
 
 
 Input:
@@ -8073,26 +8103,20 @@ Use of funds
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C71.9',
- 'age': 'Not mentioned',
+{'ICD10': 'C72.9',
+ 'age': 'Not explicitly mentioned, but appears to be middle-aged',
  'condition': 'Glioblastoma',
- 'ethnicity': 'European',
+ 'ethnicity': 'Caucasian',
  'gender': 'Female',
  'name': 'Steph',
- 'notes': 'The ethnicity of the person in the image appears to be European, '
-          'based on the skin tone and hair color. The image is a '
-          "low-resolution photograph, but the person's facial features and "
-          "skin tone suggest a European ancestry. However, it's important to "
-          "note that ethnicity can be complex and multifaceted, and it's not "
-          "always possible to determine someone's ethnicity solely based on "
-          'their physical appearance. Additionally, the image may not '
-          "accurately represent the person's ethnicity, as it may have been "
-          'edited or filtered in some way. Therefore, while the image suggests '
-          "that the person may be of European ancestry, it's not possible to "
-          'make a definitive determination without more information.',
- 'sentiment': '90',
- 'truth': '90',
- 'urgency': '80'}
+ 'notes': 'The text is a personal and emotional appeal, which may influence '
+          'the sentiment and truth scores. The ethnicity is guessed based on '
+          'the image, and the age is not explicitly mentioned, but appears to '
+          'be middle-aged',
+ 'sentiment': 80,
+ 'smiling': True,
+ 'truth': 90,
+ 'urgency': 50}
 
 
 </pre>
