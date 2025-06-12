@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7518,17 +7519,17 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">reload_ext</span> autotime
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">requests_cache</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests_cache</span>
 <span class="n">requests_cache</span><span class="o">.</span><span class="n">install_cache</span><span class="p">(</span><span class="s1">'cache'</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">requests_html</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests_html</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 <span class="n">tqdm</span><span class="o">.</span><span class="n">pandas</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">traceback</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.max_columns"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="c1">#pd.set_option("display.max_colwidth", None)</span>
 <span class="n">existing_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"givealittle_health.xlsx"</span><span class="p">)</span>
@@ -7546,7 +7547,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 3.9 s (2024-11-04T11:21:12/2024-11-04T11:21:16)</pre>
+<pre>✔️ 4.98 s (2025-06-12T10:52:26/2025-06-12T10:52:31)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
@@ -7595,7 +7596,7 @@ a.anchor-link {
 </thead>
 <tbody>
 <tr>
-<th>24</th>
+<th>495</th>
 <td>Help me support my sick father</td>
 <td>Raising money to see my sick father</td>
 <td>https://static.givealittle.co.nz/assets/hero/c...</td>
@@ -7619,7 +7620,7 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>34</th>
+<th>496</th>
 <td>My Cambodian Sister Fighting the Big C</td>
 <td>Please help my Cambodian sister fight the big C.</td>
 <td>https://static.givealittle.co.nz/assets/hero/e...</td>
@@ -7643,7 +7644,7 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>42</th>
+<th>497</th>
 <td>Hunter's Top Surgery</td>
 <td>Hunter's Top Surgery</td>
 <td>https://static.givealittle.co.nz/assets/hero/4...</td>
@@ -7667,7 +7668,7 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>48</th>
+<th>498</th>
 <td>Flights needed NZ-London to help 83 year old m...</td>
 <td>Raising funds to send a caring daughter to Lon...</td>
 <td>https://static.givealittle.co.nz/assets/hero/0...</td>
@@ -7691,7 +7692,7 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>49</th>
+<th>499</th>
 <td>Help our Beautiful Dad get the Care he Deserves</td>
 <td>Help Dad get the treatment he needs</td>
 <td>https://static.givealittle.co.nz/assets/hero/b...</td>
@@ -7871,7 +7872,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># takes about 7m without cache.sqlite</span>
@@ -7883,7 +7884,13 @@ a.anchor-link {
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Last page: </span><span class="si">{</span><span class="n">last_page</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">last_page</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">last_page</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">last_page</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
-    <span class="n">page_results</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">URL</span><span class="si">}</span><span class="s2">&amp;p=</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">URL</span><span class="si">}</span><span class="s2">&amp;p=</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">page_results</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error on page </span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+        <span class="k">continue</span>
     <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">page_results</span><span class="p">[</span><span class="s2">"results"</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -7897,13 +7904,13 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 1.41 s (2024-11-04T11:21:16/2024-11-04T11:21:17)</pre>
+<pre>✔️ 2 min 12 s (2025-06-12T10:58:44/2025-06-12T11:00:57)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Last page: 1239
+<pre>Last page: 1314
 </pre>
 </div>
 </div>
@@ -7920,7 +7927,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
@@ -7939,11 +7946,11 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 28.8 ms (2024-11-04T11:21:18/2024-11-04T11:21:18)</pre>
+<pre>✔️ 80.9 ms (2025-06-12T11:43:25/2025-06-12T11:43:25)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7977,63 +7984,63 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>Young mother of 3 recently diagnosed with aggr...</td>
-<td>Young mother of three fighting aggresive breas...</td>
-<td>https://static.givealittle.co.nz/assets/hero/e...</td>
-<td>https://givealittle.co.nz/cause/young-mother-o...</td>
-<td>3900.00</td>
+<td>Rugby league lover, Ben Stowers, has had his w...</td>
+<td>This page has been started to help Ben, his pa...</td>
+<td>https://static.givealittle.co.nz/assets/hero/8...</td>
+<td>https://givealittle.co.nz/cause/rugby-league-l...</td>
+<td>3070.0</td>
 <td>0.0</td>
-<td>181 days to go</td>
+<td>362 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/young-m...</td>
+<td>https://givealittle.co.nz/donate/cause/rugby-l...</td>
 </tr>
 <tr>
 <th>1</th>
-<td>Finlee Bremners Road to recovery</td>
-<td>Helping our great friends navigate Finlee's lo...</td>
-<td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/finlee-bremner...</td>
-<td>4500.00</td>
+<td>HOPE FOR SUMMER #BATTENSBEATER</td>
+<td>An ultra rare Princess who is fighting a rare ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/6...</td>
+<td>https://givealittle.co.nz/cause/hope-for-summe...</td>
+<td>585.0</td>
 <td>0.0</td>
-<td>177 days to go</td>
+<td>727 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/finlee-...</td>
+<td>https://givealittle.co.nz/donate/cause/hope-fo...</td>
 </tr>
 <tr>
 <th>2</th>
-<td>Paula Matafahi's Grade 4 Brain Cancer Fight - ...</td>
-<td>This page has been set up to help Paula access...</td>
+<td>Help Esther Fight Breast Cancer — A Young Mum ...</td>
+<td>Please help a Vanuatu family through a hard time!</td>
 <td>https://static.givealittle.co.nz/assets/hero/b...</td>
-<td>https://givealittle.co.nz/cause/paulas-stage-4...</td>
-<td>47522.15</td>
-<td>55000.0</td>
-<td>27 days to go</td>
+<td>https://givealittle.co.nz/cause/help-esther-fi...</td>
+<td>760.0</td>
+<td>2100.0</td>
+<td>11 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/paulas-...</td>
+<td>https://givealittle.co.nz/donate/cause/help-es...</td>
 </tr>
 <tr>
 <th>3</th>
-<td>Our Sweet boy Jairo</td>
-<td>Please help Jairo get the testing and screenin...</td>
-<td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/our-sweet-boy-...</td>
-<td>925.00</td>
-<td>1000.0</td>
-<td>19 days to go</td>
+<td>$100k in 100 days!</td>
+<td>Help save a life saving service for mothers in...</td>
+<td>https://static.givealittle.co.nz/assets/hero/e...</td>
+<td>https://givealittle.co.nz/cause/savewellwomen</td>
+<td>4779.0</td>
+<td>100000.0</td>
+<td>110 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/our-swe...</td>
+<td>https://givealittle.co.nz/donate/cause/savewel...</td>
 </tr>
 <tr>
 <th>4</th>
-<td>Em’s MS Journey</td>
-<td>Stemcell replacement for Em’s MS Journey. Clín...</td>
-<td>https://static.givealittle.co.nz/assets/hero/6...</td>
-<td>https://givealittle.co.nz/cause/ems-ms-journey</td>
-<td>9640.00</td>
-<td>90000.0</td>
-<td>178 days to go</td>
+<td>Goldenhar Syndrome: Help a Young Girl Through ...</td>
+<td>My daughter was born with Goldenhar syndrome, ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/f...</td>
+<td>https://givealittle.co.nz/cause/goldenhar-synd...</td>
+<td>35.0</td>
+<td>30000.0</td>
+<td>180 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/ems-ms-...</td>
+<td>https://givealittle.co.nz/donate/cause/goldenh...</td>
 </tr>
 <tr>
 <th>...</th>
@@ -8049,63 +8056,63 @@ a.anchor-link {
 </tr>
 <tr>
 <th>9994</th>
-<td>Joe and Dorothy Harris</td>
-<td>Joseph Harris, a generous hard working friend ...</td>
+<td>CJ's fight with progressive brain tumours.</td>
+<td>Please help my dad Chris Hall (CJ) fight his p...</td>
 <td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/joeharris</td>
-<td>510.00</td>
+<td>https://givealittle.co.nz/cause/supportcj</td>
+<td>24883.0</td>
 <td>0.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/joeharris</td>
+<td>https://givealittle.co.nz/cause/supportcj</td>
 </tr>
 <tr>
 <th>9995</th>
-<td>Kelvin Bartz and Sandra Parker</td>
-<td>Kelvin Bartz has been diagnosed with a fatal i...</td>
-<td>https://static.givealittle.co.nz/assets/hero/d...</td>
-<td>https://givealittle.co.nz/cause/kelvinbartz</td>
-<td>345.00</td>
-<td>0.0</td>
+<td>Marie needs a little back now</td>
+<td>My partner Marie has given so much to others o...</td>
+<td>https://static.givealittle.co.nz/assets/hero/8...</td>
+<td>https://givealittle.co.nz/cause/makemariewell</td>
+<td>70.0</td>
+<td>3000.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/kelvinbartz</td>
+<td>https://givealittle.co.nz/cause/makemariewell</td>
 </tr>
 <tr>
 <th>9996</th>
-<td>Mesh Removal Surgery for Christine Williams</td>
-<td>My name is Christine Williams. I need a specia...</td>
-<td>https://static.givealittle.co.nz/assets/hero/9...</td>
-<td>https://givealittle.co.nz/cause/christinewilli...</td>
-<td>18855.00</td>
-<td>70000.0</td>
+<td>Help Dad Get Through This</td>
+<td>Please help my Dad, so he no longer has to wor...</td>
+<td>https://static.givealittle.co.nz/assets/hero/5...</td>
+<td>https://givealittle.co.nz/cause/helpgetmydadth...</td>
+<td>650.0</td>
+<td>0.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/christinewilli...</td>
+<td>https://givealittle.co.nz/cause/helpgetmydadth...</td>
 </tr>
 <tr>
 <th>9997</th>
-<td>Help Kyle fight Ewing Sarcoma Cancer</td>
-<td>Help support Kyle over the next 12 months thro...</td>
-<td>https://static.givealittle.co.nz/assets/hero/1...</td>
-<td>https://givealittle.co.nz/cause/kylecarter</td>
-<td>2860.00</td>
+<td>Cancer</td>
+<td>SPTL Cancer</td>
+<td>https://static.givealittle.co.nz/assets/hero/5...</td>
+<td>https://givealittle.co.nz/cause/help4will2k17</td>
+<td>200.0</td>
 <td>0.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/kylecarter</td>
+<td>https://givealittle.co.nz/cause/help4will2k17</td>
 </tr>
 <tr>
 <th>9998</th>
-<td>Help for Fendi!</td>
-<td>Stepping it up and fundraising for our beautif...</td>
+<td>Help Rory's Mum With His Funeral Expenses</td>
+<td>Rory Tuuta passed away suddenly on the 13th of...</td>
 <td>https://static.givealittle.co.nz/assets/hero/a...</td>
-<td>https://givealittle.co.nz/cause/fendissteptember</td>
-<td>360.00</td>
+<td>https://givealittle.co.nz/cause/rorytuuta</td>
+<td>4586.7</td>
 <td>0.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/fendissteptember</td>
+<td>https://givealittle.co.nz/cause/rorytuuta</td>
 </tr>
 </tbody>
 </table>
@@ -8120,10 +8127,10 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib_venn</span> <span class="kn">import</span> <span class="n">venn2</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib_venn</span><span class="w"> </span><span class="kn">import</span> <span class="n">venn2</span>
 <span class="n">venn2</span><span class="p">([</span><span class="nb">set</span><span class="p">(</span><span class="n">existing_df</span><span class="o">.</span><span class="n">uri</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">uri</span><span class="p">)],</span> <span class="n">set_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"Existing"</span><span class="p">,</span> <span class="s2">"New"</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -8137,19 +8144,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 485 ms (2024-11-04T11:21:18/2024-11-04T11:21:18)</pre>
+<pre>✔️ 918 ms (2025-06-12T11:43:49/2025-06-12T11:43:50)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib_venn._common.VennDiagram at 0x7f0cc643c4c0&gt;</pre>
+<pre>&lt;matplotlib_venn._common.VennDiagram at 0x7f2fe8d1f940&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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"/>
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaMAAAGJCAYAAAAnolykAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjEwLjMsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvZiW1igAAAAlwSFlzAAAPYQAAD2EBqD+naQAAQOdJREFUeJzt3XmYXGWZNvD7nFN1au2q3tNb0tnJBglkYQuQENZBYQRHYGRGcBllmEHET0FBEYcZFAd3wig6IsKozACOOgQETCBAQjAJZN/TSWfp9L5U137q/f4o0tBZu9NV56nl/l1XXQnV1f1UFZ1z17trSikFIiIiQbr0EyAiImIYERGROIYRERGJYxgREZE4hhEREYljGBERkTiGERERiWMYERGROIYRERGJYxgREZE4hhEREYljGBERkTiGERERiWMYERGROIYRERGJYxgREZE4hhEREYljGBERkTiGERERiWMYERGROIYRERGJYxgREZE4hhEREYljGBERkTiGERERiWMYERGROIYRERGJYxgREZE4hhEREYljGBERkTiGERERiWMYERGROIYRERGJYxgREZE4hhEREYljGBERkTiGERERiXNIPwEi21kWkEq9/+fhm64DhpG+6TrgGPo/j1gyhpgVG/gzbsWP+rulLKRUCkopKKhBf1dKQdM0OHTHcW+mYcLj8MDr9MLj9MDj8EDTtCy+UUT2YRhRfotEgL6+9C0SAWIxIBpN3478++HwGY73AsrymkiWeNI3rxMJl44+FUePFUW3FUZIJRDWUgirJOKays5rPYIGDW6HGx5nOqB8Th8CrgCC7iCCriCC7iAcOv+JU37QlFL2/MshOlW9vUBnZ/rP3t73wycUApLJjJZKOXTE/E7EvQbirhQSegoWkkhh6CGmNA1xpxMRh4GQoaFXT6FLSyKEzD7XofA5fQPhVOouRYW3ApXeSpiGaftzIToRhhHljng8HTodHe//2dUFJBJZKac0IOE3EfMZiLmAuJFAQsteYKR0HTGnE2GHjj4D6NEsdCGJmDbM1loGBF1BVPmqUOmtRJU3/afTcNr+PIgOYxiRnO5uoKXl/Vtvb1bLJTwOxP0OxN06Yk4LcS0OBflf/6ThQNTpQL9DR7eRwgEtjvgwWmKZUuouRa2/FvWBetSV1MHtcNv+HKh4MYzIHqkU0Nb2fvAcOpQey8ki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4sUZCzAiyi8O6SdAueWb3/wmxo0bd9T9EydOHPLPaGxsRCQSgdPpHFbtxYsXo7KyEjfffPOg+y+88EJEIhGYpjmsn5dvHn/8cdxyyy1wuVzYuXMn6uvrB319wYIFaG9vx4YNG4SeIVH2MIxokCuvvBJz5swZ0c/QNA1utztDzwjQdT2jPy/XxWIxfOtb38KPfvQj6adCZBt209GQ3XfffdB1Ha+88sqg+//hH/4Bpmni3XffBXDsMaOWlhbccsstaGhogMvlQm1tLa655ho0NTUBAMaOHYuNGzfi1VdfHegaXLBgAYBjjxktWLAAM2bMwKZNm7Bw4UJ4vV7U19fjoYceOup579mzB1dffTV8Ph+qq6vxhS98AS+++GLOjkPNmjULjz32GA4cOCD9VIhswzCiQXp6etDe3j7o1tHRAQC49957MWvWLHzqU59CX18fAODFF1/EY489hq9//euYOXPmcX/uddddh+eeew633HILFi9ejNtvvx19fX3Yu3cvAOD73/8+GhoaMGXKFPzqV7/Cr371K9xzzz0nfK5dXV244oorMHPmTDz88MOYMmUK7rrrLixZsmTgMf39/bj44ovx8ssv4/bbb8c999yDN998E3fddddI36qs+epXvwrLsvCtb33rpI998sknMXv2bHg8HpSXl+OGG25Ac3PzwNd/+MMfwjAMdHd3D9z38MMPQ9M03HnnnQP3WZaFkpKSnH5fqMApIqXUL37xCwXgmDeXyzXwuPXr1yvTNNWnP/1p1dXVperr69WcOXNUIpEYeMzu3bsVAPWLX/xCKaVUV1eXAqC+853vnPA5TJ8+XV100UVH3b906VIFQC1dunTgvosuukgBUE888cTAfbFYTNXU1Kjrrrtu4L6HH35YAVC/+93vBu6LRCJqypQpR/1MaYf/H7z99tvqk5/8pHK73Wr//v0DX7/ooovU9OnTB/77gQceUJqmqeuvv14tXrxY3X///aqyslKNHTtWdXV1KaWUWrNmjQKg/vCHPwx83zXXXKN0XVdz5swZuO/tt99WANQf//jH7L9QomNgy4gGeeSRR/DSSy8Nun2wpTFjxgzcf//9+NnPfobLL78c7e3t+OUvfwmH4/jDjx6PB6ZpYtmyZejq6srYc/X7/bjpppsG/ts0TcybNw+7du0auO+FF15AfX09rr766oH73G43PvOZz2TseWTDPffcg2QyiW9/+9vH/PqePXtw33334YEHHsBvfvMb3Hrrrfj617+OpUuXYt++fVi8eDEAYObMmQgEAli+fDkAQCmF119/Hddddx3Wrl2LUCgEAFi+fDl0Xcf5559vzwskOgLDiAaZN28eLrnkkkG3hQsXDnrMl770JcycOROrVq3Cfffdh2nTpp3wZ7pcLnz729/GkiVLMGrUKFx44YV46KGH0NLSMqLn2tDQAE3TBt1XVlY2KPD27NmDCRMmHPW44cwOlDB+/Hj83d/9HX7605/i4MGDR3392WefRSqVwsc+9rFBXao1NTWYNGkSli5dCiA9+eO8887Da6+9BgDYvHkzOjo6cPfdd0MphRUrVgBIh9GMGTNQWlpq22sk+iCGEQ3brl27sH37dgDA+vXrh/Q9d9xxB7Zt24YHH3wQbrcbX/va1zB16lSsXbv2lJ+HYRjHvF8pdco/M5fce++9SCaTxxw72r59O5RSmDRpEqqqqgbdNm/ejNbW1oHHXnDBBVi9ejUikQiWL1+O2tpanHXWWZg5c+ZAi+n111/HBRdcYNtrIzoSp3bTsKRSKdx8880IBAK444478G//9m/46Ec/imuvvfak3zthwgR88YtfxBe/+EVs374ds2bNwsMPP4wnn3wSAI5qvWRCY2MjNm3aBKXUoJ+/Y8eOjNfKtPHjx+Omm27CT3/6U9x9992DvpZKpaBpGpYsWXLMUPb7/QN/nz9/PhKJBFasWIHly5cPhM4FF1yA5cuXY8uWLWhra2MYkSiGEQ3Ld7/7Xbz55pv4/e9/j6uuugrLli3DrbfeigsvvBCVlZXH/J5wOHzUWqEJEyagpKQEsVhs4D6fzzdo1lcmXH755XjppZfw+9//Htdccw0AIBqN4rHHHstonWy599578eSTTx41djRhwgQopTBu3DhMnjz5hD9j3rx5ME0Ty5cvx/Lly/GlL30JQHox8WOPPTYwVf/CCy/MzosgGgKGEQ2yZMkSbNmy5aj7zzvvPMRiMXzta1/DzTffjA9/+MMA0rsGzJo1C//4j/+Ip59++pg/c9u2bVi0aBE+9rGPYdq0aXA4HHjuuedw6NAh3HDDDQOPmz17Nh599FE88MADmDhxIqqrq3HxxReP6PV89rOfxY9//GPceOON+PznP4/a2lo89dRTA8GYjdZYJk2YMAE33XQTfvKTn6CxsXFgosi1116Lr3zlK7j//vvx5JNPDnodSil0dnaioqICQHrCxty5c/HrX/8ae/fuHdQyikQi+OEPf4gJEyagtrbW/hdIdJjgTD7KISea2g1A/exnP1Nz585VDQ0Nqru7e9D3/uAHP1AA1G9/+1ul1NFTu9vb29Vtt92mpkyZonw+nwoGg+rss89WTz/99KCf09LSoq666ipVUlKiAAxM8z7e1O4PTnM+7BOf+IRqbGwcdN+uXbvUVVddpTwej6qqqlJf/OIX1TPPPKMAqJUrV47sjcugD07t/qDt27crwzAUgEGv+cEHH1QA1Hnnnaceeugh9eijj6ovf/nLatKkSUdNo7/77rsVABUMBpVlWQP3n3baaQqAuvnmm7P74ohOgmFERel73/ueAqD27dsn/VQGHC+MlEqH7JFhpJRSzzzzjJo/f77y+XzK5/OpKVOmqNtuu01t3bp10OP+7//+TwFQV1555aD7P/3pTysA6uc//3nmXxDRMGhKFcjUI6LjiEQi8Hg8A/8djUZx5plnwrIsbNu2TfCZEdFhHDOignfttddizJgxmDVrFnp6evDkk09iy5YteOqpp6SfGhG9h2FEBe/yyy/Hz372Mzz11FOwLAvTpk3Db37zG1x//fXST42I3sNuOiIiEscdGIiISBzDiIiIxDGMiIhIHMOIiIjEMYyIiEgcw4iIiMQxjIiISBzDiIiIxDGMiIhI3P8HyFbUq8LKEqIAAAAASUVORK5CYII="/>
 </div>
 </div>
 </div>
@@ -8159,7 +8166,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">uri</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">existing_df</span><span class="o">.</span><span class="n">uri</span><span class="p">)]</span>
@@ -8176,11 +8183,11 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 13 ms (2024-11-04T11:21:18/2024-11-04T11:21:18)</pre>
+<pre>✔️ 42.7 ms (2025-06-12T11:47:57/2025-06-12T11:47:57)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8214,63 +8221,63 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>Young mother of 3 recently diagnosed with aggr...</td>
-<td>Young mother of three fighting aggresive breas...</td>
-<td>https://static.givealittle.co.nz/assets/hero/e...</td>
-<td>https://givealittle.co.nz/cause/young-mother-o...</td>
-<td>3900.00</td>
+<td>Rugby league lover, Ben Stowers, has had his w...</td>
+<td>This page has been started to help Ben, his pa...</td>
+<td>https://static.givealittle.co.nz/assets/hero/8...</td>
+<td>https://givealittle.co.nz/cause/rugby-league-l...</td>
+<td>3070.00</td>
 <td>0.0</td>
-<td>181 days to go</td>
+<td>362 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/young-m...</td>
+<td>https://givealittle.co.nz/donate/cause/rugby-l...</td>
 </tr>
 <tr>
 <th>1</th>
-<td>Finlee Bremners Road to recovery</td>
-<td>Helping our great friends navigate Finlee's lo...</td>
-<td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/finlee-bremner...</td>
-<td>4500.00</td>
+<td>HOPE FOR SUMMER #BATTENSBEATER</td>
+<td>An ultra rare Princess who is fighting a rare ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/6...</td>
+<td>https://givealittle.co.nz/cause/hope-for-summe...</td>
+<td>585.00</td>
 <td>0.0</td>
-<td>177 days to go</td>
+<td>727 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/finlee-...</td>
+<td>https://givealittle.co.nz/donate/cause/hope-fo...</td>
 </tr>
 <tr>
 <th>2</th>
-<td>Paula Matafahi's Grade 4 Brain Cancer Fight - ...</td>
-<td>This page has been set up to help Paula access...</td>
+<td>Help Esther Fight Breast Cancer — A Young Mum ...</td>
+<td>Please help a Vanuatu family through a hard time!</td>
 <td>https://static.givealittle.co.nz/assets/hero/b...</td>
-<td>https://givealittle.co.nz/cause/paulas-stage-4...</td>
-<td>47522.15</td>
-<td>55000.0</td>
-<td>27 days to go</td>
+<td>https://givealittle.co.nz/cause/help-esther-fi...</td>
+<td>760.00</td>
+<td>2100.0</td>
+<td>11 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/paulas-...</td>
+<td>https://givealittle.co.nz/donate/cause/help-es...</td>
 </tr>
 <tr>
 <th>3</th>
-<td>Our Sweet boy Jairo</td>
-<td>Please help Jairo get the testing and screenin...</td>
-<td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/our-sweet-boy-...</td>
-<td>925.00</td>
-<td>1000.0</td>
-<td>19 days to go</td>
+<td>$100k in 100 days!</td>
+<td>Help save a life saving service for mothers in...</td>
+<td>https://static.givealittle.co.nz/assets/hero/e...</td>
+<td>https://givealittle.co.nz/cause/savewellwomen</td>
+<td>4779.00</td>
+<td>100000.0</td>
+<td>110 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/our-swe...</td>
+<td>https://givealittle.co.nz/donate/cause/savewel...</td>
 </tr>
 <tr>
 <th>4</th>
-<td>Em’s MS Journey</td>
-<td>Stemcell replacement for Em’s MS Journey. Clín...</td>
-<td>https://static.givealittle.co.nz/assets/hero/6...</td>
-<td>https://givealittle.co.nz/cause/ems-ms-journey</td>
-<td>9640.00</td>
-<td>90000.0</td>
-<td>178 days to go</td>
+<td>Goldenhar Syndrome: Help a Young Girl Through ...</td>
+<td>My daughter was born with Goldenhar syndrome, ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/f...</td>
+<td>https://givealittle.co.nz/cause/goldenhar-synd...</td>
+<td>35.00</td>
+<td>30000.0</td>
+<td>180 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/ems-ms-...</td>
+<td>https://givealittle.co.nz/donate/cause/goldenh...</td>
 </tr>
 <tr>
 <th>...</th>
@@ -8285,68 +8292,68 @@ a.anchor-link {
 <td>...</td>
 </tr>
 <tr>
-<th>2445</th>
+<th>3223</th>
 <td>Help 20,000 New Zealanders suffering from Infl...</td>
 <td>Helen hopes to help others shortcut the 16 yea...</td>
 <td>https://static.givealittle.co.nz/assets/hero/f...</td>
 <td>https://givealittle.co.nz/cause/help-20000-nze...</td>
 <td>3525.00</td>
 <td>25000.0</td>
-<td>39 days to go</td>
-<td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/help-20...</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/help-20000-nze...</td>
 </tr>
 <tr>
-<th>2553</th>
+<th>3331</th>
 <td>HELP NEL GET GENDER AFFIRMING TOP SURGERY</td>
 <td>I am raising money for gender affirming top su...</td>
 <td>https://static.givealittle.co.nz/assets/hero/6...</td>
 <td>https://givealittle.co.nz/cause/nel-surgery-fund</td>
 <td>3514.29</td>
 <td>16000.0</td>
-<td>11 days to go</td>
-<td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/nel-sur...</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/nel-surgery-fund</td>
 </tr>
 <tr>
-<th>2584</th>
+<th>3362</th>
 <td>GET LORA GENDER AFFIRMING SURGERY</td>
 <td>I am raising funds for urgent gender affirming...</td>
 <td>https://static.givealittle.co.nz/assets/hero/5...</td>
 <td>https://givealittle.co.nz/cause/lora-surgery-fund</td>
 <td>10987.17</td>
 <td>23000.0</td>
-<td>3 days to go</td>
-<td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/lora-su...</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/lora-surgery-fund</td>
 </tr>
 <tr>
-<th>2702</th>
-<td>Eye Care For Africa - Te Araroa</td>
+<th>3479</th>
+<td>Eye Care For Africa - Te Araroa 2023 - Lejog (...</td>
 <td>Eye Care for Africa is a New Zealand registere...</td>
 <td>https://static.givealittle.co.nz/assets/hero/a...</td>
 <td>https://givealittle.co.nz/cause/eye-care-for-a...</td>
-<td>19775.50</td>
+<td>20985.50</td>
 <td>0.0</td>
-<td>3 days to go</td>
+<td>202 days to go</td>
 <td>Donate</td>
 <td>https://givealittle.co.nz/donate/cause/eye-car...</td>
 </tr>
 <tr>
-<th>8796</th>
+<th>9558</th>
 <td>Fuelling Hope</td>
 <td>Marine reach is voluntary organization where m...</td>
 <td>https://static.givealittle.co.nz/assets/hero/8...</td>
 <td>https://givealittle.co.nz/cause/fuelinghope</td>
-<td>25120.00</td>
+<td>30550.94</td>
 <td>0.0</td>
-<td>331 days to go</td>
+<td>111 days to go</td>
 <td>Donate</td>
 <td>https://givealittle.co.nz/donate/cause/fueling...</td>
 </tr>
 </tbody>
 </table>
-<p>495 rows × 9 columns</p>
+<p>1290 rows × 9 columns</p>
 </div>
 </div>
 </div>
@@ -8357,7 +8364,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">timeLeft</span> <span class="o">==</span> <span class="s2">"closed"</span><span class="p">)</span>
@@ -8373,13 +8380,13 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 3.89 ms (2024-11-04T11:21:18/2024-11-04T11:21:18)</pre>
+<pre>✔️ 9.25 ms (2025-06-12T11:48:04/2025-06-12T11:48:04)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>0</pre>
+<pre>776</pre>
 </div>
 </div>
 </div>
@@ -8389,7 +8396,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">requests_html</span><span class="o">.</span><span class="n">HTMLSession</span><span class="p">()</span>
@@ -8405,7 +8412,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 1.58 ms (2024-11-04T11:21:19/2024-11-04T11:21:19)</pre>
+<pre>✔️ 3.74 ms (2025-06-12T11:48:07/2025-06-12T11:48:07)</pre>
 </div>
 </div>
 </div>
@@ -8415,10 +8422,10 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="n">uri</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">uri</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">row</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
@@ -8495,17 +8502,17 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 27.5 s (2024-11-04T11:21:19/2024-11-04T11:21:46)</pre>
+<pre>✔️ 7 min 26 s (2025-06-12T11:48:12/2025-06-12T11:55:38)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>  0%|          | 0/495 [00:00&lt;?, ?it/s]</pre>
+<pre>  0%|          | 0/1290 [00:00&lt;?, ?it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8551,23 +8558,23 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>Young mother of 3 recently diagnosed with aggr...</td>
-<td>Young mother of three fighting aggresive breas...</td>
-<td>https://static.givealittle.co.nz/assets/hero/e...</td>
-<td>https://givealittle.co.nz/cause/young-mother-o...</td>
-<td>3900.00</td>
+<td>Rugby league lover, Ben Stowers, has had his w...</td>
+<td>This page has been started to help Ben, his pa...</td>
+<td>https://static.givealittle.co.nz/assets/hero/8...</td>
+<td>https://givealittle.co.nz/cause/rugby-league-l...</td>
+<td>3070.00</td>
 <td>0.0</td>
-<td>181 days to go</td>
+<td>362 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/young-m...</td>
-<td>3 Nov 2024</td>
-<td>3 May 2025</td>
+<td>https://givealittle.co.nz/donate/cause/rugby-l...</td>
+<td>9 Jun 2025</td>
+<td>8 Jun 2026</td>
 <td>0</td>
-<td>Pirimai, Napier</td>
-<td>38</td>
-<td>Imagine facing one of life's biggest battles w...</td>
-<td>Travel costs for treatment.Financial help with...</td>
-<td>Created by\r\nDebra Evans  \n\n\n\n\r\n      P...</td>
+<td>Porirua, Wellington</td>
+<td>52</td>
+<td>On the 22nd of March Ben's life took a turn fo...</td>
+<td>Travel between Wellington and Christchurch, da...</td>
+<td>Created by\r\nKarra Hanara  \n\n\n\n\r\n      ...</td>
 <td>Page Moderated</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -8575,94 +8582,94 @@ a.anchor-link {
 </tr>
 <tr>
 <th>1</th>
-<td>Finlee Bremners Road to recovery</td>
-<td>Helping our great friends navigate Finlee's lo...</td>
-<td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/finlee-bremner...</td>
-<td>4500.00</td>
+<td>HOPE FOR SUMMER #BATTENSBEATER</td>
+<td>An ultra rare Princess who is fighting a rare ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/6...</td>
+<td>https://givealittle.co.nz/cause/hope-for-summe...</td>
+<td>585.00</td>
 <td>0.0</td>
-<td>177 days to go</td>
+<td>727 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/finlee-...</td>
-<td>1 Nov 2024</td>
-<td>29 Apr 2025</td>
+<td>https://givealittle.co.nz/donate/cause/hope-fo...</td>
+<td>9 Jun 2025</td>
+<td>9 Jun 2027</td>
 <td>0</td>
-<td>Alexandra, Otago</td>
-<td>44</td>
-<td>On the 2nd October 2024, Kayla, Michael and Ar...</td>
-<td>All money received will go towards on going co...</td>
-<td>Created by\r\nKelsey McLean  \n\n\n\n\r\n     ...</td>
+<td>Nationwide</td>
+<td>14</td>
+<td>Summer is 11 years old with a rare terminal Di...</td>
+<td>Medical costs medical equipment costs making m...</td>
+<td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>1.0</td>
+<td>A little something about Summer 🦄\n11 June 202...</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>2</th>
-<td>Paula Matafahi's Grade 4 Brain Cancer Fight - ...</td>
-<td>This page has been set up to help Paula access...</td>
+<td>Help Esther Fight Breast Cancer — A Young Mum ...</td>
+<td>Please help a Vanuatu family through a hard time!</td>
 <td>https://static.givealittle.co.nz/assets/hero/b...</td>
-<td>https://givealittle.co.nz/cause/paulas-stage-4...</td>
-<td>47522.15</td>
-<td>55000.0</td>
-<td>27 days to go</td>
+<td>https://givealittle.co.nz/cause/help-esther-fi...</td>
+<td>760.00</td>
+<td>2100.0</td>
+<td>11 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/paulas-...</td>
-<td>31 Oct 2024</td>
-<td>30 Nov 2024</td>
+<td>https://givealittle.co.nz/donate/cause/help-es...</td>
+<td>8 Jun 2025</td>
+<td>22 Jun 2025</td>
 <td>0</td>
-<td>Manawatu / Whanganui</td>
-<td>628</td>
-<td>Paula is an extraordinary 18 year old young ma...</td>
-<td>Providing the potentially life extending but u...</td>
-<td>Created by\r\nSheree Turia  \n\n\n\n\r\n      ...</td>
+<td>Cromwell, Otago</td>
+<td>16</td>
+<td>This fundraiser is for Esther, a strong and lo...</td>
+<td>To Esther treatment in india</td>
+<td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
-<td>2.0</td>
-<td>Nearly there!\n3 November 2024\nWe are just ab...</td>
+<td>1.0</td>
+<td>Update on Esther – Thank You for Your Support\...</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>3</th>
-<td>Our Sweet boy Jairo</td>
-<td>Please help Jairo get the testing and screenin...</td>
-<td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/our-sweet-boy-...</td>
-<td>925.00</td>
-<td>1000.0</td>
-<td>19 days to go</td>
+<td>$100k in 100 days!</td>
+<td>Help save a life saving service for mothers in...</td>
+<td>https://static.givealittle.co.nz/assets/hero/e...</td>
+<td>https://givealittle.co.nz/cause/savewellwomen</td>
+<td>4779.00</td>
+<td>100000.0</td>
+<td>110 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/our-swe...</td>
-<td>31 Oct 2024</td>
-<td>22 Nov 2024</td>
+<td>https://givealittle.co.nz/donate/cause/savewel...</td>
+<td>8 Jun 2025</td>
+<td>30 Sep 2025</td>
 <td>0</td>
-<td>Palmerston North, Manawatu-Wanganui</td>
-<td>9</td>
-<td>My 8 week old baby Jairo has had chronic colli...</td>
-<td>It will be used for the consult and further te...</td>
+<td>Auckland</td>
+<td>63</td>
+<td>At Well Women Trust, we walk alongside women t...</td>
+<td>Well Women Trust needs to raise $100,000 withi...</td>
 <td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
-<td>1.0</td>
-<td>Follow up appointments\n2 November 2024\nJust ...</td>
+<td>NaN</td>
+<td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>4</th>
-<td>Em’s MS Journey</td>
-<td>Stemcell replacement for Em’s MS Journey. Clín...</td>
-<td>https://static.givealittle.co.nz/assets/hero/6...</td>
-<td>https://givealittle.co.nz/cause/ems-ms-journey</td>
-<td>9640.00</td>
-<td>90000.0</td>
-<td>178 days to go</td>
+<td>Goldenhar Syndrome: Help a Young Girl Through ...</td>
+<td>My daughter was born with Goldenhar syndrome, ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/f...</td>
+<td>https://givealittle.co.nz/cause/goldenhar-synd...</td>
+<td>35.00</td>
+<td>30000.0</td>
+<td>180 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/ems-ms-...</td>
-<td>30 Oct 2024</td>
-<td>30 Apr 2025</td>
+<td>https://givealittle.co.nz/donate/cause/goldenh...</td>
+<td>8 Jun 2025</td>
+<td>8 Dec 2025</td>
 <td>0</td>
-<td>Dunedin, Otago</td>
-<td>136</td>
-<td>My daughter is 25 and has recently been diagno...</td>
-<td>Flights to Mexico and operation for Stemcell R...</td>
+<td>Nationwide</td>
+<td>3</td>
+<td>In 2010, my daughter was born with Goldenhar S...</td>
+<td>Ongoing medical costs. Every sent will be put ...</td>
 <td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
 <td>NaN</td>
@@ -8694,16 +8701,16 @@ a.anchor-link {
 <td>...</td>
 </tr>
 <tr>
-<th>490</th>
+<th>1285</th>
 <td>Help 20,000 New Zealanders suffering from Infl...</td>
 <td>Helen hopes to help others shortcut the 16 yea...</td>
 <td>https://static.givealittle.co.nz/assets/hero/f...</td>
 <td>https://givealittle.co.nz/cause/help-20000-nze...</td>
 <td>3525.00</td>
 <td>25000.0</td>
-<td>39 days to go</td>
-<td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/help-20...</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/help-20000-nze...</td>
 <td>12 Dec 2022</td>
 <td>12 Dec 2024</td>
 <td>0</td>
@@ -8718,16 +8725,16 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>491</th>
+<th>1286</th>
 <td>HELP NEL GET GENDER AFFIRMING TOP SURGERY</td>
 <td>I am raising money for gender affirming top su...</td>
 <td>https://static.givealittle.co.nz/assets/hero/6...</td>
 <td>https://givealittle.co.nz/cause/nel-surgery-fund</td>
 <td>3514.29</td>
 <td>16000.0</td>
-<td>11 days to go</td>
-<td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/nel-sur...</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/nel-surgery-fund</td>
 <td>14 Nov 2022</td>
 <td>14 Nov 2024</td>
 <td>0</td>
@@ -8742,16 +8749,16 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>492</th>
+<th>1287</th>
 <td>GET LORA GENDER AFFIRMING SURGERY</td>
 <td>I am raising funds for urgent gender affirming...</td>
 <td>https://static.givealittle.co.nz/assets/hero/5...</td>
 <td>https://givealittle.co.nz/cause/lora-surgery-fund</td>
 <td>10987.17</td>
 <td>23000.0</td>
-<td>3 days to go</td>
-<td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/lora-su...</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/lora-surgery-fund</td>
 <td>7 Nov 2022</td>
 <td>6 Nov 2024</td>
 <td>0</td>
@@ -8766,45 +8773,45 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>493</th>
-<td>Eye Care For Africa - Te Araroa</td>
+<th>1288</th>
+<td>Eye Care For Africa - Te Araroa 2023 - Lejog (...</td>
 <td>Eye Care for Africa is a New Zealand registere...</td>
 <td>https://static.givealittle.co.nz/assets/hero/a...</td>
 <td>https://givealittle.co.nz/cause/eye-care-for-a...</td>
-<td>19775.50</td>
+<td>20985.50</td>
 <td>0.0</td>
-<td>3 days to go</td>
+<td>202 days to go</td>
 <td>Donate</td>
 <td>https://givealittle.co.nz/donate/cause/eye-car...</td>
 <td>9 Oct 2022</td>
-<td>6 Nov 2024</td>
+<td>30 Dec 2025</td>
 <td>6</td>
 <td>Hastings, Hawke's Bay</td>
-<td>124</td>
+<td>129</td>
 <td>Niall completed Te Araroa as a fund-raising dr...</td>
 <td>Our goal is to build a small eye clinic in Shi...</td>
 <td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
-<td>5.0</td>
-<td>Teaching to begin in Tanzania\n6 September 202...</td>
+<td>7.0</td>
+<td>Upcoming Trip\n19 March 2025\nNiall will be ac...</td>
 <td>on 6 Sep 2024\nJeremy asks\nHi Niall,\nGetting...</td>
 </tr>
 <tr>
-<th>494</th>
+<th>1289</th>
 <td>Fuelling Hope</td>
 <td>Marine reach is voluntary organization where m...</td>
 <td>https://static.givealittle.co.nz/assets/hero/8...</td>
 <td>https://givealittle.co.nz/cause/fuelinghope</td>
-<td>25120.00</td>
+<td>30550.94</td>
 <td>0.0</td>
-<td>331 days to go</td>
+<td>111 days to go</td>
 <td>Donate</td>
 <td>https://givealittle.co.nz/donate/cause/fueling...</td>
 <td>21 Sep 2017</td>
 <td>30 Sep 2025</td>
 <td>0</td>
 <td>Canterbury</td>
-<td>78</td>
+<td>94</td>
 <td>Thank you so much for supporting me throughout...</td>
 <td>"Pacific Hope" is one of Marine Reaches medica...</td>
 <td>Created by, and paying to a verified bank acco...</td>
@@ -8815,7 +8822,7 @@ a.anchor-link {
 </tr>
 </tbody>
 </table>
-<p>495 rows × 21 columns</p>
+<p>1290 rows × 21 columns</p>
 </div>
 </div>
 </div>
@@ -8826,7 +8833,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df_extracted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_extracted</span><span class="p">,</span> <span class="n">existing_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -8843,11 +8850,11 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 26 ms (2024-11-04T11:21:46/2024-11-04T11:21:46)</pre>
+<pre>✔️ 64.9 ms (2025-06-12T11:56:38/2025-06-12T11:56:38)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8893,23 +8900,23 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>Young mother of 3 recently diagnosed with aggr...</td>
-<td>Young mother of three fighting aggresive breas...</td>
-<td>https://static.givealittle.co.nz/assets/hero/e...</td>
-<td>https://givealittle.co.nz/cause/young-mother-o...</td>
-<td>3900.00</td>
+<td>Rugby league lover, Ben Stowers, has had his w...</td>
+<td>This page has been started to help Ben, his pa...</td>
+<td>https://static.givealittle.co.nz/assets/hero/8...</td>
+<td>https://givealittle.co.nz/cause/rugby-league-l...</td>
+<td>3070.0</td>
 <td>0.0</td>
-<td>181 days to go</td>
+<td>362 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/young-m...</td>
-<td>3 Nov 2024</td>
-<td>3 May 2025</td>
+<td>https://givealittle.co.nz/donate/cause/rugby-l...</td>
+<td>9 Jun 2025</td>
+<td>8 Jun 2026</td>
 <td>0</td>
-<td>Pirimai, Napier</td>
-<td>38.0</td>
-<td>Imagine facing one of life's biggest battles w...</td>
-<td>Travel costs for treatment.Financial help with...</td>
-<td>Created by\r\nDebra Evans  \n\n\n\n\r\n      P...</td>
+<td>Porirua, Wellington</td>
+<td>52</td>
+<td>On the 22nd of March Ben's life took a turn fo...</td>
+<td>Travel between Wellington and Christchurch, da...</td>
+<td>Created by\r\nKarra Hanara  \n\n\n\n\r\n      ...</td>
 <td>Page Moderated</td>
 <td>NaN</td>
 <td>NaN</td>
@@ -8917,94 +8924,94 @@ a.anchor-link {
 </tr>
 <tr>
 <th>1</th>
-<td>Finlee Bremners Road to recovery</td>
-<td>Helping our great friends navigate Finlee's lo...</td>
-<td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/finlee-bremner...</td>
-<td>4500.00</td>
+<td>HOPE FOR SUMMER #BATTENSBEATER</td>
+<td>An ultra rare Princess who is fighting a rare ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/6...</td>
+<td>https://givealittle.co.nz/cause/hope-for-summe...</td>
+<td>585.0</td>
 <td>0.0</td>
-<td>177 days to go</td>
+<td>727 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/finlee-...</td>
-<td>1 Nov 2024</td>
-<td>29 Apr 2025</td>
+<td>https://givealittle.co.nz/donate/cause/hope-fo...</td>
+<td>9 Jun 2025</td>
+<td>9 Jun 2027</td>
 <td>0</td>
-<td>Alexandra, Otago</td>
-<td>44.0</td>
-<td>On the 2nd October 2024, Kayla, Michael and Ar...</td>
-<td>All money received will go towards on going co...</td>
-<td>Created by\r\nKelsey McLean  \n\n\n\n\r\n     ...</td>
+<td>Nationwide</td>
+<td>14</td>
+<td>Summer is 11 years old with a rare terminal Di...</td>
+<td>Medical costs medical equipment costs making m...</td>
+<td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>1.0</td>
+<td>A little something about Summer 🦄\n11 June 202...</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>2</th>
-<td>Paula Matafahi's Grade 4 Brain Cancer Fight - ...</td>
-<td>This page has been set up to help Paula access...</td>
+<td>Help Esther Fight Breast Cancer — A Young Mum ...</td>
+<td>Please help a Vanuatu family through a hard time!</td>
 <td>https://static.givealittle.co.nz/assets/hero/b...</td>
-<td>https://givealittle.co.nz/cause/paulas-stage-4...</td>
-<td>47522.15</td>
-<td>55000.0</td>
-<td>27 days to go</td>
+<td>https://givealittle.co.nz/cause/help-esther-fi...</td>
+<td>760.0</td>
+<td>2100.0</td>
+<td>11 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/paulas-...</td>
-<td>31 Oct 2024</td>
-<td>30 Nov 2024</td>
+<td>https://givealittle.co.nz/donate/cause/help-es...</td>
+<td>8 Jun 2025</td>
+<td>22 Jun 2025</td>
 <td>0</td>
-<td>Manawatu / Whanganui</td>
-<td>628.0</td>
-<td>Paula is an extraordinary 18 year old young ma...</td>
-<td>Providing the potentially life extending but u...</td>
-<td>Created by\r\nSheree Turia  \n\n\n\n\r\n      ...</td>
+<td>Cromwell, Otago</td>
+<td>16</td>
+<td>This fundraiser is for Esther, a strong and lo...</td>
+<td>To Esther treatment in india</td>
+<td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
-<td>2.0</td>
-<td>Nearly there!\n3 November 2024\nWe are just ab...</td>
+<td>1.0</td>
+<td>Update on Esther – Thank You for Your Support\...</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>3</th>
-<td>Our Sweet boy Jairo</td>
-<td>Please help Jairo get the testing and screenin...</td>
-<td>https://static.givealittle.co.nz/assets/hero/2...</td>
-<td>https://givealittle.co.nz/cause/our-sweet-boy-...</td>
-<td>925.00</td>
-<td>1000.0</td>
-<td>19 days to go</td>
+<td>$100k in 100 days!</td>
+<td>Help save a life saving service for mothers in...</td>
+<td>https://static.givealittle.co.nz/assets/hero/e...</td>
+<td>https://givealittle.co.nz/cause/savewellwomen</td>
+<td>4779.0</td>
+<td>100000.0</td>
+<td>110 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/our-swe...</td>
-<td>31 Oct 2024</td>
-<td>22 Nov 2024</td>
+<td>https://givealittle.co.nz/donate/cause/savewel...</td>
+<td>8 Jun 2025</td>
+<td>30 Sep 2025</td>
 <td>0</td>
-<td>Palmerston North, Manawatu-Wanganui</td>
-<td>9.0</td>
-<td>My 8 week old baby Jairo has had chronic colli...</td>
-<td>It will be used for the consult and further te...</td>
+<td>Auckland</td>
+<td>63</td>
+<td>At Well Women Trust, we walk alongside women t...</td>
+<td>Well Women Trust needs to raise $100,000 withi...</td>
 <td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
-<td>1.0</td>
-<td>Follow up appointments\n2 November 2024\nJust ...</td>
+<td>NaN</td>
+<td>NaN</td>
 <td>NaN</td>
 </tr>
 <tr>
 <th>4</th>
-<td>Em’s MS Journey</td>
-<td>Stemcell replacement for Em’s MS Journey. Clín...</td>
-<td>https://static.givealittle.co.nz/assets/hero/6...</td>
-<td>https://givealittle.co.nz/cause/ems-ms-journey</td>
-<td>9640.00</td>
-<td>90000.0</td>
-<td>178 days to go</td>
+<td>Goldenhar Syndrome: Help a Young Girl Through ...</td>
+<td>My daughter was born with Goldenhar syndrome, ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/f...</td>
+<td>https://givealittle.co.nz/cause/goldenhar-synd...</td>
+<td>35.0</td>
+<td>30000.0</td>
+<td>180 days to go</td>
 <td>Donate</td>
-<td>https://givealittle.co.nz/donate/cause/ems-ms-...</td>
-<td>30 Oct 2024</td>
-<td>30 Apr 2025</td>
+<td>https://givealittle.co.nz/donate/cause/goldenh...</td>
+<td>8 Jun 2025</td>
+<td>8 Dec 2025</td>
 <td>0</td>
-<td>Dunedin, Otago</td>
-<td>136.0</td>
-<td>My daughter is 25 and has recently been diagno...</td>
-<td>Flights to Mexico and operation for Stemcell R...</td>
+<td>Nationwide</td>
+<td>3</td>
+<td>In 2010, my daughter was born with Goldenhar S...</td>
+<td>Ongoing medical costs. Every sent will be put ...</td>
 <td>Created by, and paying to a verified bank acco...</td>
 <td>Page Moderated</td>
 <td>NaN</td>
@@ -9036,12 +9043,12 @@ a.anchor-link {
 <td>...</td>
 </tr>
 <tr>
-<th>10413</th>
+<th>11208</th>
 <td>Amber and Daniel were twins born on 24th and 2...</td>
 <td>Raising money for the little McSweeney family ...</td>
 <td>https://static.givealittle.co.nz/assets/hero/a...</td>
 <td>https://givealittle.co.nz/cause/hartleytwinsmi...</td>
-<td>4834.00</td>
+<td>4834.0</td>
 <td>0.0</td>
 <td>closed</td>
 <td>Read more</td>
@@ -9060,12 +9067,12 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>10414</th>
+<th>11209</th>
 <td>Tania Whanau, known by most as Tarnz, is a str...</td>
 <td>Since February '16 Tarnz has undergone two ope...</td>
 <td>https://static.givealittle.co.nz/assets/hero/6...</td>
 <td>https://givealittle.co.nz/cause/fightbreastcan...</td>
-<td>1550.00</td>
+<td>1550.0</td>
 <td>0.0</td>
 <td>closed</td>
 <td>Read more</td>
@@ -9084,12 +9091,12 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>10415</th>
+<th>11210</th>
 <td>Cardiology Fundraiser</td>
 <td>Fundraising for patients &amp; families affected b...</td>
 <td>https://static.givealittle.co.nz/assets/hero/b...</td>
 <td>https://givealittle.co.nz/cause/fund4aheart</td>
-<td>915.00</td>
+<td>915.0</td>
 <td>0.0</td>
 <td>closed</td>
 <td>Read more</td>
@@ -9108,12 +9115,12 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>10416</th>
+<th>11211</th>
 <td>Help for Julia, while she is caring for Ian Ro...</td>
 <td>Please support me so I'll be able to continue ...</td>
 <td>https://static.givealittle.co.nz/assets/hero/5...</td>
 <td>https://givealittle.co.nz/cause/help4julia</td>
-<td>2645.00</td>
+<td>2645.0</td>
 <td>0.0</td>
 <td>closed</td>
 <td>Read more</td>
@@ -9132,12 +9139,12 @@ a.anchor-link {
 <td>NaN</td>
 </tr>
 <tr>
-<th>10417</th>
+<th>11212</th>
 <td>TRUS Biopsy Machine for Taranaki</td>
 <td>The men of Taranaki need this TRUS Biopsy Mach...</td>
 <td>https://static.givealittle.co.nz/assets/hero/c...</td>
 <td>https://givealittle.co.nz/cause/prostatebiopsy...</td>
-<td>1910.00</td>
+<td>1910.0</td>
 <td>20000.0</td>
 <td>closed</td>
 <td>Read more</td>
@@ -9157,7 +9164,7 @@ a.anchor-link {
 </tr>
 </tbody>
 </table>
-<p>10418 rows × 21 columns</p>
+<p>11213 rows × 21 columns</p>
 </div>
 </div>
 </div>
@@ -9168,7 +9175,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df_extracted</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">"givealittle_health.xlsx"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -9184,7 +9191,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 5.56 s (2024-11-04T11:21:46/2024-11-04T11:21:52)</pre>
+<pre>✔️ 6.64 s (2025-06-12T11:57:13/2025-06-12T11:57:20)</pre>
 </div>
 </div>
 </div>
