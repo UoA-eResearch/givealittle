@@ -1,0 +1,14 @@
+jupyter-autotime
+requests-cache
+requests-html
+lxml[html_clean]
+ipykernel
+openpyxl
+transformers
+plotly
+accelerate
+statsmodels
+scikit-learn
+jinja2
+matplotlib_venn
+bertopic
