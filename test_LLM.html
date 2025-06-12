@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7514,18 +7515,18 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">reload_ext</span> autotime
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">MllamaForConditionalGeneration</span><span class="p">,</span> <span class="n">AutoProcessor</span>
-<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">MllamaForConditionalGeneration</span><span class="p">,</span> <span class="n">AutoProcessor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">"plotly"</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.max_columns"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -7542,20 +7543,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 5.37 s (2024-11-19T14:13:16/2024-11-19T14:13:22)</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>2024-11-19 14:13:20.431983: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-11-19 14:13:20.454196: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-11-19 14:13:20.478836: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-11-19 14:13:20.486216: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-11-19 14:13:20.507896: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-11-19 14:13:21.470352: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-</pre>
+<pre>✔️ 1.03 ms (2025-06-12T11:59:59/2025-06-12T11:59:59)</pre>
 </div>
 </div>
 </div>
@@ -7565,12 +7553,13 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"givealittle_health.xlsx"</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"start"</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"text"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">"pitch"</span><span class="p">,</span> <span class="s2">"description"</span><span class="p">,</span> <span class="s2">"use_of_funds"</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"text"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">"pitch"</span><span class="p">,</span> <span class="s2">"description"</span><span class="p">,</span> <span class="s2">"use_of_funds"</span><span class="p">,</span> <span class="s2">"updates"</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -7583,7 +7572,359 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 4.71 s (2024-11-19T14:13:22/2024-11-19T14:13:27)</pre>
+<pre>✔️ 4.44 s (2025-06-12T12:00:00/2025-06-12T12:00:05)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>title</th>
+<th>pitch</th>
+<th>hero</th>
+<th>uri</th>
+<th>amountRaised</th>
+<th>goal</th>
+<th>timeLeft</th>
+<th>action</th>
+<th>actionUri</th>
+<th>start</th>
+<th>end</th>
+<th>n_questions</th>
+<th>location</th>
+<th>n_donors</th>
+<th>description</th>
+<th>use_of_funds</th>
+<th>whos_involved</th>
+<th>moderated</th>
+<th>n_updates</th>
+<th>updates</th>
+<th>Q&amp;A</th>
+<th>text</th>
+</tr>
+<tr>
+<th>start</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2025-06-09</th>
+<td>Rugby league lover, Ben Stowers, has had his whole life turned upside down from one tackle.</td>
+<td>This page has been started to help Ben, his partner and their families with the financial impact...</td>
+<td>https://static.givealittle.co.nz/assets/hero/82a33c79-46e8-4c6c-ad1a-b2f7010ebbc2-320:False</td>
+<td>https://givealittle.co.nz/cause/rugby-league-lover-ben-stowers-has-had-his-whole</td>
+<td>3070.0</td>
+<td>0.0</td>
+<td>362 days to go</td>
+<td>Donate</td>
+<td>https://givealittle.co.nz/donate/cause/rugby-league-lover-ben-stowers-has-had-his-whole</td>
+<td>9 Jun 2025</td>
+<td>8 Jun 2026</td>
+<td>0</td>
+<td>Porirua, Wellington</td>
+<td>52.0</td>
+<td>On the 22nd of March Ben's life took a turn for the worse, playing the sport he loved - Rugby Le...</td>
+<td>Travel between Wellington and Christchurch, day to day living expenses, modifications to home</td>
+<td>Created by\r\nKarra Hanara  \n\n\n\n\r\n      Paying to a verified bank account of\r\nPeta Manav...</td>
+<td>Page Moderated</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Rugby league lover, Ben Stowers, has had his whole life turned upside down from one tackle. This...</td>
+</tr>
+<tr>
+<th>2025-06-09</th>
+<td>HOPE FOR SUMMER #BATTENSBEATER</td>
+<td>An ultra rare Princess who is fighting a rare disease Batten Disease CLN1 only one ever in NZ he...</td>
+<td>https://static.givealittle.co.nz/assets/hero/62b8152b-4f56-4c62-b602-b2f701558791-320:False</td>
+<td>https://givealittle.co.nz/cause/hope-for-summer-battensbeater</td>
+<td>585.0</td>
+<td>0.0</td>
+<td>727 days to go</td>
+<td>Donate</td>
+<td>https://givealittle.co.nz/donate/cause/hope-for-summer-battensbeater</td>
+<td>9 Jun 2025</td>
+<td>9 Jun 2027</td>
+<td>0</td>
+<td>Nationwide</td>
+<td>14.0</td>
+<td>Summer is 11 years old with a rare terminal Disease called Batten Disease CLN1 there is no cure ...</td>
+<td>Medical costs medical equipment costs making memeories and other expenses for helping Summer to ...</td>
+<td>Created by, and paying to a verified bank account of,\r\nRay  Mudford      on behalf of Summer M...</td>
+<td>Page Moderated</td>
+<td>1.0</td>
+<td>A little something about Summer 🦄\n11 June 2025\nYou will never see Summer without a reborn she ...</td>
+<td>NaN</td>
+<td>HOPE FOR SUMMER #BATTENSBEATER An ultra rare Princess who is fighting a rare disease Batten Dise...</td>
+</tr>
+<tr>
+<th>2025-06-08</th>
+<td>Help Esther Fight Breast Cancer — A Young Mum from Vanuatu</td>
+<td>Please help a Vanuatu family through a hard time!</td>
+<td>https://static.givealittle.co.nz/assets/hero/be4d939b-2ea7-4b03-b2d0-b2f60130466f-320:False</td>
+<td>https://givealittle.co.nz/cause/help-esther-fight-breast-cancer-a-young-mum</td>
+<td>760.0</td>
+<td>2100.0</td>
+<td>11 days to go</td>
+<td>Donate</td>
+<td>https://givealittle.co.nz/donate/cause/help-esther-fight-breast-cancer-a-young-mum</td>
+<td>8 Jun 2025</td>
+<td>22 Jun 2025</td>
+<td>0</td>
+<td>Cromwell, Otago</td>
+<td>16.0</td>
+<td>This fundraiser is for Esther, a strong and loving 31-year-old mother from Vanuatu, who is coura...</td>
+<td>To Esther treatment in india</td>
+<td>Created by, and paying to a verified bank account of,\r\nMagali Domingo      on behalf of Esther...</td>
+<td>Page Moderated</td>
+<td>1.0</td>
+<td>Update on Esther – Thank You for Your Support\n10 June 2025\nGood morning everyone,\nI want to s...</td>
+<td>NaN</td>
+<td>Help Esther Fight Breast Cancer — A Young Mum from Vanuatu Please help a Vanuatu family through ...</td>
+</tr>
+<tr>
+<th>2025-06-08</th>
+<td>$100k in 100 days!</td>
+<td>Help save a life saving service for mothers in South Auckland &amp; North Waikato</td>
+<td>https://static.givealittle.co.nz/assets/hero/e70859ac-626e-4150-9be2-b2f9011aee93-320:False</td>
+<td>https://givealittle.co.nz/cause/savewellwomen</td>
+<td>4779.0</td>
+<td>100000.0</td>
+<td>110 days to go</td>
+<td>Donate</td>
+<td>https://givealittle.co.nz/donate/cause/savewellwomen</td>
+<td>8 Jun 2025</td>
+<td>30 Sep 2025</td>
+<td>0</td>
+<td>Auckland</td>
+<td>63.0</td>
+<td>At Well Women Trust, we walk alongside women through some of the most vulnerable times in their ...</td>
+<td>Well Women Trust needs to raise $100,000 within 100 days to keep services running.We are calling...</td>
+<td>Created by, and paying to a verified bank account of,\r\n      \r\n        Well Women\r\n       ...</td>
+<td>Page Moderated</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>$100k in 100 days! Help save a life saving service for mothers in South Auckland &amp; North Waikato...</td>
+</tr>
+<tr>
+<th>2025-06-08</th>
+<td>Goldenhar Syndrome: Help a Young Girl Through Her Medical Hurdles</td>
+<td>My daughter was born with Goldenhar syndrome, a rare congenital disorder. After years of treatme...</td>
+<td>https://static.givealittle.co.nz/assets/hero/f1fc251d-37f0-48f1-aff8-b2f600cd85cd-320:False</td>
+<td>https://givealittle.co.nz/cause/goldenhar-syndrome-help-a-young-girl</td>
+<td>35.0</td>
+<td>30000.0</td>
+<td>180 days to go</td>
+<td>Donate</td>
+<td>https://givealittle.co.nz/donate/cause/goldenhar-syndrome-help-a-young-girl</td>
+<td>8 Jun 2025</td>
+<td>8 Dec 2025</td>
+<td>0</td>
+<td>Nationwide</td>
+<td>3.0</td>
+<td>In 2010, my daughter was born with Goldenhar Syndrome, a rare congenital condition. She has face...</td>
+<td>Ongoing medical costs. Every sent will be put towards doctors' and hospital bills. Our journey w...</td>
+<td>Created by, and paying to a verified bank account of,\r\n      \r\n        Jo Coetzer</td>
+<td>Page Moderated</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Goldenhar Syndrome: Help a Young Girl Through Her Medical Hurdles My daughter was born with Gold...</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>2016-05-02</th>
+<td>Amber and Daniel were twins born on 24th and 25th December 2015. They were born at 23 weeks gest...</td>
+<td>Raising money for the little McSweeney family who have spent the last 5 months in hospital!</td>
+<td>https://static.givealittle.co.nz/assets/hero/a07c15e8-a593-48bb-a652-a5fa009e35b9-320:False</td>
+<td>https://givealittle.co.nz/cause/hartleytwinsmicropremmies</td>
+<td>4834.0</td>
+<td>0.0</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/hartleytwinsmicropremmies</td>
+<td>2 May 2016</td>
+<td>6 Jun 2016</td>
+<td>0</td>
+<td>Canterbury</td>
+<td>122.0</td>
+<td>PLEASE READ THE UPDATE TO THIS POST UNDER UPDATE TAB. We need you all to know how much of an imp...</td>
+<td>NaN</td>
+<td>Created by, and paying to a verified bank account of,_x000D_\n      _x000D_\n        Elise Hartl...</td>
+<td>Page Moderated</td>
+<td>1.0</td>
+<td>Attention all followers of our story\n31 May 2016\nHello, my name is Elise Hartley and I am the ...</td>
+<td>NaN</td>
+<td>Amber and Daniel were twins born on 24th and 25th December 2015. They were born at 23 weeks gest...</td>
+</tr>
+<tr>
+<th>2016-05-01</th>
+<td>Tania Whanau, known by most as Tarnz, is a strong, 40 year old woman who was diagnosed with brea...</td>
+<td>Since February '16 Tarnz has undergone two operations; one removing 34 lymph nodes from her righ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/652566e9-6f90-4632-9b3f-a5f900e9af2c-320:False</td>
+<td>https://givealittle.co.nz/cause/fightbreastcancerlikeabitch</td>
+<td>1550.0</td>
+<td>0.0</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/fightbreastcancerlikeabitch</td>
+<td>1 May 2016</td>
+<td>22 Jul 2016</td>
+<td>0</td>
+<td>Hawke's Bay</td>
+<td>34.0</td>
+<td>Tania Whanau, known by most as Tarnz, is a strong, 40 year old woman who was diagnosed with Grad...</td>
+<td>NaN</td>
+<td>Created by_x000D_\n      _x000D_\n        Nancy Easthope_x000D_\n      \n\n\n\n\n_x000D_\n      ...</td>
+<td>Page Moderated</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Tania Whanau, known by most as Tarnz, is a strong, 40 year old woman who was diagnosed with brea...</td>
+</tr>
+<tr>
+<th>2016-05-01</th>
+<td>Cardiology Fundraiser</td>
+<td>Fundraising for patients &amp; families affected by Heart Disease.</td>
+<td>https://static.givealittle.co.nz/assets/hero/bfefeb94-f041-478f-80a0-a5f900c0dc47-320:False</td>
+<td>https://givealittle.co.nz/cause/fund4aheart</td>
+<td>915.0</td>
+<td>0.0</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/fund4aheart</td>
+<td>1 May 2016</td>
+<td>15 Aug 2016</td>
+<td>0</td>
+<td>Waikato</td>
+<td>9.0</td>
+<td>We aim to provide clients with the most up-to-date education around their Heart Disease diagnosi...</td>
+<td>NaN</td>
+<td>Created by, and paying to a verified bank account of,_x000D_\n      _x000D_\n        Cardiology ...</td>
+<td>Page Moderated</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Cardiology Fundraiser Fundraising for patients &amp; families affected by Heart Disease. We aim to p...</td>
+</tr>
+<tr>
+<th>2016-04-30</th>
+<td>Help for Julia, while she is caring for Ian Robertson</td>
+<td>Please support me so I'll be able to continue caring for my dear friend Ian Roberston. He suffer...</td>
+<td>https://static.givealittle.co.nz/assets/hero/531d73ca-22d8-423b-93be-a5f700a2c8ed-320:False</td>
+<td>https://givealittle.co.nz/cause/help4julia</td>
+<td>2645.0</td>
+<td>0.0</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/help4julia</td>
+<td>30 Apr 2016</td>
+<td>30 May 2016</td>
+<td>0</td>
+<td>Canterbury</td>
+<td>31.0</td>
+<td>I'm caring for my dear Kiwi friend Ian Robertson, who suffers from terminal lung cancer. It's ge...</td>
+<td>NaN</td>
+<td>Created by, and paying to a verified bank account of,_x000D_\n      _x000D_\n        Julia Schlu...</td>
+<td>Page Moderated</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Help for Julia, while she is caring for Ian Robertson Please support me so I'll be able to conti...</td>
+</tr>
+<tr>
+<th>2016-04-29</th>
+<td>TRUS Biopsy Machine for Taranaki</td>
+<td>The men of Taranaki need this TRUS Biopsy Machine to diagnose Prostate Cancer.  Reduce waiting t...</td>
+<td>https://static.givealittle.co.nz/assets/hero/c9169845-63b5-4c1e-bb50-a5fc00e5abd0-320:False</td>
+<td>https://givealittle.co.nz/cause/prostatebiopsymachinenewplymouth</td>
+<td>1910.0</td>
+<td>20000.0</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/prostatebiopsymachinenewplymouth</td>
+<td>29 Apr 2016</td>
+<td>31 Aug 2016</td>
+<td>0</td>
+<td>Taranaki</td>
+<td>15.0</td>
+<td>Currently the TRUS (Trans Rectal Ultrasound) machine for diagnosing prostate cancer is only avai...</td>
+<td>NaN</td>
+<td>Created by, and paying to a verified bank account of,_x000D_\n      _x000D_\n        Rotary Club...</td>
+<td>Page Moderated</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>TRUS Biopsy Machine for Taranaki The men of Taranaki need this TRUS Biopsy Machine to diagnose P...</td>
+</tr>
+</tbody>
+</table>
+<p>11213 rows × 22 columns</p>
+</div>
 </div>
 </div>
 </div>
@@ -7593,7 +7934,7 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Loading this model needs about 22.69GB of GPU memory</span>
@@ -7617,14 +7958,7 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 14 s (2024-11-19T14:13:27/2024-11-19T14:13:41)</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>The model weights are not tied. Please use the `tie_weights` method before using the `infer_auto_device` function.
-</pre>
+<pre>✔️ 12.5 s (2025-06-12T11:24:02/2025-06-12T11:24:14)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -7640,7 +7974,7 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)):</span>
@@ -7659,15 +7993,20 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <span class="s2">                    For the text below, extract the following information, in JSON format:</span>
 <span class="s2">                    condition: the primary health condition mentioned in the text</span>
 <span class="s2">                    ICD10: the ICD10 code for the primary health condition</span>
+<span class="s2">                    ICD: the top level ICD chapter for the primary health condition</span>
 <span class="s2">                    name: the name of the person this campaign is for</span>
 <span class="s2">                    gender: the gender of the person this campaign is for</span>
 <span class="s2">                    age: the age of the person this campaign is for</span>
+<span class="s2">                    age_group: the age group of the person this campaign is for, one of 0-14, 15-64, 65+</span>
 <span class="s2">                    ethnicity: the ethnicity of the person this campaign is for. If not mentioned in the text, guess their ethnicity from the image.</span>
 <span class="s2">                    urgency: a number from 0-100, indicating how urgent the need is</span>
 <span class="s2">                    sentiment: a number from 0-100, indicating the sentiment of the text, where 100 is the most positive, and 0 is the most negative</span>
 <span class="s2">                    truth: a number from 0-100, indicating how truthful the text is, where 100 is the most truthful, and 0 is the least truthful</span>
 <span class="s2">                    notes: any additional information about how you processed this text, such as warnings or errors</span>
 <span class="s2">                    smiling: a boolean indicating whether the person in the image is smiling</span>
+<span class="s2">                    deservingness: a number from 0-100, indicating how deserving the person is of receiving funds, where 100 is the most deserving, and 0 is the least deserving</span>
+<span class="s2">                    attractiveness: a number from 0-100, indicating how attractive the person is, where 100 is the most attractive, and 0 is the least attractive</span>
+<span class="s2">                    use: The primary use of the raised funds - one of: medical expenses, experimental therapies, travel expenses, lost wages</span>
 
 <span class="s2">                    Do not include comments in your JSON response. Only respond with the JSON object. Make sure the JSON is valid.</span>
 <span class="s2">                """</span><span class="p">},</span>
@@ -7708,7 +8047,7 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>⌛ 2.54 µs (2024-11-20T09:07:24)</pre>
+<pre>⌛ 2.43 µs (2025-06-12T11:41:19)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -7734,7 +8073,7 @@ Daughter in law
 Use of funds
 Travel costs for treatment.
 Financial help with household expenses.
-Cost to helping fix there vehicle. Travel costs for treatment.Financial help with household expenses.Cost to helping fix there vehicle.
+Cost to helping fix there vehicle. Travel costs for treatment.Financial help with household expenses.Cost to helping fix there vehicle. nan
 </pre>
 </div>
 </div>
@@ -7748,18 +8087,22 @@ Cost to helping fix there vehicle. Travel costs for treatment.Financial help wit
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C50',
+{'ICD': 'C50',
+ 'ICD10': 'C50.0',
  'age': 32,
- 'condition': 'breast cancer',
- 'ethnicity': 'Caucasian',
+ 'age_group': '15-64',
+ 'attractiveness': 50,
+ 'condition': 'aggressive breast cancer',
+ 'deservingness': 100,
+ 'ethnicity': 'caucasian',
  'gender': 'female',
  'name': 'Amy',
- 'notes': 'The ethnicity is guessed based on the image, and the ICD10 code is '
-          'assumed to be for breast cancer, but not explicitly stated.',
- 'sentiment': 90,
+ 'notes': '',
+ 'sentiment': 80,
  'smiling': False,
  'truth': 80,
- 'urgency': 80}
+ 'urgency': 80,
+ 'use': 'medical expenses'}
 
 
 Input:
@@ -7771,7 +8114,7 @@ With such a long road ahead of them, we as a friend group along with a few other
 Kelsey McLean's involvement (page creator)
 Close friends
 Use of funds
-All money received will go towards on going costs while Kayla and Michael are away from home with Finlee. All money received will go towards on going costs while Kayla and Michael are away from home with Finlee.
+All money received will go towards on going costs while Kayla and Michael are away from home with Finlee. All money received will go towards on going costs while Kayla and Michael are away from home with Finlee. nan
 </pre>
 </div>
 </div>
@@ -7785,17 +8128,22 @@ All money received will go towards on going costs while Kayla and Michael are aw
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'N35.9',
+{'ICD': 'Nephrotic Syndrome',
+ 'ICD10': 'N06.9',
  'age': '18 days',
- 'condition': 'Congenital Neprotic Syndrome',
+ 'age_group': '0-14',
+ 'attractiveness': 100,
+ 'condition': 'Congenital Nephrotic Syndrome',
+ 'deservingness': 100,
  'ethnicity': 'Caucasian',
  'gender': 'Female',
  'name': 'Finlee Anne Bremner',
- 'notes': '',
- 'sentiment': 80,
+ 'notes': 'No warnings or errors were encountered.',
+ 'sentiment': 100,
  'smiling': False,
- 'truth': 90,
- 'urgency': 50}
+ 'truth': 100,
+ 'urgency': 100,
+ 'use': 'medical expenses'}
 
 
 Input:
@@ -7810,7 +8158,16 @@ Let’s come together to help Paula and his family during this challenging time,
 Sheree Turia's involvement (page creator)
 I am a friend of the Matafahi whanau. Funds will be paid to his mother Nia
 Use of funds
-Providing the potentially life extending but unfunded drug (Avastin) and to help with the cost of taking care of this amazing young man. Providing the potentially life extending but unfunded drug (Avastin) and to help with the cost of taking care of this amazing young man.
+Providing the potentially life extending but unfunded drug (Avastin) and to help with the cost of taking care of this amazing young man. Providing the potentially life extending but unfunded drug (Avastin) and to help with the cost of taking care of this amazing young man. Nearly there!
+3 November 2024
+We are just about at $47,000!!! Thank you all again for your generosity and kind and encouraging words for Paula, Nia and the girls. Sending love to you all ❤️❤️
+Share this update
+0 comments  |  Login to leave a comment
+Thank you ❤️
+1 November 2024
+In just one day we have raised over $25,000 for Paula thanks to your generosity. Nia, Paula and the girls are so grateful to everyone who has donated. Thank you from the bottom of our hearts ♥️ If you haven’t already, could you please share the page so that we can reach the goal for Paula. Thank you all ❤️❤️❤️
+Share this update
+0 comments  |  Login to leave a comment
 </pre>
 </div>
 </div>
@@ -7824,16 +8181,24 @@ Providing the potentially life extending but unfunded drug (Avastin) and to help
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C72.9',
+{'ICD': 'C75',
+ 'ICD10': 'C75.1',
  'age': '18',
+ 'age_group': '15-64',
+ 'attractiveness': 80,
  'condition': 'Grade 4 Glioblastoma Multiforme brain cancer',
- 'ethnicity': 'Polynesian',
- 'gender': 'Male',
+ 'deservingness': 100,
+ 'ethnicity': 'Pacific Islander',
+ 'gender': 'male',
  'name': 'Paula Matafahi',
- 'notes': 'No warnings or errors processed.',
- 'sentiment': '80',
- 'smiling': 'true',
- 'urgency': '90'}
+ 'notes': 'The image of the person in the photo is not clear, but based on the '
+          'context of the campaign, it is likely that the person is of Pacific '
+          'Islander ethnicity.',
+ 'sentiment': 95,
+ 'smiling': True,
+ 'truth': 90,
+ 'urgency': 90,
+ 'use': 'medical expenses'}
 
 
 Input:
@@ -7842,7 +8207,11 @@ Our Sweet boy Jairo Please help Jairo get the testing and screening that he need
 Danni Gillett's involvement (page creator)
 I am Jairos mum
 Use of funds
-It will be used for the consult and further testing as well as petrol to get to Wellington and back It will be used for the consult and further testing as well as petrol to get to Wellington and back
+It will be used for the consult and further testing as well as petrol to get to Wellington and back It will be used for the consult and further testing as well as petrol to get to Wellington and back Follow up appointments
+2 November 2024
+Just updating the goal for follow up appointments x
+Share this update
+0 comments  |  Login to leave a comment
 </pre>
 </div>
 </div>
@@ -7856,31 +8225,23 @@ It will be used for the consult and further testing as well as petrol to get to 
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-Unable to parse: The image shows a baby in a car seat, with a bottle next to him. The baby has a neutral expression, and his mouth is slightly open.
-
-*   condition: colic
-*   ICD10: R11.2
-*   name: Jairo
-*   gender: male
-*   age: 8 weeks
-*   ethnicity: Caucasian (based on the image)
-*   urgency: 80
-*   sentiment: 70
-*   truth: 80
-*   notes: The text appears to be genuine, but there is no way to verify the information. There are no warnings or errors.
-*   smiling: no
-Output:
-{'ICD10': 'R10.2',
+{'ICD': 'R',
+ 'ICD10': 'R063',
  'age': '8 weeks',
- 'condition': 'Colic',
- 'ethnicity': 'Caucasian',
+ 'age_group': '0-14',
+ 'attractiveness': 80,
+ 'condition': 'colic',
+ 'deservingness': 100,
+ 'ethnicity': 'European',
  'gender': 'male',
  'name': 'Jairo',
- 'notes': 'No errors',
- 'sentiment': 70,
+ 'notes': 'The campaign is for a private clinic appointment and testing, with '
+          'a goal of $600.',
+ 'sentiment': 80,
  'smiling': False,
- 'truth': 60,
- 'urgency': 80}
+ 'truth': 90,
+ 'urgency': 90,
+ 'use': 'medical expenses'}
 
 
 Input:
@@ -7893,7 +8254,7 @@ The cost is $120000 but Emma’s using her only source of savings (her KiwiSaver
 Diane Stanley's involvement (page creator)
 I’m Emma’s Mum and want my girl to live a full and healthy life.
 Use of funds
-Flights to Mexico and operation for Stemcell Replacement/ Chemo/ medication. The operation involves removing Emma’s Tcells and freezing them. Then Intense chemotherapy will be given to reset Emma’s immune system. Cells are re transplanted. Flights to Mexico and operation for Stemcell Replacement/ Chemo/ medication. The operation involves removing Emma’s Tcells and freezing them. Then Intense chemotherapy will be given to reset Emma’s immune system.  Cells are re transplanted.
+Flights to Mexico and operation for Stemcell Replacement/ Chemo/ medication. The operation involves removing Emma’s Tcells and freezing them. Then Intense chemotherapy will be given to reset Emma’s immune system. Cells are re transplanted. Flights to Mexico and operation for Stemcell Replacement/ Chemo/ medication. The operation involves removing Emma’s Tcells and freezing them. Then Intense chemotherapy will be given to reset Emma’s immune system.  Cells are re transplanted. nan
 </pre>
 </div>
 </div>
@@ -7907,17 +8268,23 @@ Flights to Mexico and operation for Stemcell Replacement/ Chemo/ medication. The
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'G37.9',
+{'ICD': 'G',
+ 'ICD10': 'G35',
  'age': '25',
+ 'age_group': '15-64',
+ 'attractiveness': '80',
  'condition': 'Multiple Sclerosis',
- 'ethnicity': 'Caucasian',
- 'gender': 'Female',
+ 'deservingness': '100',
+ 'ethnicity': 'white',
+ 'gender': 'female',
  'name': 'Emma',
- 'notes': 'No additional information',
- 'sentiment': 70,
- 'smiling': False,
- 'truth': 90,
- 'urgency': 80}
+ 'notes': 'The text is clear and well-written. The use of medical terminology '
+          'is accurate. There are no errors or inconsistencies in the text.',
+ 'sentiment': '60',
+ 'smiling': 'false',
+ 'truth': '80',
+ 'urgency': '80',
+ 'use': 'medical expenses'}
 
 
 Input:
@@ -7931,7 +8298,7 @@ My mum and best friend
 Use of funds
 Your contributions will help cover the costs of her immune therapy (Pembrolizumab)
 Other page links
-on Instagram Your contributions will help cover the costs of her immune therapy (Pembrolizumab)
+on Instagram Your contributions will help cover the costs of her immune therapy (Pembrolizumab) nan
 </pre>
 </div>
 </div>
@@ -7945,19 +8312,24 @@ on Instagram Your contributions will help cover the costs of her immune therapy 
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C50',
- 'age': 'not mentioned',
+{'ICD': 'C',
+ 'ICD10': 'C50',
+ 'age': 'not specified',
+ 'age_group': 'not specified',
+ 'attractiveness': 70,
  'condition': 'breast cancer',
- 'ethnicity': 'European',
+ 'deservingness': 100,
+ 'ethnicity': 'white',
  'gender': 'female',
  'name': 'Rebecca',
- 'notes': 'The ethnicity was guessed based on the image, as it is not '
-          'mentioned in the text. The image shows a woman with fair skin and '
-          'light-colored hair, which is consistent with European ethnicity.',
- 'sentiment': 80,
+ 'notes': 'The image is blurry, making it difficult to determine the '
+          'ethnicity. However, based on the image, the person appears to be '
+          'white.',
+ 'sentiment': 90,
  'smiling': True,
- 'truth': 80,
- 'urgency': 80}
+ 'truth': 90,
+ 'urgency': 80,
+ 'use': 'medical expenses'}
 
 
 Input:
@@ -7968,7 +8340,7 @@ As most of my community is already aware, I am undertaking 18 weeks of chemother
 I have six sessions over 18 weeks, each costing $4639.99, so any small contribution will go a long way.
 I'm really fortunate to have caught this early. Following the six sessions of chemotherapy, I will have surgery, followed by more chemotherapy. But I am ready for the battle!
 Use of funds
-Unfunded cancer medication Pertuzumab. Unfunded cancer medication Pertuzumab.
+Unfunded cancer medication Pertuzumab. Unfunded cancer medication Pertuzumab. nan
 </pre>
 </div>
 </div>
@@ -7982,19 +8354,22 @@ Unfunded cancer medication Pertuzumab. Unfunded cancer medication Pertuzumab.
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C50',
- 'age': 'not provided',
+{'ICD': 'C00-D49',
+ 'ICD10': 'C50',
+ 'age': 'adult',
+ 'age_group': '15-64',
+ 'attractiveness': 70,
  'condition': 'breast cancer',
+ 'deservingness': 90,
  'ethnicity': 'white',
  'gender': 'female',
- 'name': 'Mrs Jacobs',
- 'notes': 'The ethnicity was guessed from the image. The age is not provided '
-          'in the text, but it can be inferred that the person is likely to be '
-          'an adult given their profession and the context of the campaign.',
- 'sentiment': 80,
+ 'name': 'Sandy Jacobs',
+ 'notes': '',
+ 'sentiment': 90,
  'smiling': True,
  'truth': 90,
- 'urgency': 80}
+ 'urgency': 80,
+ 'use': 'medical expenses'}
 
 
 Input:
@@ -8009,7 +8384,7 @@ Use of funds
 Food, travel, accommodation, parking fees.
 Other page links
 on Facebook
-www.ngapaeholidaypark.co.nz Food, travel, accommodation, parking fees.
+www.ngapaeholidaypark.co.nz Food, travel, accommodation, parking fees. nan
 </pre>
 </div>
 </div>
@@ -8023,19 +8398,22 @@ www.ngapaeholidaypark.co.nz Food, travel, accommodation, parking fees.
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'S06.2X',
+{'ICD': 'S',
+ 'ICD10': 'S06',
  'age': 'adult',
- 'condition': 'Traumatic Brain Injury',
+ 'age_group': '15-64',
+ 'attractiveness': 70,
+ 'condition': 'head injuries',
+ 'deservingness': 90,
  'ethnicity': 'Maori',
  'gender': 'male',
  'name': 'Jusson Henry',
- 'notes': 'The text is clear and concise, but lacks specific details about the '
-          "severity of Jusson's injuries and the expected duration of his "
-          'recovery.',
- 'sentiment': 90,
+ 'notes': 'No errors or warnings',
+ 'sentiment': 80,
  'smiling': True,
- 'truth': 90,
- 'urgency': 80}
+ 'truth': 80,
+ 'urgency': 80,
+ 'use': 'medical expenses'}
 
 
 Input:
@@ -8047,7 +8425,7 @@ We will miss them dearly, but by donating, we can help lighten their load and su
 Kirsty Buchanan's involvement (page creator)
 She is my friend and mum to my son's bestie!
 Use of funds
-Flights, passports, relocation and other costs that will make things a little more normal as they navigate yet another challenge... Flights, passports, relocation and other costs that will make things a little more normal as they navigate yet another challenge...
+Flights, passports, relocation and other costs that will make things a little more normal as they navigate yet another challenge... Flights, passports, relocation and other costs that will make things a little more normal as they navigate yet another challenge... nan
 </pre>
 </div>
 </div>
@@ -8061,19 +8439,24 @@ Flights, passports, relocation and other costs that will make things a little mo
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C92.0',
- 'age': 'Not specified',
- 'condition': 'Leukemia',
- 'ethnicity': 'European',
+{'ICD': 'Not provided',
+ 'ICD10': 'Not provided',
+ 'age': 'Not provided',
+ 'age_group': 'Not provided',
+ 'attractiveness': 'Not provided',
+ 'condition': 'Life-threatening medical crises',
+ 'deservingness': '100',
+ 'ethnicity': 'Pacific Islander',
  'gender': 'Female',
  'name': 'Erin Thomson',
- 'notes': 'The ethnicity was guessed based on the image, as it was not '
-          'specified in the text. The image shows a family with fair skin and '
-          'European features.',
- 'sentiment': 80,
- 'smiling': True,
- 'truth': 90,
- 'urgency': 80}
+ 'notes': 'The image is not clear, but based on the name Erin and the mention '
+          'of New Zealand, it is likely that Erin is of Pacific Islander '
+          'ethnicity.',
+ 'sentiment': '100',
+ 'smiling': 'true',
+ 'truth': '100',
+ 'urgency': '100',
+ 'use': 'Medical expenses'}
 
 
 Input:
@@ -8089,7 +8472,7 @@ Use of funds
 1. Pay for 'at home support' e.g transport &amp; assistance with day to day expenses
 2.Travel &amp; continuing treatment of the Wellington GBM trial (https://www.braintumoursupport.org.nz/our-latest-news/2024/7/3/new-glioblastoma-trial-opens-in-wellington)
 3.Help to create some mother / daughter memories
-4.Possible unfunded treatment options still being explored 1. Pay for 'at home support' e.g transport &amp; assistance with day to day expenses2.Travel &amp; continuing treatment of the Wellington GBM trial (https://www.braintumoursupport.org.nz/our-latest-news/2024/7/3/new-glioblastoma-trial-opens-in-wellington)3.Help to create some mother / daughter memories4.Possible unfunded treatment options still being explored
+4.Possible unfunded treatment options still being explored 1. Pay for 'at home support' e.g transport &amp; assistance with day to day expenses2.Travel &amp; continuing treatment of the Wellington GBM trial (https://www.braintumoursupport.org.nz/our-latest-news/2024/7/3/new-glioblastoma-trial-opens-in-wellington)3.Help to create some mother / daughter memories4.Possible unfunded treatment options still being explored nan
 </pre>
 </div>
 </div>
@@ -8103,20 +8486,22 @@ Use of funds
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Output:
-{'ICD10': 'C72.9',
- 'age': 'Not explicitly mentioned, but appears to be middle-aged',
- 'condition': 'Glioblastoma',
+{'ICD': 'C',
+ 'ICD10': 'C72.0',
+ 'age': 'Not specified',
+ 'age_group': 'Not specified',
+ 'attractiveness': 80,
+ 'condition': 'Stage 4 Glioblastoma',
+ 'deservingness': 100,
  'ethnicity': 'Caucasian',
  'gender': 'Female',
  'name': 'Steph',
- 'notes': 'The text is a personal and emotional appeal, which may influence '
-          'the sentiment and truth scores. The ethnicity is guessed based on '
-          'the image, and the age is not explicitly mentioned, but appears to '
-          'be middle-aged',
- 'sentiment': 80,
+ 'notes': 'Image suggests Caucasian ethnicity',
+ 'sentiment': 100,
  'smiling': True,
  'truth': 90,
- 'urgency': 50}
+ 'urgency': 90,
+ 'use': 'Medical expenses'}
 
 
 </pre>
