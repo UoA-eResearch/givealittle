@@ -40,16 +40,6 @@ prompt = """
     Do not include comments in your JSON response. Only respond with the JSON object. Make sure the JSON is valid
 """
 
-# Loading this model uses 64.2GB VRAM, so the model can be loaded on a single A100 80GB GPU.
-model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-     "Qwen/Qwen2.5-VL-32B-Instruct",
-     torch_dtype=torch.bfloat16,
-     attn_implementation="flash_attention_2",
-     device_map="cuda",
-)
-
-processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-32B-Instruct")
-
 indices = []
 messages = []
 for row in tqdm(df.itertuples(), total=len(df)):
@@ -69,6 +59,18 @@ for row in tqdm(df.itertuples(), total=len(df)):
             ]
     }])
 
+
+# Loading this model uses 64.2GB VRAM, so the model can be loaded on a single A100 80GB GPU.
+model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+     "Qwen/Qwen2.5-VL-32B-Instruct",
+     torch_dtype=torch.bfloat16,
+     attn_implementation="flash_attention_2",
+     device_map="cuda",
+)
+
+processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-32B-Instruct")
+
+start = time.time()
 processor.tokenizer.padding_side = "left"
 texts = [
     processor.apply_chat_template(msg, tokenize=False, add_generation_prompt=True)
@@ -83,9 +85,10 @@ inputs = processor(
     return_tensors="pt",
 )
 inputs = inputs.to("cuda")
+print(f"Preprocessing of {len(messages)} rows took {time.time() - start:.2f} seconds")
+start = time.time()
 
 # Batch Inference
-start = time.time()
 generated_ids = model.generate(**inputs, max_new_tokens=5000)
 generated_ids_trimmed = [
     out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
