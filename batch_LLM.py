@@ -87,7 +87,7 @@ model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
 processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-32B-Instruct", use_fast=True, padding_side="left")
 
 results = []
-chunksize = 10 # Lower this if you run out of VRAM
+chunksize = 5 # Lower this if you run out of VRAM
 for chunk in tqdm(range(0, len(df), chunksize)):
     subset = messages[chunk:chunk+chunksize]
     texts = [
