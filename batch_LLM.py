@@ -117,7 +117,7 @@ for row in tqdm(df.itertuples(), total=len(df)):
         try:
             result = json.loads(output_text)
             row_dict = row._asdict()
-            row_dict.update(row_dict)
+            row_dict.update(result)
             #pprint(result)
             #print("\n")
             results.append(row_dict)
