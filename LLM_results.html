@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7514,17 +7515,17 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">reload_ext</span> autotime
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
-<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span> <span class="c1"># Plotting</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span> <span class="c1"># Plotting</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 <span class="n">tqdm</span><span class="o">.</span><span class="n">pandas</span><span class="p">()</span>
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRegressor</span>
 <span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s1">'notebook'</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="s2">"plotly"</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.max_columns"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -7541,7 +7542,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 197 ms (2024-12-16T10:10:44/2024-12-16T10:10:44)</pre>
+<pre>✔️ 1.2 s (2025-06-23T11:47:20/2025-06-23T11:47:22)</pre>
 </div>
 </div>
 </div>
@@ -7551,14 +7552,14 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"LLM_results.xlsx"</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">timeLeft</span> <span class="o">==</span> <span class="s2">"closed"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">goal</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">sentiment</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">truth</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">truth</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">urgency</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">urgency</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sentiment</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">truth</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">truth</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">urgency</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">urgency</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">"Target_completion"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">amountRaised</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">goal</span> <span class="o">*</span> <span class="mi">100</span>
 <span class="n">df</span>
 </pre></div>
@@ -7573,11 +7574,11 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 5.83 s (2024-12-16T10:02:36/2024-12-16T10:02:42)</pre>
+<pre>✔️ 7.85 s (2025-06-23T12:11:35/2025-06-23T12:11:43)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7622,238 +7623,238 @@ a.anchor-link {
 <th>text</th>
 <th>condition</th>
 <th>ICD10</th>
+<th>ICD</th>
 <th>name</th>
 <th>gender</th>
 <th>age</th>
+<th>age_group</th>
 <th>ethnicity</th>
 <th>urgency</th>
 <th>sentiment</th>
 <th>truth</th>
 <th>notes</th>
 <th>smiling</th>
-<th>guess_ethnicity</th>
-<th>guess-ethnicity</th>
-<th>guess</th>
-<th>Sentiment</th>
-<th>guess ethnicity</th>
+<th>deservingness</th>
+<th>attractiveness</th>
+<th>use</th>
 <th>Target_completion</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th>488</th>
-<td>495</td>
-<td>Help me support my sick father</td>
-<td>Raising money to see my sick father</td>
-<td>https://static.givealittle.co.nz/assets/hero/cfa715d1-e709-4367-a625-b20f01636ccb-320:False</td>
-<td>https://givealittle.co.nz/cause/help-me-support-my-sick-father</td>
-<td>1555.0</td>
+<th>30</th>
+<td>31</td>
+<td>Helping a person in need</td>
+<td>Helping out a person in need that would drop his hat to help someone else</td>
+<td>https://static.givealittle.co.nz/assets/hero/ed760e80-7e10-4078-b7a8-b2ec0104419b-320:False</td>
+<td>https://givealittle.co.nz/cause/helping-a-person-in-need</td>
+<td>1700.0</td>
 <td>2000.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/help-me-support-my-sick-father</td>
-<td>20 Oct 2024</td>
-<td>27 Oct 2024</td>
+<td>https://givealittle.co.nz/cause/helping-a-person-in-need</td>
+<td>29 May 2025</td>
+<td>8 Jun 2025</td>
 <td>0</td>
-<td>Greenhithe, Auckland</td>
-<td>39.0</td>
-<td>Hey guys. I'm raising money in order to travel down to Nelson to see my father who has been diag...</td>
-<td>Travel funds to get from Auckland to Nelson and back.</td>
-<td>Created by, and paying to a verified bank account of,_x000D_\nJoshua Westley</td>
+<td>Blenheim, Marlborough</td>
+<td>54.0</td>
+<td>Tok had a serious injury while running — he tore a muscle, which led to internal bleeding and ev...</td>
+<td>medical care where needed and general stuff around the house if needed also and utility's</td>
+<td>Created by, and paying to a verified bank account of,\r\nMatthew bergman      on behalf of Tok H...</td>
 <td>Page Moderated</td>
+<td>3.0</td>
+<td>Big thanks\n7 June 2025\nHey team huge thanks to all that have donated Tok is humbled beyond wor...</td>
 <td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Help me support my sick father Raising money to see my sick father Hey guys. I'm raising money i...</td>
-<td>Alzheimer's</td>
-<td>F03</td>
-<td>Dad</td>
+<td>Helping a person in need Helping a person in need Helping out a person in need that would drop h...</td>
+<td>Muscle tear leading to internal bleeding and infection</td>
+<td>S86.0</td>
+<td>Injury, poisoning and certain other consequences of external causes</td>
+<td>Tok</td>
 <td>Male</td>
-<td>Not specified</td>
-<td>European</td>
+<td>35</td>
+<td>15-64</td>
+<td>Pacific Islander</td>
 <td>90.0</td>
-<td>100.0</td>
-<td>80.0</td>
-<td>The text does not mention the person's age or ethnicity. Based on the image, the person appears ...</td>
-<td>True</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>77.750000</td>
+<td>70.0</td>
+<td>95.0</td>
+<td>Age estimated based on appearance; ethnicity inferred from image; sentiment reflects a mix of gr...</td>
+<td>1.0</td>
+<td>95</td>
+<td>60</td>
+<td>medical expenses</td>
+<td>85.000000</td>
 </tr>
 <tr>
-<th>489</th>
-<td>496</td>
-<td>My Cambodian Sister Fighting the Big C</td>
-<td>Please help my Cambodian sister fight the big C.</td>
-<td>https://static.givealittle.co.nz/assets/hero/e17703d2-5687-45ab-9276-b20b0085e2e1-320:False</td>
-<td>https://givealittle.co.nz/cause/my-cambodian-sister-fighting-the-big-c</td>
-<td>2000.0</td>
-<td>3000.0</td>
+<th>55</th>
+<td>56</td>
+<td>Please help Walter 🙏 to get the veterinary care he needs.</td>
+<td>Please help us 🙏 Walty needs bloodwork to rule out cancer 😪</td>
+<td>https://static.givealittle.co.nz/assets/hero/a5763829-1835-4780-adc3-b2e500bd5557-320:False</td>
+<td>https://givealittle.co.nz/cause/please-help-walter-to-get-the-veterinary-care-he</td>
+<td>380.0</td>
+<td>500.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/my-cambodian-sister-fighting-the-big-c</td>
-<td>16 Oct 2024</td>
-<td>29 Oct 2024</td>
+<td>https://givealittle.co.nz/cause/please-help-walter-to-get-the-veterinary-care-he</td>
+<td>22 May 2025</td>
+<td>1 Jun 2025</td>
 <td>0</td>
-<td>Nationwide</td>
-<td>26.0</td>
-<td>Last year, Channa was my tour guide in Cambodia. Having grown up in similar political systems an...</td>
-<td>rent, groceries, transport, and other daily necessities</td>
-<td>Created by, and paying to a verified bank account of,_x000D_\n      _x000D_\n        Antje Decke...</td>
+<td>Otago</td>
+<td>14.0</td>
+<td>Walter has been my life for 15 years, since he was a pup. It has always being just the two of us...</td>
+<td>The money raised will go into Walts vet costsFull bloods, medication etc at the moment is quoted...</td>
+<td>Created by, and paying to a verified bank account of,\r\nKerri Back</td>
 <td>Page Moderated</td>
 <td>1.0</td>
-<td>Thank you!!!\n1 November 2024\nThank you for opening your heart and wallet for Channa. I spoke t...</td>
+<td>Bloodwork done.\n23 May 2025\nThank you so much for your kind donations.\nWalty has had his bloo...</td>
 <td>NaN</td>
-<td>My Cambodian Sister Fighting the Big C Please help my Cambodian sister fight the big C. Last yea...</td>
-<td>Breast Cancer</td>
-<td>C50</td>
-<td>Channa</td>
-<td>Female</td>
-<td>Adult</td>
-<td>Asian</td>
-<td>100.0</td>
-<td>100.0</td>
-<td>80.0</td>
-<td>The text is a personal and emotional appeal from the campaign creator to help a friend in need. ...</td>
-<td>True</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>66.666667</td>
-</tr>
-<tr>
-<th>491</th>
-<td>498</td>
-<td>Flights needed NZ-London to help 83 year old mum through a mastectomy</td>
-<td>Raising funds to send a caring daughter to London to look after her 83 year old mum following a ...</td>
-<td>https://static.givealittle.co.nz/assets/hero/03a34b2c-1401-4460-8ca3-b20800b6f41e-320:False</td>
-<td>https://givealittle.co.nz/cause/flights-needed-nz-london-to-help-83-year-old-mum</td>
-<td>0.0</td>
-<td>3340.0</td>
-<td>closed</td>
-<td>Read more</td>
-<td>https://givealittle.co.nz/cause/flights-needed-nz-london-to-help-83-year-old-mum</td>
-<td>13 Oct 2024</td>
-<td>16 Oct 2024</td>
-<td>0</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>My mother has breast cancer and at 83 is having a mastectomy on 24th October. She lives alone an...</td>
-<td>Just the flights</td>
-<td>Created by, and paying to a verified bank account of,_x000D_\n      _x000D_\n        Sian Jones</td>
-<td>Page Moderated</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Flights needed NZ-London to help 83 year old mum through a mastectomy Raising funds to send a ca...</td>
-<td>breast cancer</td>
-<td>C50</td>
-<td>unknown</td>
-<td>unknown</td>
-<td>83</td>
-<td>white</td>
+<td>Please help Walter 🙏 to get the veterinary care he needs. Please help Walter 🙏 to get the veteri...</td>
+<td>Pancreatitis</td>
+<td>K85</td>
+<td>11</td>
+<td>Walter</td>
+<td>Male</td>
+<td>15</td>
+<td>15-64</td>
+<td>Unknown (animal)</td>
 <td>90.0</td>
-<td>80.0</td>
-<td>80.0</td>
-<td>The ethnicity is not mentioned in the text, but based on the image, I guess the person is white....</td>
-<td>True</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0.000000</td>
+<td>70.0</td>
+<td>95.0</td>
+<td>The primary subject is an animal named Walter, not a human. The text mentions pancreatitis as th...</td>
+<td>1.0</td>
+<td>90</td>
+<td>80</td>
+<td>medical expenses</td>
+<td>76.000000</td>
 </tr>
 <tr>
-<th>493</th>
-<td>500</td>
-<td>Tom’s recovery from traumatic brain injury.</td>
-<td>Raising funds for Tom’s arduous recovery journey</td>
-<td>https://static.givealittle.co.nz/assets/hero/b96d62a6-aaf0-47f1-9db5-b20700b7b7ac-320:False</td>
-<td>https://givealittle.co.nz/cause/toms-recovery-from-traumatic-brain-injury</td>
-<td>2680.0</td>
-<td>5000.0</td>
+<th>58</th>
+<td>59</td>
+<td>Medical Treatment for Atish Lal for Coronary Artery Disease</td>
+<td>medical Treatment</td>
+<td>https://static.givealittle.co.nz/assets/hero/0a81d0ab-2bfc-4890-8049-b2e3017fea04-320:False</td>
+<td>https://givealittle.co.nz/cause/medical-treatment-for-atish-lal-for-coronary</td>
+<td>380.0</td>
+<td>14900.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/toms-recovery-from-traumatic-brain-injury</td>
-<td>12 Oct 2024</td>
-<td>24 Oct 2024</td>
+<td>https://givealittle.co.nz/cause/medical-treatment-for-atish-lal-for-coronary</td>
+<td>20 May 2025</td>
+<td>6 Jun 2025</td>
 <td>0</td>
-<td>Nelson / Tasman</td>
-<td>22.0</td>
-<td>On Monday 7th October 2024 Tom was on his way to work on his quad bike when he came across a her...</td>
-<td>We have started this page to help our parents with accomodation, travel and food costs while the...</td>
-<td>Created by_x000D_\nToni Redward  \n\n\n\n_x000D_\n      Paying to a verified bank account of_x00...</td>
+<td>Auckland</td>
+<td>6.0</td>
+<td>Dear Family and Friends,\nI hope this message finds you well.\nI am reaching out today with a hu...</td>
+<td>Estimated costs for Treatment &amp; Travel:- PTCA treatment package + home stay : $11,000 USD- Reser...</td>
+<td>Created by\r\nShaneel Prasad  \n\n\n\n\r\n      Paying to a verified bank account of\r\nPriya Go...</td>
 <td>Page Moderated</td>
-<td>2.0</td>
-<td>Update\n25 October 2024\nWe would like to thank each and every person for their donations throug...</td>
-<td>NaN</td>
-<td>Tom’s recovery from traumatic brain injury. Raising funds for Tom’s arduous recovery journey On ...</td>
-<td>traumatic brain injury</td>
-<td>S06.0X0A</td>
-<td>Tom</td>
-<td>male</td>
-<td>adult</td>
-<td>likely Caucasian</td>
-<td>80.0</td>
-<td>50.0</td>
-<td>80.0</td>
-<td>ICD10 code is an approximation</td>
-<td>False</td>
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>53.600000</td>
+<td>Medical Treatment for Atish Lal for Coronary Artery Disease Medical Treatment for Atish Lal for ...</td>
+<td>Coronary Artery Disease</td>
+<td>I25</td>
+<td>I - Diseases of the circulatory system</td>
+<td>Atish Lal</td>
+<td>Male</td>
+<td>35</td>
+<td>15-64</td>
+<td>Indian</td>
+<td>90.0</td>
+<td>70.0</td>
+<td>95.0</td>
+<td>Age estimated based on typical age range for coronary artery disease; ethnicity inferred from th...</td>
+<td>0.0</td>
+<td>85</td>
+<td>50</td>
+<td>medical expenses</td>
+<td>2.550336</td>
 </tr>
 <tr>
-<th>494</th>
-<td>501</td>
-<td>Give the gift of change. We would appreciate any help we can get!</td>
-<td>We are seeking your help to help us pay hospital and medical costs for Pilamita. Your donation w...</td>
-<td>https://static.givealittle.co.nz/assets/hero/c30e1e40-0bfc-4975-9fcc-b205008d84a5-320:False</td>
-<td>https://givealittle.co.nz/cause/give-the-gift-of-change-your-help-is-appreciated</td>
-<td>165.0</td>
+<th>73</th>
+<td>74</td>
+<td>Help me to reclaim my freedom.</td>
+<td>Help my to reclaim my freedom and contribute to my community.</td>
+<td>https://static.givealittle.co.nz/assets/hero/0e91c689-ef0e-4c5c-aa9d-b2e0010f721b-320:False</td>
+<td>https://givealittle.co.nz/cause/help-me-to-reclaim-my-freedom</td>
+<td>2999.0</td>
+<td>6000.0</td>
+<td>closed</td>
+<td>Read more</td>
+<td>https://givealittle.co.nz/cause/help-me-to-reclaim-my-freedom</td>
+<td>17 May 2025</td>
+<td>5 Jun 2025</td>
+<td>0</td>
+<td>Bay of Plenty</td>
+<td>15.0</td>
+<td>Two years after my first Covid infection, I’m still living with debilitating Long Covid, Chronic...</td>
+<td>The money will be spend on a mobility scooter that can be folded down and taken in the car so I ...</td>
+<td>Created by, and paying to a verified bank account of,\r\nAmy Cole</td>
+<td>Page Moderated</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Help me to reclaim my freedom. Help me to reclaim my freedom. Help my to reclaim my freedom and ...</td>
+<td>Long Covid, Chronic Fatigue/ME, PEM, Acquired Apraxia of Speech</td>
+<td>G93.3 (Postviral fatigue syndrome)</td>
+<td>Chapter VI: Diseases of the nervous system</td>
+<td>Amy</td>
+<td>Female</td>
+<td>35</td>
+<td>15-64</td>
+<td>Caucasian (assumed based on image)</td>
+<td>80.0</td>
+<td>60.0</td>
+<td>90.0</td>
+<td>Age estimated based on appearance in the image. Ethnicity assumed based on visual characteristics.</td>
+<td>1.0</td>
+<td>90</td>
+<td>70</td>
+<td>medical expenses</td>
+<td>49.983333</td>
+</tr>
+<tr>
+<th>74</th>
+<td>75</td>
+<td>Help My Mum Fight Cancer - Every Bit Counts</td>
+<td>Rasing funds for my mum's cancer treatment in India - every donation brings us closer to saving ...</td>
+<td>https://static.givealittle.co.nz/assets/hero/3b1e6715-fdbd-4e4c-b787-b2e20160c6d0-320:False</td>
+<td>https://givealittle.co.nz/cause/help-my-mum-fight-cancer-every-bit-counts</td>
+<td>630.0</td>
 <td>50000.0</td>
 <td>closed</td>
 <td>Read more</td>
-<td>https://givealittle.co.nz/cause/give-the-gift-of-change-your-help-is-appreciated</td>
-<td>10 Oct 2024</td>
-<td>31 Oct 2024</td>
+<td>https://givealittle.co.nz/cause/help-my-mum-fight-cancer-every-bit-counts</td>
+<td>17 May 2025</td>
+<td>19 May 2025</td>
 <td>0</td>
-<td>Manukau, Auckland</td>
-<td>6.0</td>
-<td>My brother in-law - Pilamita Faingaa suffered from a huge stroke that has left his left side par...</td>
-<td>Any money raised from here will go directly to pay for hospital and medical costs for Pilamita. ...</td>
-<td>Created by, and paying to a verified bank account of,_x000D_\nTaiana Faingaa      on behalf of P...</td>
+<td>Otahuhu, Auckland</td>
+<td>26.0</td>
+<td>I'm reaching out with a heavy heart and hope in my hands. My mum, the strongest person I know, h...</td>
+<td>Hospital bills, chemotherapy, travel expenses, medications, post-treatment care in India.</td>
+<td>Created by, and paying to a verified bank account of,\r\nAlana Al Jebin      on behalf of My mot...</td>
 <td>Page Moderated</td>
-<td>1.0</td>
-<td>Lunch with Pilamita\n10 October 2024\nToday we helped the care staff by offering to feed Pila hi...</td>
 <td>NaN</td>
-<td>Give the gift of change. We would appreciate any help we can get! We are seeking your help to he...</td>
-<td>Stroke</td>
-<td>I61</td>
-<td>Pilamita Faingaa</td>
-<td>Male</td>
-<td>Unknown</td>
-<td>Pacific Islander</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Help My Mum Fight Cancer - Every Bit Counts Help My Mum Fight Cancer - Every Bit Counts Rasing f...</td>
+<td>Cancer</td>
+<td>C00-C97</td>
+<td>Neoplasms</td>
+<td>Not explicitly mentioned</td>
+<td>Female</td>
+<td>Not explicitly mentioned</td>
+<td>Assumed 15-64 based on context</td>
+<td>Indian (assumed from the mention of treatment in India)</td>
+<td>90.0</td>
 <td>80.0</td>
-<td>80.0</td>
-<td>60.0</td>
-<td>The ethnicity of the person is not explicitly mentioned in the text, but based on the image, it ...</td>
-<td>False</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0.330000</td>
+<td>95.0</td>
+<td>Age and name not explicitly provided in the text. Ethnicity assumed based on the mention of trea...</td>
+<td>0.0</td>
+<td>95</td>
+<td>50</td>
+<td>medical expenses</td>
+<td>1.260000</td>
 </tr>
 <tr>
 <th>...</th>
@@ -7899,8 +7900,8 @@ a.anchor-link {
 <td>...</td>
 </tr>
 <tr>
-<th>10244</th>
-<td>10397</td>
+<th>10953</th>
+<td>11192</td>
 <td>New Zealand MindBody Trust web-based 'whole person' resources for healthworkers and their patien...</td>
 <td>The NZ MindBody Trust web-based project to support and educate clinicians and patients in a 'who...</td>
 <td>https://static.givealittle.co.nz/assets/hero/158d0e80-2c47-449a-a05e-a603014e786e-320:False</td>
@@ -7923,27 +7924,27 @@ a.anchor-link {
 <td>The Give-A-Little Campaign Result\n12 July 2016\nThe MindBody Trustees want to thank you all for...</td>
 <td>NaN</td>
 <td>New Zealand MindBody Trust web-based 'whole person' resources for healthworkers and their patien...</td>
-<td>chronic illness</td>
-<td>not provided</td>
-<td>Brian Broom</td>
-<td>male</td>
-<td>not provided</td>
-<td>not provided</td>
-<td>0.0</td>
+<td>Chronic Disorders</td>
+<td>R53</td>
+<td>Chapter XVIII: Symptoms, Signs and Abnormal Clinical and Laboratory Findings, Not Elsewhere Clas...</td>
+<td>Not specified</td>
+<td>Not specified</td>
+<td>Not specified</td>
+<td>Not applicable</td>
+<td>Not specified (image not provided)</td>
 <td>80.0</td>
 <td>90.0</td>
-<td>The text does not provide any specific information about the condition, age, or ethnicity of the...</td>
-<td>False</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>95.0</td>
+<td>The text does not specify a particular individual, so details like name, gender, age, and ethnic...</td>
+<td>0.0</td>
+<td>90</td>
+<td>50</td>
+<td>medical expenses</td>
 <td>74.444444</td>
 </tr>
 <tr>
-<th>10246</th>
-<td>10399</td>
+<th>10955</th>
+<td>11194</td>
 <td>Diane's cyst removal to continue my dream job</td>
 <td>Large  Radial Ganglion Cyst Removal</td>
 <td>https://static.givealittle.co.nz/assets/hero/06af4a19-e239-44bb-a5a8-a60400ab4982-320:False</td>
@@ -7965,28 +7966,28 @@ a.anchor-link {
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Diane's cyst removal to continue my dream job Large  Radial Ganglion Cyst Removal I am in need o...</td>
-<td>Ganglion cyst</td>
-<td>M79.61</td>
+<td>Diane's cyst removal to continue my dream job Diane's cyst removal to continue my dream job Larg...</td>
+<td>Radial Ganglion Cyst</td>
+<td>M75.3</td>
+<td>M00-M99 Diseases of the musculoskeletal system and connective tissue</td>
 <td>Diane</td>
 <td>Female</td>
-<td>Not specified</td>
+<td>45</td>
+<td>15-64</td>
 <td>Caucasian</td>
 <td>80.0</td>
-<td>20.0</td>
-<td>60.0</td>
-<td>The ethnicity is guessed based on the image, as the ethnicity is not mentioned in the text. The ...</td>
-<td>False</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>50.0</td>
+<td>90.0</td>
+<td>Age estimated based on appearance; ethnicity inferred from image.</td>
+<td>0.0</td>
+<td>85</td>
+<td>60</td>
+<td>medical expenses</td>
 <td>14.600000</td>
 </tr>
 <tr>
-<th>10254</th>
-<td>10407</td>
+<th>10963</th>
+<td>11202</td>
 <td>A thank you to Waikato NICU for helping so many little babies and their families</td>
 <td>Raising funds for Waikato NICU, and a portable cardiac monitor to support the miracle babies.</td>
 <td>https://static.givealittle.co.nz/assets/hero/75b48fa1-0752-44b4-8484-a5fb015ecab2-320:False</td>
@@ -8008,28 +8009,28 @@ a.anchor-link {
 <td>4.0</td>
 <td>Quiz Night!\n7 November 2016\nGot no plans on the 17th of November? Come on down to the Speights...</td>
 <td>NaN</td>
-<td>A thank you to Waikato NICU for helping so many little babies and their families Raising funds f...</td>
-<td>premature birth</td>
-<td>P01.0</td>
-<td>Charlie</td>
-<td>male</td>
-<td>24 weeks gestation</td>
-<td>Caucasian</td>
-<td>80.0</td>
+<td>A thank you to Waikato NICU for helping so many little babies and their families A thank you to ...</td>
+<td>Premature birth</td>
+<td>P07</td>
+<td>Chapter XVII: Congenital malformations, deformations and chromosomal abnormalities</td>
+<td>Charlie and Oliver</td>
+<td>Male</td>
+<td>Newborn (preterm)</td>
+<td>0-14</td>
+<td>Asian (based on image)</td>
 <td>90.0</td>
 <td>80.0</td>
-<td>The ethnicity was guessed based on the image, which shows a Caucasian woman. There is no informa...</td>
-<td>True</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>95.0</td>
+<td>The text mentions premature birth and the need for a portable cardiac monitor for preterm infant...</td>
+<td>1.0</td>
+<td>95</td>
+<td>70</td>
+<td>medical expenses</td>
 <td>25.464857</td>
 </tr>
 <tr>
-<th>10255</th>
-<td>10408</td>
+<th>10964</th>
+<td>11203</td>
 <td>Help restore David’s smile after being assaulted</td>
 <td>Talented professional musician and entertainer David Shanhun needs your help to restore his teet...</td>
 <td>https://static.givealittle.co.nz/assets/hero/ee0d17f1-b6a5-4d41-85e9-a5fa0166b741-320:False</td>
@@ -8051,28 +8052,28 @@ a.anchor-link {
 <td>2.0</td>
 <td>Health/Teeth/Face Update\n24 May 2016\n***Message from David:***\nThank you all so much for your...</td>
 <td>NaN</td>
-<td>Help restore David’s smile after being assaulted Talented professional musician and entertainer ...</td>
-<td>Assault</td>
-<td>S02</td>
+<td>Help restore David’s smile after being assaulted Help restore David’s smile after being assaulte...</td>
+<td>Dental Trauma</td>
+<td>S02.5</td>
+<td>Injury, poisoning and certain other consequences of external causes</td>
 <td>David Shanhun</td>
 <td>Male</td>
-<td>Not mentioned</td>
-<td>Caucasian</td>
-<td>75.0</td>
-<td>90.0</td>
+<td>Not specified</td>
+<td>15-64</td>
+<td>Caucasian (based on image)</td>
 <td>80.0</td>
-<td>No warnings or errors</td>
-<td>True</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>70.0</td>
+<td>90.0</td>
+<td>Age is not explicitly mentioned in the text; assumed to be within the 15-64 range based on conte...</td>
+<td>0.0</td>
+<td>90</td>
+<td>70</td>
+<td>medical expenses</td>
 <td>14.766972</td>
 </tr>
 <tr>
-<th>10263</th>
-<td>10417</td>
+<th>10973</th>
+<td>11212</td>
 <td>TRUS Biopsy Machine for Taranaki</td>
 <td>The men of Taranaki need this TRUS Biopsy Machine to diagnose Prostate Cancer.  Reduce waiting t...</td>
 <td>https://static.givealittle.co.nz/assets/hero/c9169845-63b5-4c1e-bb50-a5fc00e5abd0-320:False</td>
@@ -8094,28 +8095,28 @@ a.anchor-link {
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>TRUS Biopsy Machine for Taranaki The men of Taranaki need this TRUS Biopsy Machine to diagnose P...</td>
+<td>TRUS Biopsy Machine for Taranaki TRUS Biopsy Machine for Taranaki The men of Taranaki need this ...</td>
 <td>Prostate Cancer</td>
 <td>C61</td>
-<td>Not specified</td>
+<td>Neoplasms</td>
+<td>Men of Taranaki</td>
 <td>Male</td>
 <td>Not specified</td>
-<td>Not specified</td>
+<td>15-64</td>
+<td>New Zealand Maori or European/Pākehā (based on context)</td>
 <td>80.0</td>
-<td>80.0</td>
-<td>80.0</td>
-<td>The ethnicity is not specified in the text, but based on the image, it is likely that the person...</td>
-<td>False</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
+<td>90.0</td>
+<td>95.0</td>
+<td>The text does not specify a specific individual but refers to 'men of Taranaki'. Age is inferred...</td>
+<td>0.0</td>
+<td>90</td>
+<td>50</td>
+<td>medical expenses</td>
 <td>9.550000</td>
 </tr>
 </tbody>
 </table>
-<p>4067 rows × 40 columns</p>
+<p>4411 rows × 40 columns</p>
 </div>
 </div>
 </div>
@@ -8126,18 +8127,10 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">smiling</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">smiling</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
-    <span class="s2">"true"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s2">"false"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s2">"yes"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s2">"no"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s2">"not applicable"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s2">"unknown"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s2">"undefined"</span><span class="p">:</span> <span class="kc">None</span>
-<span class="p">})</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8150,7 +8143,24 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 10.5 ms (2024-12-16T10:02:42/2024-12-16T10:02:42)</pre>
+<pre>✔️ 13.5 ms (2025-06-23T12:11:51/2025-06-23T12:11:51)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>gender
+Female              1579
+Male                1452
+female               679
+Not specified        175
+male                 161
+Transgender           33
+Transgender Male      14
+Unknown (animal)      14
+Male and Female       13
+Unknown               13
+Name: count, dtype: int64</pre>
 </div>
 </div>
 </div>
@@ -8160,7 +8170,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">'male'</span><span class="p">,</span> <span class="s1">'female'</span><span class="p">]),</span> <span class="s1">'other'</span><span class="p">)</span>
@@ -8177,16 +8187,16 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 9.15 ms (2024-12-16T10:02:42/2024-12-16T10:02:42)</pre>
+<pre>✔️ 23 ms (2025-06-23T12:11:52/2025-06-23T12:11:52)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>gender
-female    2074
-male      1546
-other      447
+female    2258
+male      1613
+other      540
 Name: count, dtype: int64</pre>
 </div>
 </div>
@@ -8197,27 +8207,10 @@ Name: count, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
-    <span class="s2">"caucasian"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
-    <span class="s2">"likely caucasian"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
-    <span class="s2">"likely white"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
-    <span class="s2">"likely of european descent"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
-    <span class="s2">"likely caucasian based on the image"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
-    <span class="s2">"likely european"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
-    <span class="s2">"european"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
-    <span class="s2">"maori"</span><span class="p">:</span> <span class="s2">"māori"</span><span class="p">,</span>
-    <span class="s2">"not mentioned"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s2">"not specified"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s2">"unspecified"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s2">"not found"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s2">"not provided"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s2">"unknown"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">})</span>
-<span class="n">top_10</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_10</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="s2">"other"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8230,7 +8223,34 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 11.6 ms (2024-12-16T10:02:42/2024-12-16T10:02:42)</pre>
+<pre>✔️ 15.2 ms (2025-06-23T12:11:52/2025-06-23T12:11:52)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>ethnicity
+Caucasian                              960
+Caucasian (based on image)             623
+Caucasian (assumed based on image)     552
+South Asian                            171
+Māori                                  109
+Asian                                  105
+European/Caucasian                      80
+Pacific Islander                        70
+Caucasian (inferred from image)         61
+European/Caucasian (based on image)     54
+African                                 50
+Pacific Islander (based on image)       46
+Unknown (animal)                        46
+Not specified (image not provided)      42
+Filipino                                42
+Indian                                  41
+Caucasian (inferred from the image)     38
+European/White (based on image)         36
+South Asian/Indian                      33
+East Asian                              32
+Name: count, dtype: int64</pre>
 </div>
 </div>
 </div>
@@ -8240,7 +8260,123 @@ Name: count, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(.+?)(?= \(|$)"</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<pre>✔️ 37.2 ms (2025-06-23T12:11:53/2025-06-23T12:11:53)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>ethnicity
+Caucasian                  2284
+South Asian                 214
+Māori                       209
+Asian                       161
+European/Caucasian          148
+Pacific Islander            144
+Not specified               121
+Unknown                     121
+European/White               76
+Maori                        63
+African                      57
+Filipino                     54
+Indian                       49
+East Asian                   42
+White                        39
+Mixed                        38
+South Asian/Indian           35
+Filipino/Asian               33
+European/New Zealand         33
+Latin American/Hispanic      29
+Name: count, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+    <span class="s2">"European/Caucasian"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
+    <span class="s2">"European/White"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
+    <span class="s2">"European/White"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
+    <span class="s2">"European/New Zealand"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
+    <span class="s2">"Maori"</span><span class="p">:</span> <span class="s2">"Māori"</span>
+<span class="p">})</span>
+<span class="n">top_20</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">top_20</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">top_20</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="s2">"other"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<pre>⌛ 2.81 µs (2025-06-23T12:11:55)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>ethnicity
+Caucasian                  2541
+Māori                       272
+South Asian                 214
+Asian                       161
+Pacific Islander            144
+Unknown                     121
+Not specified               121
+African                      57
+Filipino                     54
+Indian                       49
+East Asian                   42
+White                        39
+Mixed                        38
+South Asian/Indian           35
+Filipino/Asian               33
+Latin American/Hispanic      29
+Fijian                       25
+Hispanic/Latino              22
+Not applicable               18
+European/New Zealander       16
+Name: count, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">condition</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -8256,33 +8392,33 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 11.2 ms (2024-12-16T10:04:57/2024-12-16T10:04:57)</pre>
+<pre>✔️ 21.5 ms (2025-06-23T12:11:56/2025-06-23T12:11:56)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>condition
-cancer                225
-breast cancer         173
-gender dysphoria      109
-stroke                 65
-bowel cancer           62
-multiple sclerosis     59
-lung cancer            55
-melanoma               40
-mental health          37
-obesity                37
-endometriosis          34
-cerebral palsy         34
-kidney failure         31
-type 1 diabetes        30
-heart attack           28
-infertility            28
-ovarian cancer         25
-unknown                25
-terminal cancer        23
-cardiac arrest         22
+cancer                     192
+gender dysphoria           135
+breast cancer              135
+stroke                      75
+multiple sclerosis          65
+endometriosis               45
+bowel cancer                44
+type 1 diabetes             39
+melanoma                    38
+obesity                     37
+none specified              36
+cerebral palsy              35
+terminal cancer             33
+infertility                 32
+mental health issues        31
+covid-19                    27
+lung cancer                 27
+coronary artery disease     27
+hearing loss                26
+brain tumor                 26
 Name: count, dtype: int64</pre>
 </div>
 </div>
@@ -8293,10 +8429,10 @@ Name: count, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s2">"Target_completion ~ sentiment + smiling + gender + truth"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8309,79 +8445,27 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 49.8 ms (2024-12-16T10:16:21/2024-12-16T10:16:21)</pre>
+<pre>✔️ 13.6 ms (2025-06-23T12:11:57/2025-06-23T12:11:57)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<table class="simpletable">
-<caption>OLS Regression Results</caption>
-<tr>
-<th>Dep. Variable:</th> <td>Target_completion</td> <th>  R-squared:         </th> <td>   0.028</td>
-</tr>
-<tr>
-<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>   0.017</td>
-</tr>
-<tr>
-<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>   2.431</td>
-</tr>
-<tr>
-<th>Date:</th> <td>Mon, 16 Dec 2024</td> <th>  Prob (F-statistic):</th> <td>0.0344</td>
-</tr>
-<tr>
-<th>Time:</th> <td>10:16:21</td> <th>  Log-Likelihood:    </th> <td> -2277.8</td>
-</tr>
-<tr>
-<th>No. Observations:</th> <td>   421</td> <th>  AIC:               </th> <td>   4568.</td>
-</tr>
-<tr>
-<th>Df Residuals:</th> <td>   415</td> <th>  BIC:               </th> <td>   4592.</td>
-</tr>
-<tr>
-<th>Df Model:</th> <td>     5</td> <th> </th> <td> </td>
-</tr>
-<tr>
-<th>Covariance Type:</th> <td>nonrobust</td> <th> </th> <td> </td>
-</tr>
-</table>
-<table class="simpletable">
-<tr>
-<td></td> <th>coef</th> <th>std err</th> <th>t</th> <th>P&gt;|t|</th> <th>[0.025</th> <th>0.975]</th>
-</tr>
-<tr>
-<th>Intercept</th> <td>   25.2501</td> <td>   17.544</td> <td>    1.439</td> <td> 0.151</td> <td>   -9.236</td> <td>   59.737</td>
-</tr>
-<tr>
-<th>smiling[T.True]</th> <td>   11.7268</td> <td>    5.606</td> <td>    2.092</td> <td> 0.037</td> <td>    0.707</td> <td>   22.746</td>
-</tr>
-<tr>
-<th>gender[T.male]</th> <td>    9.4733</td> <td>    5.590</td> <td>    1.695</td> <td> 0.091</td> <td>   -1.514</td> <td>   20.461</td>
-</tr>
-<tr>
-<th>gender[T.other]</th> <td>    2.2159</td> <td>   11.663</td> <td>    0.190</td> <td> 0.849</td> <td>  -20.711</td> <td>   25.142</td>
-</tr>
-<tr>
-<th>sentiment</th> <td>   -0.3565</td> <td>    0.139</td> <td>   -2.565</td> <td> 0.011</td> <td>   -0.630</td> <td>   -0.083</td>
-</tr>
-<tr>
-<th>truth</th> <td>    0.3923</td> <td>    0.225</td> <td>    1.743</td> <td> 0.082</td> <td>   -0.050</td> <td>    0.835</td>
-</tr>
-</table>
-<table class="simpletable">
-<tr>
-<th>Omnibus:</th> <td>447.003</td> <th>  Durbin-Watson:     </th> <td>   2.107</td>
-</tr>
-<tr>
-<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>28466.226</td>
-</tr>
-<tr>
-<th>Skew:</th> <td> 4.583</td> <th>  Prob(JB):          </th> <td>    0.00</td>
-</tr>
-<tr>
-<th>Kurtosis:</th> <td>42.227</td> <th>  Cond. No.          </th> <td>    756.</td>
-</tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>sentiment
+70.0     1717
+80.0      603
+50.0      524
+60.0      493
+90.0      422
+30.0      258
+85.0      235
+20.0       64
+95.0       35
+40.0       28
+75.0       26
+10.0        5
+100.0       1
+Name: count, dtype: int64</pre>
 </div>
 </div>
 </div>
@@ -8391,10 +8475,10 @@ Name: count, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s2">"Target_completion ~ sentiment + smiling + gender + truth + urgency + ethnicity"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s2">"Target_completion ~ sentiment + smiling + gender + truth"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8411,33 +8495,33 @@ Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <table class="simpletable">
 <caption>OLS Regression Results</caption>
 <tr>
-<th>Dep. Variable:</th> <td>Target_completion</td> <th>  R-squared:         </th> <td>   0.056</td>
+<th>Dep. Variable:</th> <td>Target_completion</td> <th>  R-squared:         </th> <td>   0.001</td>
 </tr>
 <tr>
-<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>   0.023</td>
+<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>  -0.000</td>
 </tr>
 <tr>
-<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>   1.717</td>
+<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>  0.5780</td>
 </tr>
 <tr>
-<th>Date:</th> <td>Mon, 16 Dec 2024</td> <th>  Prob (F-statistic):</th> <td>0.0498</td>
+<th>Date:</th> <td>Mon, 23 Jun 2025</td> <th>  Prob (F-statistic):</th> <td> 0.717</td>
 </tr>
 <tr>
-<th>Time:</th> <td>10:02:42</td> <th>  Log-Likelihood:    </th> <td> -2271.8</td>
+<th>Time:</th> <td>12:11:59</td> <th>  Log-Likelihood:    </th> <td> -35588.</td>
 </tr>
 <tr>
-<th>No. Observations:</th> <td>   421</td> <th>  AIC:               </th> <td>   4574.</td>
+<th>No. Observations:</th> <td>  4411</td> <th>  AIC:               </th> <td>7.119e+04</td>
 </tr>
 <tr>
-<th>Df Residuals:</th> <td>   406</td> <th>  BIC:               </th> <td>   4634.</td>
+<th>Df Residuals:</th> <td>  4405</td> <th>  BIC:               </th> <td>7.123e+04</td>
 </tr>
 <tr>
-<th>Df Model:</th> <td>    14</td> <th> </th> <td> </td>
+<th>Df Model:</th> <td>     5</td> <th> </th> <td> </td>
 </tr>
 <tr>
 <th>Covariance Type:</th> <td>nonrobust</td> <th> </th> <td> </td>
@@ -8448,71 +8532,38 @@ Name: count, dtype: int64</pre>
 <td></td> <th>coef</th> <th>std err</th> <th>t</th> <th>P&gt;|t|</th> <th>[0.025</th> <th>0.975]</th>
 </tr>
 <tr>
-<th>Intercept</th> <td>   26.4122</td> <td>   17.882</td> <td>    1.477</td> <td> 0.140</td> <td>   -8.741</td> <td>   61.565</td>
+<th>Intercept</th> <td>   75.3435</td> <td>  266.765</td> <td>    0.282</td> <td> 0.778</td> <td> -447.650</td> <td>  598.337</td>
 </tr>
 <tr>
-<th>smiling[T.True]</th> <td>    6.0377</td> <td>    5.931</td> <td>    1.018</td> <td> 0.309</td> <td>   -5.622</td> <td>   17.697</td>
+<th>gender[T.male]</th> <td>   41.9276</td> <td>   25.599</td> <td>    1.638</td> <td> 0.102</td> <td>   -8.259</td> <td>   92.114</td>
 </tr>
 <tr>
-<th>gender[T.male]</th> <td>   11.5677</td> <td>    5.695</td> <td>    2.031</td> <td> 0.043</td> <td>    0.373</td> <td>   22.762</td>
+<th>gender[T.other]</th> <td>   12.6667</td> <td>   38.188</td> <td>    0.332</td> <td> 0.740</td> <td>  -62.200</td> <td>   87.534</td>
 </tr>
 <tr>
-<th>gender[T.other]</th> <td>   -0.8649</td> <td>   12.253</td> <td>   -0.071</td> <td> 0.944</td> <td>  -24.952</td> <td>   23.222</td>
+<th>sentiment</th> <td>    0.3024</td> <td>    0.808</td> <td>    0.374</td> <td> 0.708</td> <td>   -1.281</td> <td>    1.886</td>
 </tr>
 <tr>
-<th>ethnicity[T.asian]</th> <td>    6.1609</td> <td>   13.648</td> <td>    0.451</td> <td> 0.652</td> <td>  -20.668</td> <td>   32.990</td>
+<th>smiling</th> <td>   12.0683</td> <td>   24.375</td> <td>    0.495</td> <td> 0.621</td> <td>  -35.720</td> <td>   59.857</td>
 </tr>
 <tr>
-<th>ethnicity[T.black]</th> <td>  -11.2939</td> <td>   35.120</td> <td>   -0.322</td> <td> 0.748</td> <td>  -80.333</td> <td>   57.746</td>
-</tr>
-<tr>
-<th>ethnicity[T.fijian]</th> <td>  -21.1519</td> <td>   35.067</td> <td>   -0.603</td> <td> 0.547</td> <td>  -90.087</td> <td>   47.783</td>
-</tr>
-<tr>
-<th>ethnicity[T.filipino]</th> <td>   -7.9847</td> <td>   17.862</td> <td>   -0.447</td> <td> 0.655</td> <td>  -43.098</td> <td>   27.129</td>
-</tr>
-<tr>
-<th>ethnicity[T.indian]</th> <td>   -7.8303</td> <td>   12.386</td> <td>   -0.632</td> <td> 0.528</td> <td>  -32.178</td> <td>   16.518</td>
-</tr>
-<tr>
-<th>ethnicity[T.māori]</th> <td>   19.4902</td> <td>   15.153</td> <td>    1.286</td> <td> 0.199</td> <td>  -10.298</td> <td>   49.279</td>
-</tr>
-<tr>
-<th>ethnicity[T.other]</th> <td>    8.7906</td> <td>    8.971</td> <td>    0.980</td> <td> 0.328</td> <td>   -8.845</td> <td>   26.426</td>
-</tr>
-<tr>
-<th>ethnicity[T.pacific islander]</th> <td>   24.9362</td> <td>   12.777</td> <td>    1.952</td> <td> 0.052</td> <td>   -0.181</td> <td>   50.053</td>
-</tr>
-<tr>
-<th>ethnicity[T.south asian]</th> <td> -1.21e-15</td> <td> 2.09e-15</td> <td>   -0.579</td> <td> 0.563</td> <td>-5.32e-15</td> <td>  2.9e-15</td>
-</tr>
-<tr>
-<th>ethnicity[T.white]</th> <td>   15.2950</td> <td>    7.480</td> <td>    2.045</td> <td> 0.042</td> <td>    0.590</td> <td>   30.000</td>
-</tr>
-<tr>
-<th>sentiment</th> <td>   -0.2408</td> <td>    0.149</td> <td>   -1.613</td> <td> 0.108</td> <td>   -0.534</td> <td>    0.053</td>
-</tr>
-<tr>
-<th>truth</th> <td>    0.3866</td> <td>    0.231</td> <td>    1.675</td> <td> 0.095</td> <td>   -0.067</td> <td>    0.840</td>
-</tr>
-<tr>
-<th>urgency</th> <td>   -0.2515</td> <td>    0.146</td> <td>   -1.721</td> <td> 0.086</td> <td>   -0.539</td> <td>    0.036</td>
+<th>truth</th> <td>   -0.5875</td> <td>    3.071</td> <td>   -0.191</td> <td> 0.848</td> <td>   -6.608</td> <td>    5.433</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-<th>Omnibus:</th> <td>455.582</td> <th>  Durbin-Watson:     </th> <td>   2.077</td>
+<th>Omnibus:</th> <td>13559.696</td> <th>  Durbin-Watson:     </th> <td>   2.004</td>
 </tr>
 <tr>
-<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>31394.200</td>
+<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>1099445460.571</td>
 </tr>
 <tr>
-<th>Skew:</th> <td> 4.702</td> <th>  Prob(JB):          </th> <td>    0.00</td>
+<th>Skew:</th> <td>46.137</td> <th>  Prob(JB):          </th> <td>    0.00</td>
 </tr>
 <tr>
-<th>Kurtosis:</th> <td>44.246</td> <th>  Cond. No.          </th> <td>3.83e+19</td>
+<th>Kurtosis:</th> <td>2447.076</td> <th>  Cond. No.          </th> <td>2.62e+03</td>
 </tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The smallest eigenvalue is 5.31e-33. This might indicate that there are<br/>strong multicollinearity problems or that the design matrix is singular.
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 2.62e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.
 </div>
 </div>
 </div>
@@ -8522,7 +8573,168 @@ Name: count, dtype: int64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s2">"Target_completion ~ sentiment + smiling + gender + truth + urgency + ethnicity"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<pre>✔️ 157 ms (2025-06-23T12:12:10/2025-06-23T12:12:10)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+<th>Dep. Variable:</th> <td>Target_completion</td> <th>  R-squared:         </th> <td>   0.002</td>
+</tr>
+<tr>
+<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>  -0.004</td>
+</tr>
+<tr>
+<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>  0.3153</td>
+</tr>
+<tr>
+<th>Date:</th> <td>Mon, 23 Jun 2025</td> <th>  Prob (F-statistic):</th> <td>  1.00</td>
+</tr>
+<tr>
+<th>Time:</th> <td>12:12:10</td> <th>  Log-Likelihood:    </th> <td> -35586.</td>
+</tr>
+<tr>
+<th>No. Observations:</th> <td>  4411</td> <th>  AIC:               </th> <td>7.123e+04</td>
+</tr>
+<tr>
+<th>Df Residuals:</th> <td>  4384</td> <th>  BIC:               </th> <td>7.140e+04</td>
+</tr>
+<tr>
+<th>Df Model:</th> <td>    26</td> <th> </th> <td> </td>
+</tr>
+<tr>
+<th>Covariance Type:</th> <td>nonrobust</td> <th> </th> <td> </td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+<td></td> <th>coef</th> <th>std err</th> <th>t</th> <th>P&gt;|t|</th> <th>[0.025</th> <th>0.975]</th>
+</tr>
+<tr>
+<th>Intercept</th> <td>   18.7330</td> <td>  292.516</td> <td>    0.064</td> <td> 0.949</td> <td> -554.747</td> <td>  592.213</td>
+</tr>
+<tr>
+<th>gender[T.male]</th> <td>   43.9074</td> <td>   25.822</td> <td>    1.700</td> <td> 0.089</td> <td>   -6.716</td> <td>   94.531</td>
+</tr>
+<tr>
+<th>gender[T.other]</th> <td>   28.5860</td> <td>   42.725</td> <td>    0.669</td> <td> 0.503</td> <td>  -55.177</td> <td>  112.349</td>
+</tr>
+<tr>
+<th>ethnicity[T.Asian]</th> <td>    0.6342</td> <td>  119.793</td> <td>    0.005</td> <td> 0.996</td> <td> -234.221</td> <td>  235.490</td>
+</tr>
+<tr>
+<th>ethnicity[T.Caucasian]</th> <td>   50.6678</td> <td>  104.354</td> <td>    0.486</td> <td> 0.627</td> <td> -153.918</td> <td>  255.254</td>
+</tr>
+<tr>
+<th>ethnicity[T.East Asian]</th> <td>    1.5373</td> <td>  157.629</td> <td>    0.010</td> <td> 0.992</td> <td> -307.495</td> <td>  310.569</td>
+</tr>
+<tr>
+<th>ethnicity[T.European/New Zealander]</th> <td>   10.9025</td> <td>  219.228</td> <td>    0.050</td> <td> 0.960</td> <td> -418.896</td> <td>  440.701</td>
+</tr>
+<tr>
+<th>ethnicity[T.Fijian]</th> <td>    4.2426</td> <td>  185.896</td> <td>    0.023</td> <td> 0.982</td> <td> -360.207</td> <td>  368.692</td>
+</tr>
+<tr>
+<th>ethnicity[T.Filipino]</th> <td>  -17.9307</td> <td>  147.171</td> <td>   -0.122</td> <td> 0.903</td> <td> -306.461</td> <td>  270.600</td>
+</tr>
+<tr>
+<th>ethnicity[T.Filipino/Asian]</th> <td>  -31.6723</td> <td>  169.751</td> <td>   -0.187</td> <td> 0.852</td> <td> -364.470</td> <td>  301.125</td>
+</tr>
+<tr>
+<th>ethnicity[T.Hispanic/Latino]</th> <td>   13.9629</td> <td>  195.204</td> <td>    0.072</td> <td> 0.943</td> <td> -368.735</td> <td>  396.661</td>
+</tr>
+<tr>
+<th>ethnicity[T.Indian]</th> <td>  -19.0436</td> <td>  151.388</td> <td>   -0.126</td> <td> 0.900</td> <td> -315.841</td> <td>  277.754</td>
+</tr>
+<tr>
+<th>ethnicity[T.Latin American/Hispanic]</th> <td>   -2.3655</td> <td>  176.925</td> <td>   -0.013</td> <td> 0.989</td> <td> -349.228</td> <td>  344.497</td>
+</tr>
+<tr>
+<th>ethnicity[T.Mixed]</th> <td>   12.5670</td> <td>  162.744</td> <td>    0.077</td> <td> 0.938</td> <td> -306.494</td> <td>  331.628</td>
+</tr>
+<tr>
+<th>ethnicity[T.Māori]</th> <td>   12.3746</td> <td>  113.076</td> <td>    0.109</td> <td> 0.913</td> <td> -209.311</td> <td>  234.061</td>
+</tr>
+<tr>
+<th>ethnicity[T.Not applicable]</th> <td>   21.9954</td> <td>  211.458</td> <td>    0.104</td> <td> 0.917</td> <td> -392.569</td> <td>  436.560</td>
+</tr>
+<tr>
+<th>ethnicity[T.Not specified]</th> <td>   10.5634</td> <td>  127.976</td> <td>    0.083</td> <td> 0.934</td> <td> -240.334</td> <td>  261.461</td>
+</tr>
+<tr>
+<th>ethnicity[T.Pacific Islander]</th> <td>    3.7364</td> <td>  121.340</td> <td>    0.031</td> <td> 0.975</td> <td> -234.151</td> <td>  241.623</td>
+</tr>
+<tr>
+<th>ethnicity[T.South Asian]</th> <td>  -19.3334</td> <td>  115.996</td> <td>   -0.167</td> <td> 0.868</td> <td> -246.745</td> <td>  208.078</td>
+</tr>
+<tr>
+<th>ethnicity[T.South Asian/Indian]</th> <td>  -25.1335</td> <td>  166.575</td> <td>   -0.151</td> <td> 0.880</td> <td> -351.705</td> <td>  301.438</td>
+</tr>
+<tr>
+<th>ethnicity[T.Unknown]</th> <td>    6.7182</td> <td>  125.145</td> <td>    0.054</td> <td> 0.957</td> <td> -238.628</td> <td>  252.065</td>
+</tr>
+<tr>
+<th>ethnicity[T.White]</th> <td>    3.0813</td> <td>  161.579</td> <td>    0.019</td> <td> 0.985</td> <td> -313.695</td> <td>  319.858</td>
+</tr>
+<tr>
+<th>ethnicity[T.other]</th> <td>   39.3088</td> <td>  110.101</td> <td>    0.357</td> <td> 0.721</td> <td> -176.544</td> <td>  255.162</td>
+</tr>
+<tr>
+<th>sentiment</th> <td>    0.7953</td> <td>    0.868</td> <td>    0.916</td> <td> 0.360</td> <td>   -0.907</td> <td>    2.498</td>
+</tr>
+<tr>
+<th>smiling</th> <td>    1.6201</td> <td>   25.800</td> <td>    0.063</td> <td> 0.950</td> <td>  -48.961</td> <td>   52.201</td>
+</tr>
+<tr>
+<th>truth</th> <td>   -2.2542</td> <td>    3.265</td> <td>   -0.690</td> <td> 0.490</td> <td>   -8.655</td> <td>    4.146</td>
+</tr>
+<tr>
+<th>urgency</th> <td>    1.7363</td> <td>    1.272</td> <td>    1.365</td> <td> 0.172</td> <td>   -0.757</td> <td>    4.229</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+<th>Omnibus:</th> <td>13559.342</td> <th>  Durbin-Watson:     </th> <td>   2.006</td>
+</tr>
+<tr>
+<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>1100526885.319</td>
+</tr>
+<tr>
+<th>Skew:</th> <td>46.133</td> <th>  Prob(JB):          </th> <td>    0.00</td>
+</tr>
+<tr>
+<th>Kurtosis:</th> <td>2448.279</td> <th>  Cond. No.          </th> <td>5.99e+03</td>
+</tr>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 5.99e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
@@ -8542,15 +8754,16 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 581 ms (2024-12-16T10:14:49/2024-12-16T10:14:50)</pre>
+<pre>⌛ 1.93 µs (2025-06-23T12:12:28)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<style>#sk-container-id-3 {
+<style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -8578,15 +8791,15 @@ Name: count, dtype: int64</pre>
   }
 }
 
-#sk-container-id-3 {
+#sk-container-id-1 {
   color: var(--sklearn-color-text);
 }
 
-#sk-container-id-3 pre {
+#sk-container-id-1 pre {
   padding: 0;
 }
 
-#sk-container-id-3 input.sk-hidden--visually {
+#sk-container-id-1 input.sk-hidden--visually {
   border: 0;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
@@ -8598,7 +8811,7 @@ Name: count, dtype: int64</pre>
   width: 1px;
 }
 
-#sk-container-id-3 div.sk-dashed-wrapped {
+#sk-container-id-1 div.sk-dashed-wrapped {
   border: 1px dashed var(--sklearn-color-line);
   margin: 0 0.4em 0.5em 0.4em;
   box-sizing: border-box;
@@ -8606,7 +8819,7 @@ Name: count, dtype: int64</pre>
   background-color: var(--sklearn-color-background);
 }
 
-#sk-container-id-3 div.sk-container {
+#sk-container-id-1 div.sk-container {
   /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
      but bootstrap.min.css set `[hidden] { display: none !important; }`
      so we also need the `!important` here to be able to override the
@@ -8616,7 +8829,7 @@ Name: count, dtype: int64</pre>
   position: relative;
 }
 
-#sk-container-id-3 div.sk-text-repr-fallback {
+#sk-container-id-1 div.sk-text-repr-fallback {
   display: none;
 }
 
@@ -8632,14 +8845,14 @@ div.sk-item {
 
 /* Parallel-specific style estimator block */
 
-#sk-container-id-3 div.sk-parallel-item::after {
+#sk-container-id-1 div.sk-parallel-item::after {
   content: "";
   width: 100%;
   border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
   flex-grow: 1;
 }
 
-#sk-container-id-3 div.sk-parallel {
+#sk-container-id-1 div.sk-parallel {
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -8647,28 +8860,28 @@ div.sk-item {
   position: relative;
 }
 
-#sk-container-id-3 div.sk-parallel-item {
+#sk-container-id-1 div.sk-parallel-item {
   display: flex;
   flex-direction: column;
 }
 
-#sk-container-id-3 div.sk-parallel-item:first-child::after {
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
   align-self: flex-end;
   width: 50%;
 }
 
-#sk-container-id-3 div.sk-parallel-item:last-child::after {
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
   align-self: flex-start;
   width: 50%;
 }
 
-#sk-container-id-3 div.sk-parallel-item:only-child::after {
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
   width: 0;
 }
 
 /* Serial-specific style estimator block */
 
-#sk-container-id-3 div.sk-serial {
+#sk-container-id-1 div.sk-serial {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8686,24 +8899,33 @@ clickable and can be expanded/collapsed.
 
 /* Pipeline and ColumnTransformer style (default) */
 
-#sk-container-id-3 div.sk-toggleable {
+#sk-container-id-1 div.sk-toggleable {
   /* Default theme specific background. It is overwritten whether we have a
   specific estimator or a Pipeline/ColumnTransformer */
   background-color: var(--sklearn-color-background);
 }
 
 /* Toggleable label */
-#sk-container-id-3 label.sk-toggleable__label {
+#sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
 }
 
-#sk-container-id-3 label.sk-toggleable__label-arrow:before {
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
   /* Arrow on the left of the label */
   content: "▸";
   float: left;
@@ -8711,27 +8933,25 @@ clickable and can be expanded/collapsed.
   color: var(--sklearn-color-icon);
 }
 
-#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
   color: var(--sklearn-color-text);
 }
 
 /* Toggleable content - dropdown */
 
-#sk-container-id-3 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
+#sk-container-id-1 div.sk-toggleable__content {
+  display: none;
   text-align: left;
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-3 div.sk-toggleable__content.fitted {
+#sk-container-id-1 div.sk-toggleable__content.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-3 div.sk-toggleable__content pre {
+#sk-container-id-1 div.sk-toggleable__content pre {
   margin: 0.2em;
   border-radius: 0.25em;
   color: var(--sklearn-color-text);
@@ -8739,79 +8959,79 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-3 div.sk-toggleable__content.fitted pre {
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
   /* unfitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
-#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
   /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
+  display: block;
+  width: 100%;
+  overflow: visible;
 }
 
-#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
   content: "▾";
 }
 
 /* Pipeline/ColumnTransformer-specific style */
 
-#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-3 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator-specific style */
 
 /* Colorize estimator box */
-#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-3 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
-#sk-container-id-3 div.sk-label label.sk-toggleable__label,
-#sk-container-id-3 div.sk-label label {
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
   /* The background is the default theme color */
   color: var(--sklearn-color-text-on-default-background);
 }
 
 /* On hover, darken the color of the background */
-#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
 /* Label box, darken color on hover, fitted */
-#sk-container-id-3 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
   color: var(--sklearn-color-text);
   background-color: var(--sklearn-color-fitted-level-2);
 }
 
 /* Estimator label */
 
-#sk-container-id-3 div.sk-label label {
+#sk-container-id-1 div.sk-label label {
   font-family: monospace;
   font-weight: bold;
   display: inline-block;
   line-height: 1.2em;
 }
 
-#sk-container-id-3 div.sk-label-container {
+#sk-container-id-1 div.sk-label-container {
   text-align: center;
 }
 
 /* Estimator-specific */
-#sk-container-id-3 div.sk-estimator {
+#sk-container-id-1 div.sk-estimator {
   font-family: monospace;
   border: 1px dotted var(--sklearn-color-border-box);
   border-radius: 0.25em;
@@ -8821,18 +9041,18 @@ clickable and can be expanded/collapsed.
   background-color: var(--sklearn-color-unfitted-level-0);
 }
 
-#sk-container-id-3 div.sk-estimator.fitted {
+#sk-container-id-1 div.sk-estimator.fitted {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-0);
 }
 
 /* on hover */
-#sk-container-id-3 div.sk-estimator:hover {
+#sk-container-id-1 div.sk-estimator:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-2);
 }
 
-#sk-container-id-3 div.sk-estimator.fitted:hover {
+#sk-container-id-1 div.sk-estimator.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-2);
 }
@@ -8853,7 +9073,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -8919,7 +9140,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 /* "?"-specific style due to the `<a>` HTML tag */
 
-#sk-container-id-3 a.estimator_doc_link {
+#sk-container-id-1 a.estimator_doc_link {
   float: right;
   font-size: 1rem;
   line-height: 1em;
@@ -8934,25 +9155,249 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
 }
 
-#sk-container-id-3 a.estimator_doc_link.fitted {
+#sk-container-id-1 a.estimator_doc_link.fitted {
   /* fitted */
   border: var(--sklearn-color-fitted-level-1) 1pt solid;
   color: var(--sklearn-color-fitted-level-1);
 }
 
 /* On hover */
-#sk-container-id-3 a.estimator_doc_link:hover {
+#sk-container-id-1 a.estimator_doc_link:hover {
   /* unfitted */
   background-color: var(--sklearn-color-unfitted-level-3);
   color: var(--sklearn-color-background);
   text-decoration: none;
 }
 
-#sk-container-id-3 a.estimator_doc_link.fitted:hover {
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div class="sk-top-container" id="sk-container-id-3"><div class="sk-text-repr-fallback"><pre>RandomForestRegressor()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input checked="" class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"/><label class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted" for="sk-estimator-id-3">  RandomForestRegressor<a class="sk-estimator-doc-link fitted" href="https://scikit-learn.org/1.4/modules/generated/sklearn.ensemble.RandomForestRegressor.html" rel="noreferrer" target="_blank">?<span>Documentation for RandomForestRegressor</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>RandomForestRegressor()</pre></div> </div></div></div></div>
+
+.estimator-table summary {
+    padding: .5rem;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+.estimator-table details[open] {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.estimator-table .parameters-table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.estimator-table .parameters-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.estimator-table .parameters-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.estimator-table .parameters-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+.estimator-table table td {
+    border: 1px solid rgba(106, 105, 104, 0.232);
+}
+
+.user-set td {
+    color:rgb(255, 94, 0);
+    text-align: left;
+}
+
+.user-set td.value pre {
+    color:rgb(255, 94, 0) !important;
+    background-color: transparent !important;
+}
+
+.default td {
+    color: black;
+    text-align: left;
+}
+
+.user-set td i,
+.default td i {
+    color: black;
+}
+
+.copy-paste-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+</style><body><div class="sk-top-container" id="sk-container-id-1"><div class="sk-text-repr-fallback"><pre>RandomForestRegressor()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input checked="" class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"/><label class="sk-toggleable__label fitted sk-toggleable__label-arrow" for="sk-estimator-id-1"><div><div>RandomForestRegressor</div></div><div><a class="sk-estimator-doc-link fitted" href="https://scikit-learn.org/1.7/modules/generated/sklearn.ensemble.RandomForestRegressor.html" rel="noreferrer" target="_blank">?<span>Documentation for RandomForestRegressor</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
+<div class="estimator-table">
+<details>
+<summary>Parameters</summary>
+<table class="parameters-table">
+<tbody>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('n_estimators',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">n_estimators </td>
+<td class="value">100</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('criterion',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">criterion </td>
+<td class="value">'squared_error'</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('max_depth',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">max_depth </td>
+<td class="value">None</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('min_samples_split',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">min_samples_split </td>
+<td class="value">2</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('min_samples_leaf',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">min_samples_leaf </td>
+<td class="value">1</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('min_weight_fraction_leaf',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">min_weight_fraction_leaf </td>
+<td class="value">0.0</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('max_features',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">max_features </td>
+<td class="value">1.0</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('max_leaf_nodes',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">max_leaf_nodes </td>
+<td class="value">None</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('min_impurity_decrease',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">min_impurity_decrease </td>
+<td class="value">0.0</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('bootstrap',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">bootstrap </td>
+<td class="value">True</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('oob_score',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">oob_score </td>
+<td class="value">False</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('n_jobs',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">n_jobs </td>
+<td class="value">None</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('random_state',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">random_state </td>
+<td class="value">None</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('verbose',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">verbose </td>
+<td class="value">0</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('warm_start',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">warm_start </td>
+<td class="value">False</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('ccp_alpha',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">ccp_alpha </td>
+<td class="value">0.0</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('max_samples',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">max_samples </td>
+<td class="value">None</td>
+</tr>
+<tr class="default">
+<td><i class="copy-paste-icon" onclick="copyToClipboard('monotonic_cst',
+                          this.parentElement.nextElementSibling)"></i></td>
+<td class="param">monotonic_cst </td>
+<td class="value">None</td>
+</tr>
+</tbody>
+</table>
+</details>
+</div>
+</div></div></div></div></div><script>function copyToClipboard(text, element) {
+    // Get the parameter prefix from the closest toggleable content
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
+
+    const originalStyle = element.style;
+    const computedStyle = window.getComputedStyle(element);
+    const originalWidth = computedStyle.width;
+    const originalHTML = element.innerHTML.replace('Copied!', '');
+
+    navigator.clipboard.writeText(fullParamName)
+        .then(() => {
+            element.style.width = originalWidth;
+            element.style.color = 'green';
+            element.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'red';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        });
+    return false;
+}
+
+document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const paramName = element.parentElement.nextElementSibling.textContent.trim();
+    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
+
+    element.setAttribute('title', fullParamName);
+});
+</script></body>
 </div>
 </div>
 </div>
@@ -8962,7 +9407,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
@@ -8978,18 +9423,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<pre>✔️ 13.4 ms (2024-12-16T10:15:01/2024-12-16T10:15:01)</pre>
+<pre>✔️ 32.7 ms (2025-06-23T12:12:31/2025-06-23T12:12:31)</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>[('sentiment', 0.29360972579137923),
- ('smiling', 0.1918739363914363),
- ('gender', 0.21766417627244206),
- ('truth', 0.03354045864811954),
- ('urgency', 0.00725001053236176),
- ('ethnicity', 0.0019828296882488)]</pre>
+<pre>[('sentiment', np.float64(0.39299137046674376)),
+ ('smiling', np.float64(0.11223198470201788)),
+ ('gender', np.float64(0.0742451045880252)),
+ ('truth', np.float64(0.19745166547225454)),
+ ('urgency', np.float64(0.02427764589988352)),
+ ('ethnicity', np.float64(0.03648669228377975))]</pre>
 </div>
 </div>
 </div>
