@@ -7541,7 +7541,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 2.16 s (started: 2025-06-25 12:26:34 +12:00)
+<pre>time: 2.08 s (started: 2025-06-25 14:26:30 +12:00)
 </pre>
 </div>
 </div>
@@ -7552,7 +7552,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"givealittle_health.xlsx"</span><span class="p">)</span>
@@ -7582,7 +7582,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7911,7 +7911,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 5.42 s (started: 2025-06-25 12:28:12 +12:00)
+<pre>time: 5.49 s (started: 2025-06-25 14:26:32 +12:00)
 </pre>
 </div>
 </div>
@@ -7964,7 +7964,7 @@ You have video processor config saved in `preprocessor.json` file which is depre
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 47 s (started: 2025-06-25 12:26:41 +12:00)
+<pre>time: 37.7 s (started: 2025-06-25 14:26:38 +12:00)
 </pre>
 </div>
 </div>
@@ -7975,7 +7975,7 @@ You have video processor config saved in `preprocessor.json` file which is depre
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)):</span>
@@ -8030,7 +8030,7 @@ You have video processor config saved in `preprocessor.json` file which is depre
 <span class="s2">                    deservingness: a number from 0-100, indicating how deserving the person is of receiving funds, where 100 is the most deserving, and 0 is the least deserving</span>
 <span class="s2">                    attractiveness: a number from 0-100, indicating how attractive the person is, where 100 is the most attractive, and 0 is the least attractive</span>
 <span class="s2">                    use: The main use of the raised funds - one or more (comma separated) of: medical expenses, experimental therapies, travel expenses, lost wages</span>
-<span class="s2">                    region: The region in New Zealand where the person is located, one of: Northland, Auckland, Waikato, Bay of Plenty, Gisborne, Hawke's Bay, Taranaki, Manuatū-Whanganui, Wellington, Tasman, Nelson, Marlborough, West Coast, Canterbury, Otago, Southland</span>
+<span class="s2">                    region: The region in New Zealand where the person is located, one of: Northland, Auckland, Waikato, Bay of Plenty, Gisborne, Hawke's Bay, Taranaki, Manuwatū-Whanganui, Wellington, Tasman, Nelson, Marlborough, West Coast, Canterbury, Otago, Southland</span>
 <span class="s2">                    narrative_clarity: a number from 0-100, indicating how clear the narrative is, where 100 is the most clear, and 0 is the least clear</span>
 <span class="s2">                    narrative_quality: a number from 0-100, indicating how well written the narrative is</span>
 <span class="s2">                    emotional_tone: grateful | desperate | hopeful | neutral | etc</span>
@@ -8067,6 +8067,7 @@ You have video processor config saved in `preprocessor.json` file which is depre
     <span class="n">generated_ids_trimmed</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">out_ids</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">in_ids</span><span class="p">)</span> <span class="p">:]</span> <span class="k">for</span> <span class="n">in_ids</span><span class="p">,</span> <span class="n">out_ids</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">input_ids</span><span class="p">,</span> <span class="n">generated_ids</span><span class="p">)</span>
     <span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">generated_ids_trimmed</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">"tokens in output"</span><span class="p">)</span>
     <span class="n">output_text</span> <span class="o">=</span> <span class="n">processor</span><span class="o">.</span><span class="n">batch_decode</span><span class="p">(</span>
         <span class="n">generated_ids_trimmed</span><span class="p">,</span> <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">clean_up_tokenization_spaces</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -8124,18 +8125,18 @@ Location: Porirua, Wellington
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1599 tokens in input
+<pre>1600 tokens in input
+286 tokens in output
 Output:
-{'ICD': 'Chapter S00-T88 - Injury, poisoning and certain other consequences of '
-        'external causes',
- 'ICD10': 'S13.4',
+{'ICD': 'Chapter G00-G99 - Diseases of the nervous system',
+ 'ICD10': 'G83.0',
  'age': 'Indeterminate/unknown',
  'age_group': 'Indeterminate/unknown',
  'attractiveness': 70,
  'condition': 'C4 and C5 spinal injury',
  'deservingness': 95,
  'emotional_tone': 'hopeful',
- 'ethnicity': 'Māori (based on visual appearance)',
+ 'ethnicity': 'Māori (based on appearance in the image)',
  'face_visible': True,
  'facial_expression': 'smiling',
  'gender': 'Male',
@@ -8145,8 +8146,8 @@ Output:
  'narrative_clarity': 85,
  'narrative_quality': 80,
  'notes': 'Age and age group were not explicitly mentioned in the text, so '
-          'they are marked as indeterminate. Ethnicity was inferred from the '
-          'image.',
+          "they are marked as 'indeterminate/unknown'. Ethnicity was inferred "
+          'from the image.',
  'region': 'Wellington',
  'sentiment': 70,
  'smiling': True,
@@ -8184,7 +8185,8 @@ Location: Nationwide
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1498 tokens in input
+<pre>1499 tokens in input
+277 tokens in output
 Output:
 {'ICD': 'Chapter E00-E89 - Endocrine, nutritional and metabolic diseases',
  'ICD10': 'E75.3',
@@ -8204,9 +8206,7 @@ Output:
  'narrative_clarity': 85,
  'narrative_quality': 80,
  'notes': 'The text mentions a rare terminal disease with no cure or '
-          'treatment, emphasizing the urgency and emotional tone. The image '
-          'shows a young girl in a wheelchair holding a baby, which aligns '
-          'with the description.',
+          'treatment, emphasizing the urgency and severity of the situation.',
  'region': 'Nationwide',
  'sentiment': 80,
  'smiling': True,
@@ -8251,7 +8251,8 @@ Location: Cromwell, Otago
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1702 tokens in input
+<pre>1703 tokens in input
+250 tokens in output
 Output:
 {'ICD': 'Chapter C00-D49 - Neoplasms',
  'ICD10': 'C50',
@@ -8310,7 +8311,8 @@ Location: Auckland
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1528 tokens in input
+<pre>1529 tokens in input
+293 tokens in output
 Output:
 {'ICD': 'Chapter F01-F99 - Mental, Behavioral and Neurodevelopmental disorders',
  'ICD10': 'F32.9',
@@ -8330,9 +8332,9 @@ Output:
  'name': 'Not specified',
  'narrative_clarity': 85,
  'narrative_quality': 80,
- 'notes': 'The text does not specify an individual but rather focuses on a '
+ 'notes': 'The text does not specify a particular individual but focuses on a '
           'service for women. Ethnicity was inferred based on the cultural '
-          "context of New Zealand and the organization's focus.",
+          'context of New Zealand.',
  'region': 'Auckland',
  'sentiment': 70,
  'smiling': False,
@@ -8368,7 +8370,8 @@ Location: Nationwide
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1666 tokens in input
+<pre>1667 tokens in input
+264 tokens in output
 Output:
 {'ICD': 'Chapter Q00-Q99 - Congenital malformations, deformations and '
         'chromosomal abnormalities',
@@ -8393,11 +8396,11 @@ Output:
  'sentiment': 70,
  'smiling': False,
  'truth': 90,
- 'urgency': 80,
+ 'urgency': 85,
  'use': 'medical expenses'}
 
 
-time: 2min 22s (started: 2025-06-25 12:47:48 +12:00)
+time: 2min 23s (started: 2025-06-25 14:27:16 +12:00)
 </pre>
 </div>
 </div>
