@@ -1,4 +1,4 @@
-jupyter-autotime
+ipython-autotime
 requests-cache
 requests-html
 lxml[html_clean]
