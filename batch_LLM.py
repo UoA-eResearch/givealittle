@@ -3,7 +3,7 @@
 import pandas as pd
 import requests
 from pprint import pprint
-import json
+import json5 as json # This is a more forgiving JSON parser that can handle comments, single quotes, and trailing commas
 import torch
 from PIL import Image
 from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
@@ -14,8 +14,21 @@ import time
 import os
 
 df = pd.read_excel("givealittle_health.xlsx")
-df.fillna("", inplace=True)
-df["text"] = df.title.str.cat(df[["title", "pitch", "description", "use_of_funds", "updates"]].astype(str), sep=" ")
+def get_text(row):
+  text = ""
+  if not pd.isna(row["title"]):
+    text += "Title: " + row["title"] + "\n"
+  if not pd.isna(row["pitch"]):
+    text += "Pitch: " + row["pitch"] + "\n"
+  if not pd.isna(row["description"]): # Description includes use_of_funds
+    text += "Description: " + row["description"] + "\n"
+  if not pd.isna(row["updates"]):
+    text += "Updates: " + row["updates"] + "\n"
+  if not pd.isna(row["location"]):
+    text += "Location: " + row["location"] + "\n"
+  return text.strip()
+
+df["text"] = df.apply(get_text, axis=1)
 
 # It's best to cache images locally, to avoid running into rate limits. The hero_images folder is only 180MB in total for 11,205 images.
 os.makedirs("hero_images", exist_ok=True)
@@ -37,11 +50,33 @@ prompt = """
     For the text below, extract the following information, in JSON format:
     condition: the primary health condition mentioned in the text
     ICD10: the ICD10 code for the primary health condition
-    ICD: the top level ICD chapter for the primary health condition
+    ICD: the top level ICD chapter for the primary health condition. One of:
+        Chapter A00-B99 - Certain infectious and parasitic diseases
+        Chapter C00-D49 - Neoplasms
+        Chapter D50-D89 - Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism
+        Chapter E00-E89 - Endocrine, nutritional and metabolic diseases
+        Chapter F01-F99 - Mental, Behavioral and Neurodevelopmental disorders
+        Chapter G00-G99 - Diseases of the nervous system
+        Chapter H00-H59 - Diseases of the eye and adnexa
+        Chapter H60-H95 - Diseases of the ear and mastoid process
+        Chapter I00-I99 - Diseases of the circulatory system
+        Chapter J00-J99 - Diseases of the respiratory system
+        Chapter K00-K95 - Diseases of the digestive system
+        Chapter L00-L99 - Diseases of the skin and subcutaneous tissue
+        Chapter M00-M99 - Diseases of the musculoskeletal system and connective tissue
+        Chapter N00-N99 - Diseases of the genitourinary system
+        Chapter O00-O9A - Pregnancy, childbirth and the puerperium
+        Chapter P00-P96 - Certain conditions originating in the perinatal period
+        Chapter Q00-Q99 - Congenital malformations, deformations and chromosomal abnormalities
+        Chapter R00-R99 - Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified
+        Chapter S00-T88 - Injury, poisoning and certain other consequences of external causes
+        Chapter V00-Y99 - External causes of morbidity
+        Chapter Z00-Z99 - Factors influencing health status and contact with health services
+        Chapter U00-U85 - Codes for special purposes
     name: the name of the person this campaign is for
-    gender: the gender of the person this campaign is for
+    gender: the gender of the person this campaign is for, one of Male, Female or Other/unknown
     age: the age of the person this campaign is for
-    age_group: the age group of the person this campaign is for, one of 0-14, 15-64, 65+
+    age_group: the age group of the person this campaign is for, one of 0-14, 15-64, 65+ or indeterminate/unknown
     ethnicity: the ethnicity of the person this campaign is for. If not mentioned in the text, guess their ethnicity from the image.
     urgency: a number from 0-100, indicating how urgent the need is
     sentiment: a number from 0-100, indicating the sentiment of the text, where 100 is the most positive, and 0 is the most negative
@@ -50,7 +85,15 @@ prompt = """
     smiling: a boolean indicating whether the person in the image is smiling
     deservingness: a number from 0-100, indicating how deserving the person is of receiving funds, where 100 is the most deserving, and 0 is the least deserving
     attractiveness: a number from 0-100, indicating how attractive the person is, where 100 is the most attractive, and 0 is the least attractive
-    use: The primary use of the raised funds - one of: medical expenses, experimental therapies, travel expenses, lost wages
+    use: The main use of the raised funds - one or more (comma separated) of: medical expenses, experimental therapies, travel expenses, lost wages
+    region: The region in New Zealand where the person is located, one of: Northland, Auckland, Waikato, Bay of Plenty, Gisborne, Hawke's Bay, Taranaki, Manuwatū-Whanganui, Wellington, Tasman, Nelson, Marlborough, West Coast, Canterbury, Otago, Southland
+    narrative_clarity: a number from 0-100, indicating how clear the narrative is, where 100 is the most clear, and 0 is the least clear
+    narrative_quality: a number from 0-100, indicating how well written the narrative is
+    emotional_tone: grateful | desperate | hopeful | neutral | etc
+    image_type: selfie | portrait | symbolic | environment | group | other
+    face_visible: true | false
+    facial_expression: smiling | neutral | serious | emotional | not_detectable
+    image_quality: high | medium | low
 
     Do not include comments in your JSON response. Only respond with the JSON object. Make sure the JSON is valid
 """
@@ -66,6 +109,8 @@ model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
 processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-32B-Instruct")
 
 results = []
+# This will take a long time to run, so be patient. It processes 11,213 rows in about 62 hours.
+# 100%|██████████| 11213/11213 [61:54:27<00:00, 19.88s/it]
 for row in tqdm(df.itertuples(), total=len(df)):
     #print("Input:")
     #print(row.uri)
