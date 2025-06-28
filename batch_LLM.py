@@ -14,6 +14,9 @@ import time
 import os
 
 df = pd.read_excel("givealittle_health.xlsx")
+done = pd.read_excel("LLM_results.xlsx")
+df = df[~df.uri.isin(done.uri)]  # Remove rows that are already done
+
 def get_text(row):
   text = ""
   if not pd.isna(row["title"]):
@@ -167,11 +170,12 @@ for row in tqdm(df.itertuples(), total=len(df)):
             #print("\n")
             results.append(row_dict)
             break
-        except json.JSONDecodeError:
+        except Exception as e:
             print(f"Unable to parse: {result}")
 
     if row.Index % 100 == 0:
         print(f"Processed {row.Index} rows, saving results...")
-        pd.DataFrame(results).to_excel("LLM_results.xlsx", index=False)
+        pd.concat([done, pd.DataFrame(results)]).to_excel("LLM_results.xlsx", index=False)
 
-pd.DataFrame(results).to_excel("LLM_results.xlsx", index=False)
+pd.concat([done, pd.DataFrame(results)]).to_excel("LLM_results.xlsx", index=False)
+print("Done")
