@@ -7543,7 +7543,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 1.61 s (started: 2025-06-27 20:34:12 +12:00)
+<pre>time: 1.37 s (started: 2025-06-30 07:28:45 +12:00)
 </pre>
 </div>
 </div>
@@ -7557,7 +7557,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"LLM_results_cleaned.xlsx"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"LLM_results.xlsx"</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">timeLeft</span> <span class="o">==</span> <span class="s2">"closed"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">goal</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">sentiment</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sentiment</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">truth</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">truth</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
@@ -7633,13 +7633,20 @@ a.anchor-link {
 <th>deservingness</th>
 <th>attractiveness</th>
 <th>use</th>
+<th>region</th>
+<th>narrative_clarity</th>
+<th>narrative_quality</th>
+<th>emotional_tone</th>
+<th>image_type</th>
+<th>face_visible</th>
+<th>facial_expression</th>
+<th>image_quality</th>
 <th>Target_completion</th>
-<th>Charity</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th>0</th>
+<th>31</th>
 <td>31</td>
 <td>Helping a person in need</td>
 <td>Helping out a person in need that would drop his hat to help someone else</td>
@@ -7662,28 +7669,35 @@ a.anchor-link {
 <td>3.0</td>
 <td>Big thanks\n7 June 2025\nHey team huge thanks to all that have donated Tok is humbled beyond wor...</td>
 <td>NaN</td>
-<td>Helping a person in need Helping a person in need Helping out a person in need that would drop h...</td>
+<td>Title: Helping a person in need\nPitch: Helping out a person in need that would drop his hat to ...</td>
 <td>Muscle tear leading to internal bleeding and infection</td>
 <td>S86.0</td>
-<td>Injury, poisoning and certain other consequences of external causes</td>
+<td>Chapter S00-T88 - Injury, poisoning and certain other consequences of external causes</td>
 <td>Tok</td>
-<td>male</td>
-<td>35</td>
-<td>15-64</td>
-<td>Pacific Islander</td>
-<td>90.0</td>
+<td>Male</td>
+<td>Indeterminate</td>
+<td>indeterminate/unknown</td>
+<td>Māori (based on visual appearance)</td>
+<td>80.0</td>
 <td>70.0</td>
-<td>95.0</td>
-<td>Age estimated based on appearance; ethnicity inferred from image; sentiment reflects a mix of gr...</td>
-<td>1</td>
-<td>95</td>
+<td>90.0</td>
+<td>Age was not explicitly mentioned in the text, so it is marked as indeterminate. Ethnicity was in...</td>
+<td>True</td>
+<td>90</td>
 <td>60</td>
-<td>medical expenses</td>
+<td>medical expenses, travel expenses</td>
+<td>Marlborough</td>
+<td>80</td>
+<td>75</td>
+<td>grateful</td>
+<td>portrait</td>
+<td>True</td>
+<td>smiling</td>
+<td>medium</td>
 <td>85.000000</td>
-<td>False</td>
 </tr>
 <tr>
-<th>1</th>
+<th>56</th>
 <td>56</td>
 <td>Please help Walter 🙏 to get the veterinary care he needs.</td>
 <td>Please help us 🙏 Walty needs bloodwork to rule out cancer 😪</td>
@@ -7706,28 +7720,35 @@ a.anchor-link {
 <td>1.0</td>
 <td>Bloodwork done.\n23 May 2025\nThank you so much for your kind donations.\nWalty has had his bloo...</td>
 <td>NaN</td>
-<td>Please help Walter 🙏 to get the veterinary care he needs. Please help Walter 🙏 to get the veteri...</td>
+<td>Title: Please help Walter 🙏 to get the veterinary care he needs.\nPitch: Please help us 🙏 Walty ...</td>
 <td>Pancreatitis</td>
 <td>K85</td>
-<td>11</td>
+<td>Chapter K00-K95 - Diseases of the digestive system</td>
 <td>Walter</td>
-<td>male</td>
-<td>15</td>
-<td>15-64</td>
-<td>Unknown</td>
-<td>90.0</td>
+<td>Other/unknown</td>
+<td>indeterminate/unknown</td>
+<td>indeterminate/unknown</td>
+<td>Unknown (animal)</td>
+<td>80.0</td>
 <td>70.0</td>
-<td>95.0</td>
-<td>The primary subject is an animal named Walter, not a human. The text mentions pancreatitis as th...</td>
-<td>1</td>
+<td>90.0</td>
+<td>The subject is a pet dog, not a human. Age and age group cannot be determined precisely.</td>
+<td>True</td>
 <td>90</td>
 <td>80</td>
 <td>medical expenses</td>
+<td>Otago</td>
+<td>85</td>
+<td>80</td>
+<td>grateful</td>
+<td>portrait</td>
+<td>True</td>
+<td>smiling</td>
+<td>high</td>
 <td>76.000000</td>
-<td>False</td>
 </tr>
 <tr>
-<th>2</th>
+<th>59</th>
 <td>59</td>
 <td>Medical Treatment for Atish Lal for Coronary Artery Disease</td>
 <td>medical Treatment</td>
@@ -7750,28 +7771,35 @@ a.anchor-link {
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Medical Treatment for Atish Lal for Coronary Artery Disease Medical Treatment for Atish Lal for ...</td>
+<td>Title: Medical Treatment for Atish Lal for Coronary Artery Disease\nPitch: medical Treatment\nDe...</td>
 <td>Coronary Artery Disease</td>
-<td>I25</td>
-<td>I - Diseases of the circulatory system</td>
+<td>I25.1</td>
+<td>Chapter I00-I99 - Diseases of the circulatory system</td>
 <td>Atish Lal</td>
-<td>male</td>
-<td>35</td>
-<td>15-64</td>
-<td>Indian</td>
+<td>Male</td>
+<td>Not specified</td>
+<td>indeterminate/unknown</td>
+<td>Indian (assumed based on name and context)</td>
 <td>90.0</td>
 <td>70.0</td>
 <td>95.0</td>
-<td>Age estimated based on typical age range for coronary artery disease; ethnicity inferred from th...</td>
-<td>0</td>
-<td>85</td>
+<td>Age was not explicitly mentioned in the text; ethnicity inferred from name.</td>
+<td>False</td>
+<td>90</td>
 <td>50</td>
 <td>medical expenses</td>
+<td>Auckland</td>
+<td>80</td>
+<td>75</td>
+<td>grateful</td>
+<td>portrait</td>
+<td>True</td>
+<td>neutral</td>
+<td>medium</td>
 <td>2.550336</td>
-<td>False</td>
 </tr>
 <tr>
-<th>3</th>
+<th>74</th>
 <td>74</td>
 <td>Help me to reclaim my freedom.</td>
 <td>Help my to reclaim my freedom and contribute to my community.</td>
@@ -7794,28 +7822,35 @@ a.anchor-link {
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Help me to reclaim my freedom. Help me to reclaim my freedom. Help my to reclaim my freedom and ...</td>
-<td>Long Covid, Chronic Fatigue/ME, PEM, Acquired Apraxia of Speech</td>
+<td>Title: Help me to reclaim my freedom.\nPitch: Help my to reclaim my freedom and contribute to my...</td>
+<td>Long Covid, Chronic Fatigue Syndrome/Myalgic Encephalomyelitis (ME/CFS), Post-exertional Malaise...</td>
 <td>G93.3 (Postviral fatigue syndrome)</td>
-<td>Chapter VI: Diseases of the nervous system</td>
+<td>Chapter G00-G99 - Diseases of the nervous system</td>
 <td>Amy</td>
-<td>female</td>
-<td>35</td>
-<td>15-64</td>
-<td>Caucasian</td>
+<td>Female</td>
+<td>Indeterminate</td>
+<td>indeterminate/unknown</td>
+<td>Caucasian (assumed based on image)</td>
 <td>80.0</td>
-<td>60.0</td>
+<td>70.0</td>
 <td>90.0</td>
-<td>Age estimated based on appearance in the image. Ethnicity assumed based on visual characteristics.</td>
-<td>1</td>
+<td>Age was not explicitly mentioned in the text, so it is marked as indeterminate. Ethnicity was in...</td>
+<td>True</td>
 <td>90</td>
 <td>70</td>
 <td>medical expenses</td>
+<td>Bay of Plenty</td>
+<td>85</td>
+<td>80</td>
+<td>grateful</td>
+<td>portrait</td>
+<td>True</td>
+<td>smiling</td>
+<td>high</td>
 <td>49.983333</td>
-<td>False</td>
 </tr>
 <tr>
-<th>4</th>
+<th>75</th>
 <td>75</td>
 <td>Help My Mum Fight Cancer - Every Bit Counts</td>
 <td>Rasing funds for my mum's cancer treatment in India - every donation brings us closer to saving ...</td>
@@ -7838,25 +7873,32 @@ a.anchor-link {
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Help My Mum Fight Cancer - Every Bit Counts Help My Mum Fight Cancer - Every Bit Counts Rasing f...</td>
+<td>Title: Help My Mum Fight Cancer - Every Bit Counts\nPitch: Rasing funds for my mum's cancer trea...</td>
 <td>Cancer</td>
 <td>C00-C97</td>
-<td>Neoplasms</td>
+<td>Chapter C00-D49 - Neoplasms</td>
 <td>Not explicitly mentioned</td>
-<td>female</td>
-<td>Not explicitly mentioned</td>
+<td>Female</td>
+<td>Indeterminate</td>
 <td>indeterminate/unknown</td>
-<td>Indian</td>
+<td>South Asian (based on name and context)</td>
 <td>90.0</td>
-<td>80.0</td>
+<td>70.0</td>
 <td>95.0</td>
-<td>Age and name not explicitly provided in the text. Ethnicity assumed based on the mention of trea...</td>
-<td>0</td>
+<td>Age and specific ethnic details not provided in text; inferred ethnicity based on name.</td>
+<td>False</td>
 <td>95</td>
 <td>50</td>
-<td>medical expenses</td>
+<td>medical expenses, travel expenses, medications, post-treatment care</td>
+<td>Auckland</td>
+<td>85</td>
+<td>80</td>
+<td>hopeful</td>
+<td>portrait</td>
+<td>True</td>
+<td>neutral</td>
+<td>medium</td>
 <td>1.260000</td>
-<td>False</td>
 </tr>
 <tr>
 <th>...</th>
@@ -7901,9 +7943,16 @@ a.anchor-link {
 <td>...</td>
 <td>...</td>
 <td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
 </tr>
 <tr>
-<th>4406</th>
+<th>11184</th>
 <td>11192</td>
 <td>New Zealand MindBody Trust web-based 'whole person' resources for healthworkers and their patien...</td>
 <td>The NZ MindBody Trust web-based project to support and educate clinicians and patients in a 'who...</td>
@@ -7926,28 +7975,35 @@ a.anchor-link {
 <td>2.0</td>
 <td>The Give-A-Little Campaign Result\n12 July 2016\nThe MindBody Trustees want to thank you all for...</td>
 <td>NaN</td>
-<td>New Zealand MindBody Trust web-based 'whole person' resources for healthworkers and their patien...</td>
-<td>Chronic Disorders</td>
+<td>Title: New Zealand MindBody Trust web-based 'whole person' resources for healthworkers and their...</td>
+<td>Chronic illness</td>
 <td>R53</td>
-<td>Chapter XVIII: Symptoms, Signs and Abnormal Clinical and Laboratory Findings, Not Elsewhere Clas...</td>
+<td>Chapter R00-R99 - Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere c...</td>
 <td>Not specified</td>
-<td>other</td>
-<td>Not specified</td>
+<td>Other/unknown</td>
+<td>Indeterminate</td>
 <td>indeterminate/unknown</td>
-<td>Not specified</td>
+<td>Not specified in text, inferred as likely New Zealand general population based on context</td>
+<td>70.0</td>
 <td>80.0</td>
 <td>90.0</td>
-<td>95.0</td>
 <td>The text does not specify a particular individual, so details like name, gender, age, and ethnic...</td>
-<td>0</td>
-<td>90</td>
+<td>False</td>
+<td>85</td>
 <td>50</td>
-<td>medical expenses</td>
+<td>medical expenses, experimental therapies, travel expenses, lost wages</td>
+<td>Auckland</td>
+<td>90</td>
+<td>85</td>
+<td>hopeful</td>
+<td>symbolic</td>
+<td>False</td>
+<td>not_detectable</td>
+<td>high</td>
 <td>74.444444</td>
-<td>True</td>
 </tr>
 <tr>
-<th>4407</th>
+<th>11186</th>
 <td>11194</td>
 <td>Diane's cyst removal to continue my dream job</td>
 <td>Large  Radial Ganglion Cyst Removal</td>
@@ -7970,28 +8026,35 @@ a.anchor-link {
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>Diane's cyst removal to continue my dream job Diane's cyst removal to continue my dream job Larg...</td>
-<td>Radial Ganglion Cyst</td>
-<td>M75.3</td>
-<td>M00-M99 Diseases of the musculoskeletal system and connective tissue</td>
+<td>Title: Diane's cyst removal to continue my dream job\nPitch: Large  Radial Ganglion Cyst Removal...</td>
+<td>Ganglion Cyst</td>
+<td>M71.0</td>
+<td>Chapter M00-M99 - Diseases of the musculoskeletal system and connective tissue</td>
 <td>Diane</td>
-<td>female</td>
-<td>45</td>
-<td>15-64</td>
-<td>Caucasian</td>
+<td>Female</td>
+<td>Indeterminate</td>
+<td>indeterminate/unknown</td>
+<td>Caucasian (assumed based on image)</td>
 <td>80.0</td>
 <td>50.0</td>
 <td>90.0</td>
-<td>Age estimated based on appearance; ethnicity inferred from image.</td>
-<td>0</td>
+<td>Age was not specified in the text; ethnicity was inferred from the image.</td>
+<td>False</td>
 <td>85</td>
 <td>60</td>
 <td>medical expenses</td>
+<td>Northland</td>
+<td>70</td>
+<td>65</td>
+<td>desperate</td>
+<td>portrait</td>
+<td>True</td>
+<td>neutral</td>
+<td>medium</td>
 <td>14.600000</td>
-<td>False</td>
 </tr>
 <tr>
-<th>4408</th>
+<th>11194</th>
 <td>11202</td>
 <td>A thank you to Waikato NICU for helping so many little babies and their families</td>
 <td>Raising funds for Waikato NICU, and a portable cardiac monitor to support the miracle babies.</td>
@@ -8014,28 +8077,35 @@ a.anchor-link {
 <td>4.0</td>
 <td>Quiz Night!\n7 November 2016\nGot no plans on the 17th of November? Come on down to the Speights...</td>
 <td>NaN</td>
-<td>A thank you to Waikato NICU for helping so many little babies and their families A thank you to ...</td>
+<td>Title: A thank you to Waikato NICU for helping so many little babies and their families\nPitch: ...</td>
 <td>Premature birth</td>
 <td>P07</td>
-<td>Chapter XVII: Congenital malformations, deformations and chromosomal abnormalities</td>
+<td>Chapter P00-P96 - Certain conditions originating in the perinatal period</td>
 <td>Charlie and Oliver</td>
-<td>male</td>
+<td>Male</td>
 <td>Newborn (preterm)</td>
 <td>0-14</td>
-<td>Asian</td>
+<td>Asian (based on image)</td>
 <td>90.0</td>
 <td>80.0</td>
 <td>95.0</td>
-<td>The text mentions premature birth and the need for a portable cardiac monitor for preterm infant...</td>
-<td>1</td>
+<td>The text describes a campaign for premature twins, focusing on the need for a portable cardiac m...</td>
+<td>True</td>
 <td>95</td>
 <td>70</td>
 <td>medical expenses</td>
+<td>Waikato</td>
+<td>90</td>
+<td>85</td>
+<td>grateful</td>
+<td>portrait</td>
+<td>True</td>
+<td>smiling</td>
+<td>medium</td>
 <td>25.464857</td>
-<td>False</td>
 </tr>
 <tr>
-<th>4409</th>
+<th>11195</th>
 <td>11203</td>
 <td>Help restore David’s smile after being assaulted</td>
 <td>Talented professional musician and entertainer David Shanhun needs your help to restore his teet...</td>
@@ -8058,28 +8128,35 @@ a.anchor-link {
 <td>2.0</td>
 <td>Health/Teeth/Face Update\n24 May 2016\n***Message from David:***\nThank you all so much for your...</td>
 <td>NaN</td>
-<td>Help restore David’s smile after being assaulted Help restore David’s smile after being assaulte...</td>
+<td>Title: Help restore David’s smile after being assaulted\nPitch: Talented professional musician a...</td>
 <td>Dental Trauma</td>
 <td>S02.5</td>
-<td>Injury, poisoning and certain other consequences of external causes</td>
+<td>Chapter S00-T88 - Injury, poisoning and certain other consequences of external causes</td>
 <td>David Shanhun</td>
-<td>male</td>
-<td>Not specified</td>
-<td>15-64</td>
-<td>Caucasian</td>
+<td>Male</td>
+<td>Indeterminate/Unknown</td>
+<td>Indeterminate/Unknown</td>
+<td>Caucasian (assumed based on image)</td>
 <td>80.0</td>
 <td>70.0</td>
 <td>90.0</td>
-<td>Age is not explicitly mentioned in the text; assumed to be within the 15-64 range based on conte...</td>
-<td>0</td>
+<td>Age and ethnicity inferred; no explicit details provided in text.</td>
+<td>True</td>
 <td>90</td>
-<td>70</td>
+<td>75</td>
 <td>medical expenses</td>
+<td>Auckland</td>
+<td>85</td>
+<td>80</td>
+<td>grateful</td>
+<td>portrait</td>
+<td>True</td>
+<td>smiling</td>
+<td>high</td>
 <td>14.766972</td>
-<td>False</td>
 </tr>
 <tr>
-<th>4410</th>
+<th>11204</th>
 <td>11212</td>
 <td>TRUS Biopsy Machine for Taranaki</td>
 <td>The men of Taranaki need this TRUS Biopsy Machine to diagnose Prostate Cancer.  Reduce waiting t...</td>
@@ -8102,36 +8179,43 @@ a.anchor-link {
 <td>NaN</td>
 <td>NaN</td>
 <td>NaN</td>
-<td>TRUS Biopsy Machine for Taranaki TRUS Biopsy Machine for Taranaki The men of Taranaki need this ...</td>
+<td>Title: TRUS Biopsy Machine for Taranaki\nPitch: The men of Taranaki need this TRUS Biopsy Machin...</td>
 <td>Prostate Cancer</td>
 <td>C61</td>
-<td>Neoplasms</td>
-<td>Men of Taranaki</td>
-<td>male</td>
+<td>Chapter C00-D49 - Neoplasms</td>
 <td>Not specified</td>
-<td>15-64</td>
-<td>other</td>
+<td>Male</td>
+<td>Indeterminate</td>
+<td>indeterminate/unknown</td>
+<td>Not specified in text; assumed to be New Zealand European/Pākehā based on context</td>
 <td>80.0</td>
+<td>70.0</td>
 <td>90.0</td>
-<td>95.0</td>
-<td>The text does not specify a specific individual but refers to 'men of Taranaki'. Age is inferred...</td>
-<td>0</td>
+<td>The text does not specify a specific individual, so details like name, age, and ethnicity are in...</td>
+<td>False</td>
 <td>90</td>
 <td>50</td>
 <td>medical expenses</td>
+<td>Taranaki</td>
+<td>80</td>
+<td>75</td>
+<td>hopeful</td>
+<td>symbolic</td>
+<td>False</td>
+<td>not_detectable</td>
+<td>high</td>
 <td>9.550000</td>
-<td>True</td>
 </tr>
 </tbody>
 </table>
-<p>4411 rows × 41 columns</p>
+<p>4499 rows × 48 columns</p>
 </div>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 3.73 s (started: 2025-06-27 20:34:14 +12:00)
+<pre>time: 10.2 s (started: 2025-06-30 07:28:47 +12:00)
 </pre>
 </div>
 </div>
@@ -8159,16 +8243,33 @@ a.anchor-link {
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>gender
-female    2258
-male      1613
-other      540
+Female                                                                                2276
+Male                                                                                  1648
+Other/unknown                                                                          542
+Non-binary                                                                               3
+Male and Female                                                                          3
+Mixed (Male and Female)                                                                  2
+Female (target audience is primarily women, but includes non-binary and trans men)       1
+Mixed (group of individuals)                                                             1
+Female (Lesa), Male (Victor)                                                             1
+Other/unknown (as they are twin babies)                                                  1
+Other/unknown (animal)                                                                   1
+Transgender (Female)                                                                     1
+Male (assumed based on image)                                                            1
+Female, Male                                                                             1
+Transgender (Female to Male)                                                             1
+Female (assumed based on context)                                                        1
+Other/unknown (nonbinary)                                                                1
+Non-Binary                                                                               1
+Trans Masc Leaning                                                                       1
+Transmasculine                                                                           1
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 4.59 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 5.38 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8195,8 +8296,10 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-time: 1.51 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>https://givealittle.co.nz/cause/brook-smith-family
+https://givealittle.co.nz/cause/cancellation-of-second-street-appeal
+https://givealittle.co.nz/cause/help-matt-and-jiwoo-get-out-of-their-rough-patch
+time: 1.55 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8225,16 +8328,16 @@ time: 1.51 ms (started: 2025-06-27 20:34:18 +12:00)
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>gender
-female    2258
-male      1613
-other      540
+female    2276
+male      1648
+other      575
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 7.61 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 9.2 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8262,33 +8365,33 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>ethnicity
-Caucasian                  2541
-other                       396
-Māori                       272
-South Asian                 214
-Asian                       161
-Pacific Islander            144
-Not specified               121
-Unknown                     121
-African                      57
-Filipino                     54
-Indian                       49
-East Asian                   42
-White                        39
-Mixed                        38
-South Asian/Indian           35
-Filipino/Asian               33
-Latin American/Hispanic      29
-Fijian                       25
-Hispanic/Latino              22
-Not applicable               18
+Caucasian (assumed based on image)                 1499
+European/Caucasian (based on image)                 216
+Caucasian (based on image)                          213
+European/New Zealander (based on image)             162
+Caucasian (assumed from image)                       69
+Pacific Islander (based on image)                    69
+South Asian (based on image)                         69
+Filipino                                             68
+South Asian                                          67
+Caucasian                                            61
+Asian (based on image)                               56
+Māori                                                53
+European/New Zealander (assumed based on image)      53
+European/Caucasian (assumed based on image)          53
+Indian                                               49
+European/New Zealand European (based on image)       45
+Māori (based on visual appearance)                   44
+Asian                                                40
+European/New Zealand (based on image)                39
+Unknown (animal)                                     37
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 4.3 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 7.85 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8317,33 +8420,33 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>ethnicity
-Caucasian                  2541
-other                       396
-Māori                       272
-South Asian                 214
-Asian                       161
-Pacific Islander            144
-Not specified               121
-Unknown                     121
-African                      57
-Filipino                     54
-Indian                       49
-East Asian                   42
-White                        39
-Mixed                        38
-South Asian/Indian           35
-Filipino/Asian               33
-Latin American/Hispanic      29
-Fijian                       25
-Hispanic/Latino              22
-Not applicable               18
+Caucasian                        1886
+European/New Zealander            298
+Māori                             289
+European/Caucasian                281
+South Asian                       184
+Asian                             178
+Pacific Islander                  128
+Unknown                            82
+Filipino                           78
+European/New Zealand               73
+Indian                             69
+European/New Zealand European      54
+Maori                              47
+African                            40
+Not specified                      36
+Not applicable                     34
+Indeterminate/Unknown              33
+Mixed                              32
+Latin American/Hispanic            29
+Māori/Pacific Islander             28
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 11.5 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 26.2 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8362,6 +8465,10 @@ Name: count, dtype: int64</pre>
     <span class="s2">"European/White"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
     <span class="s2">"European/White"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
     <span class="s2">"European/New Zealand"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
+    <span class="s2">"European/New Zealander"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
+    <span class="s2">"European/New Zealand European"</span><span class="p">:</span> <span class="s2">"Caucasian"</span><span class="p">,</span>
+    <span class="s2">"Māori/Pacific Islander"</span><span class="p">:</span> <span class="s2">"Māori"</span><span class="p">,</span>
+    <span class="s2">"Asian/Pacific Islander"</span><span class="p">:</span> <span class="s2">"Pacific Islander"</span><span class="p">,</span>
     <span class="s2">"Maori"</span><span class="p">:</span> <span class="s2">"Māori"</span>
 <span class="p">})</span>
 <span class="n">top_20</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -8380,33 +8487,33 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>ethnicity
-Caucasian                  2541
-other                       396
-Māori                       272
-South Asian                 214
-Asian                       161
-Pacific Islander            144
-Not specified               121
-Unknown                     121
-African                      57
-Filipino                     54
-Indian                       49
-East Asian                   42
-White                        39
-Mixed                        38
-South Asian/Indian           35
-Filipino/Asian               33
-Latin American/Hispanic      29
-Fijian                       25
-Hispanic/Latino              22
-Not applicable               18
+Caucasian                     2594
+Māori                          364
+South Asian                    184
+Asian                          178
+Pacific Islander               153
+Unknown                         82
+Filipino                        78
+Indian                          69
+African                         40
+Not specified                   36
+Not applicable                  34
+Indeterminate/Unknown           33
+Mixed                           32
+Latin American/Hispanic         29
+Fijian                          24
+Indian/Fijian                   24
+East Asian                      22
+Fijian/Pacific Islander         20
+European/New Zealand White      19
+Indeterminate                   17
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 8.74 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 15.7 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8434,33 +8541,33 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>condition
-cancer                     192
-gender dysphoria           135
-breast cancer              135
+cancer                     185
+breast cancer              143
+gender dysphoria           137
 stroke                      75
-multiple sclerosis          65
+multiple sclerosis          67
+none specified              54
 endometriosis               45
-bowel cancer                44
-type 1 diabetes             39
-melanoma                    38
-obesity                     37
-none specified              36
-cerebral palsy              35
+bowel cancer                39
+type 1 diabetes             37
+melanoma                    37
+mental health issues        36
+cerebral palsy              33
 terminal cancer             33
-infertility                 32
-mental health issues        31
-covid-19                    27
+infertility                 33
+chronic kidney disease      31
+obesity                     31
+heart attack                29
+coronary artery disease     28
 lung cancer                 27
-coronary artery disease     27
-hearing loss                26
-brain tumor                 26
+ovarian cancer              27
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 8.09 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 7.52 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8488,18 +8595,18 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>sentiment
-70.0     1717
-80.0      603
-50.0      524
-60.0      493
-90.0      422
-30.0      258
-85.0      235
-20.0       64
-95.0       35
-40.0       28
-75.0       26
-10.0        5
+70.0     1860
+60.0      713
+50.0      657
+80.0      453
+85.0      268
+30.0      215
+90.0      182
+75.0       84
+40.0       29
+20.0       23
+95.0        8
+10.0        6
 100.0       1
 Name: count, dtype: int64</pre>
 </div>
@@ -8507,7 +8614,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 5.93 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 4.92 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8535,33 +8642,33 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>use
-medical expenses                     3287
-travel expenses                       678
-experimental therapies                177
-lost wages                            141
-funeral expenses                       19
-funeral costs                          10
-medical expenses, travel expenses       5
-other                                   4
-educational tools                       3
-educational expenses                    3
-travel expenses, lost wages             3
-living costs                            2
-legal expenses                          2
-financial expenses                      2
-living expenses                         2
-operational costs                       2
-household expenses                      2
-educational campaigns                   2
-celebration                             1
-renovation supplies                     1
+medical expenses                                                         2054
+medical expenses, travel expenses                                         624
+travel expenses                                                           327
+medical expenses, travel expenses, lost wages                             306
+medical expenses, experimental therapies                                  238
+medical expenses, lost wages                                              221
+medical expenses, experimental therapies, travel expenses                  93
+medical expenses, experimental therapies, travel expenses, lost wages      77
+travel expenses, lost wages                                                43
+experimental therapies                                                     42
+travel expenses, medical expenses                                          31
+experimental therapies, travel expenses                                    27
+medical expenses, travel expenses, accommodation                           26
+funeral expenses                                                           21
+lost wages                                                                 20
+funeral costs                                                              12
+medical expenses, funeral expenses                                          8
+educational expenses                                                        6
+travel expenses, accommodation                                              6
+medical expenses, lost wages, travel expenses                               5
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 6.93 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 14.1 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8591,17 +8698,17 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>age_group
-15-64                    2809
-0-14                      649
-65+                       558
-indeterminate/unknown     395
+indeterminate/unknown    2671
+15-64                    1117
+0-14                      504
+65+                       207
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 17.1 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 38.3 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8629,16 +8736,16 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>gender
-female    2258
-male      1613
-other      540
+female    2276
+male      1648
+other      575
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 5.2 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 8.28 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8665,7 +8772,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 2.96 ms (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 7.97 ms (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8692,7 +8799,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 5.88 s (started: 2025-06-27 20:34:18 +12:00)
+<pre>time: 6.69 s (started: 2025-06-30 07:28:57 +12:00)
 </pre>
 </div>
 </div>
@@ -8719,7 +8826,7 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 1.95 ms (started: 2025-06-27 20:34:24 +12:00)
+<pre>time: 1.61 ms (started: 2025-06-30 07:29:04 +12:00)
 </pre>
 </div>
 </div>
@@ -8754,33 +8861,33 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>parsed_age
-35.0    371
-30.0    247
-25.0    189
-45.0    186
-60.0    136
-50.0    128
-55.0    117
-65.0    111
-40.0     95
-28.0     79
-20.0     72
-38.0     61
-23.0     45
-17.0     42
-18.0     41
-8.0      40
-22.0     39
-13.0     39
-10.0     37
-70.0     36
+25.0    52
+30.0    51
+35.0    47
+17.0    43
+20.0    41
+28.0    39
+23.0    37
+6.0     34
+40.0    33
+27.0    33
+18.0    32
+4.0     32
+13.0    30
+3.0     28
+26.0    28
+38.0    27
+19.0    27
+14.0    27
+2.0     26
+50.0    26
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 10.8 ms (started: 2025-06-27 20:34:24 +12:00)
+<pre>time: 9.05 ms (started: 2025-06-30 07:29:04 +12:00)
 </pre>
 </div>
 </div>
@@ -8808,15 +8915,15 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>met_target
-0    3785
-1     626
+0    3859
+1     640
 Name: count, dtype: int64</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 4.99 ms (started: 2025-06-27 20:34:24 +12:00)
+<pre>time: 4.3 ms (started: 2025-06-30 07:29:04 +12:00)
 </pre>
 </div>
 </div>
@@ -8844,10 +8951,10 @@ Name: count, dtype: int64</pre>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>count    4410.000000
-mean       91.346939
-std         4.647941
-min        50.000000
+<pre>count    4499.000000
+mean       91.133585
+std         4.859491
+min        20.000000
 25%        90.000000
 50%        90.000000
 75%        95.000000
@@ -8858,7 +8965,7 @@ Name: deservingness, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 11.8 ms (started: 2025-06-27 20:34:24 +12:00)
+<pre>time: 9.05 ms (started: 2025-06-30 07:29:04 +12:00)
 </pre>
 </div>
 </div>
@@ -8965,88 +9072,130 @@ Name: deservingness, dtype: float64</pre>
 </thead>
 <tbody>
 <tr>
+<th>image_quality</th>
+<td>chi2</td>
+<td>40.932891</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>emotional_tone</th>
+<td>chi2</td>
+<td>73.290279</td>
+<td>0.0</td>
+</tr>
+<tr>
 <th>age_group</th>
 <td>chi2</td>
-<td>36.113648</td>
-<td>0.0</td>
+<td>21.177083</td>
+<td>0.000097</td>
+</tr>
+<tr>
+<th>facial_expression</th>
+<td>chi2</td>
+<td>26.442983</td>
+<td>0.000184</td>
 </tr>
 <tr>
 <th>ethnicity</th>
 <td>chi2</td>
-<td>46.450561</td>
-<td>0.000428</td>
+<td>48.378961</td>
+<td>0.000376</td>
 </tr>
 <tr>
 <th>end</th>
 <td>chi2</td>
-<td>2164.655553</td>
-<td>0.254419</td>
+<td>2186.22469</td>
+<td>0.215375</td>
 </tr>
 <tr>
-<th>gender</th>
+<th>region</th>
 <td>chi2</td>
-<td>2.247197</td>
-<td>0.325108</td>
-</tr>
-<tr>
-<th>start</th>
-<td>chi2</td>
-<td>2401.026199</td>
-<td>0.382451</td>
-</tr>
-<tr>
-<th>whos_involved</th>
-<td>chi2</td>
-<td>4353.107405</td>
-<td>0.411837</td>
-</tr>
-<tr>
-<th>title</th>
-<td>chi2</td>
-<td>4391.565606</td>
-<td>0.469235</td>
-</tr>
-<tr>
-<th>pitch</th>
-<td>chi2</td>
-<td>4402.788284</td>
-<td>0.489563</td>
-</tr>
-<tr>
-<th>text</th>
-<td>chi2</td>
-<td>4411.0</td>
-<td>0.492921</td>
-</tr>
-<tr>
-<th>hero</th>
-<td>chi2</td>
-<td>4411.0</td>
-<td>0.492921</td>
-</tr>
-<tr>
-<th>uri</th>
-<td>chi2</td>
-<td>4411.0</td>
-<td>0.492921</td>
-</tr>
-<tr>
-<th>actionUri</th>
-<td>chi2</td>
-<td>4411.0</td>
-<td>0.492921</td>
+<td>104.213501</td>
+<td>0.290067</td>
 </tr>
 <tr>
 <th>notes</th>
 <td>chi2</td>
-<td>2968.234961</td>
-<td>0.607771</td>
+<td>2766.80732</td>
+<td>0.292727</td>
+</tr>
+<tr>
+<th>start</th>
+<td>chi2</td>
+<td>2427.549619</td>
+<td>0.326723</td>
+</tr>
+<tr>
+<th>whos_involved</th>
+<td>chi2</td>
+<td>4433.025955</td>
+<td>0.417108</td>
+</tr>
+<tr>
+<th>face_visible</th>
+<td>chi2</td>
+<td>0.606062</td>
+<td>0.436275</td>
+</tr>
+<tr>
+<th>pitch</th>
+<td>chi2</td>
+<td>4490.804466</td>
+<td>0.489598</td>
+</tr>
+<tr>
+<th>title</th>
+<td>chi2</td>
+<td>4473.047477</td>
+<td>0.49277</td>
+</tr>
+<tr>
+<th>text</th>
+<td>chi2</td>
+<td>4499.0</td>
+<td>0.49299</td>
+</tr>
+<tr>
+<th>actionUri</th>
+<td>chi2</td>
+<td>4499.0</td>
+<td>0.49299</td>
+</tr>
+<tr>
+<th>uri</th>
+<td>chi2</td>
+<td>4499.0</td>
+<td>0.49299</td>
+</tr>
+<tr>
+<th>hero</th>
+<td>chi2</td>
+<td>4499.0</td>
+<td>0.49299</td>
 </tr>
 <tr>
 <th>Charity</th>
 <td>chi2</td>
-<td>0.170503</td>
-<td>0.679666</td>
+<td>0.407019</td>
+<td>0.523486</td>
+</tr>
+<tr>
+<th>gender</th>
+<td>chi2</td>
+<td>1.054881</td>
+<td>0.590114</td>
+</tr>
+<tr>
+<th>image_type</th>
+<td>chi2</td>
+<td>7.374276</td>
+<td>0.689701</td>
+</tr>
+<tr>
+<th>moderated</th>
+<td>chi2</td>
+<td>0.0</td>
+<td>1.0</td>
 </tr>
 <tr>
 <th>action</th>
@@ -9060,12 +9209,6 @@ Name: deservingness, dtype: float64</pre>
 <td>0.0</td>
 <td>1.0</td>
 </tr>
-<tr>
-<th>moderated</th>
-<td>chi2</td>
-<td>0.0</td>
-<td>1.0</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -9074,7 +9217,7 @@ Name: deservingness, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 644 ms (started: 2025-06-27 20:34:24 +12:00)
+<pre>time: 681 ms (started: 2025-06-30 07:29:04 +12:00)
 </pre>
 </div>
 </div>
@@ -9101,7 +9244,7 @@ Name: deservingness, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 729 μs (started: 2025-06-27 20:34:25 +12:00)
+<pre>time: 868 μs (started: 2025-06-30 07:29:05 +12:00)
 </pre>
 </div>
 </div>
@@ -9113,6 +9256,78 @@ Name: deservingness, dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">.66</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>np.float64(1.9347923344020317)</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>time: 6.82 ms (started: 2025-06-30 07:29:05 +12:00)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"have_age"</span><span class="p">]</span> <span class="o">=</span> <span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">parsed_age</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[[</span><span class="s2">"met_target"</span><span class="p">,</span> <span class="s2">"have_age"</span><span class="p">]]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>met_target  have_age
+False       False       2509
+            True        1350
+True        False        440
+            True         200
+Name: count, dtype: int64</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>time: 8.17 ms (started: 2025-06-30 07:29:05 +12:00)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">formula</span> <span class="o">=</span> <span class="s2">"met_target ~ sentiment + smiling + gender + truth + urgency + parsed_age"</span>
@@ -9137,10 +9352,10 @@ Name: deservingness, dtype: float64</pre>
 <table class="simpletable">
 <caption>Generalized Linear Model Regression Results</caption>
 <tr>
-<th>Dep. Variable:</th> <td>['met_target[False]', 'met_target[True]']</td> <th>  No. Observations:  </th> <td>  3144</td>
+<th>Dep. Variable:</th> <td>['met_target[False]', 'met_target[True]']</td> <th>  No. Observations:  </th> <td>  1550</td>
 </tr>
 <tr>
-<th>Model:</th> <td>GLM</td> <th>  Df Residuals:      </th> <td>  3136</td>
+<th>Model:</th> <td>GLM</td> <th>  Df Residuals:      </th> <td>  1542</td>
 </tr>
 <tr>
 <th>Model Family:</th> <td>Binomial</td> <th>  Df Model:          </th> <td>     7</td>
@@ -9149,16 +9364,16 @@ Name: deservingness, dtype: float64</pre>
 <th>Link Function:</th> <td>Logit</td> <th>  Scale:             </th> <td>  1.0000</td>
 </tr>
 <tr>
-<th>Method:</th> <td>IRLS</td> <th>  Log-Likelihood:    </th> <td> -1215.6</td>
+<th>Method:</th> <td>IRLS</td> <th>  Log-Likelihood:    </th> <td> -575.14</td>
 </tr>
 <tr>
-<th>Date:</th> <td>Fri, 27 Jun 2025</td> <th>  Deviance:          </th> <td>  2431.2</td>
+<th>Date:</th> <td>Mon, 30 Jun 2025</td> <th>  Deviance:          </th> <td>  1150.3</td>
 </tr>
 <tr>
-<th>Time:</th> <td>20:34:25</td> <th>  Pearson chi2:      </th> <td>3.15e+03</td>
+<th>Time:</th> <td>07:29:05</td> <th>  Pearson chi2:      </th> <td>1.55e+03</td>
 </tr>
 <tr>
-<th>No. Iterations:</th> <td>5</td> <th>  Pseudo R-squ. (CS):</th> <td>0.03019</td>
+<th>No. Iterations:</th> <td>5</td> <th>  Pseudo R-squ. (CS):</th> <td>0.02661</td>
 </tr>
 <tr>
 <th>Covariance Type:</th> <td>nonrobust</td> <th> </th> <td> </td>
@@ -9169,28 +9384,28 @@ Name: deservingness, dtype: float64</pre>
 <td></td> <th>coef</th> <th>std err</th> <th>z</th> <th>P&gt;|z|</th> <th>[0.025</th> <th>0.975]</th>
 </tr>
 <tr>
-<th>Intercept</th> <td>    5.7990</td> <td>    1.485</td> <td>    3.906</td> <td> 0.000</td> <td>    2.889</td> <td>    8.709</td>
+<th>Intercept</th> <td>    6.5947</td> <td>    2.473</td> <td>    2.667</td> <td> 0.008</td> <td>    1.748</td> <td>   11.442</td>
 </tr>
 <tr>
-<th>smiling[T.True]</th> <td>   -0.3097</td> <td>    0.115</td> <td>   -2.694</td> <td> 0.007</td> <td>   -0.535</td> <td>   -0.084</td>
+<th>smiling[T.True]</th> <td>   -0.3659</td> <td>    0.171</td> <td>   -2.146</td> <td> 0.032</td> <td>   -0.700</td> <td>   -0.032</td>
 </tr>
 <tr>
-<th>gender[T.male]</th> <td>   -0.1971</td> <td>    0.110</td> <td>   -1.794</td> <td> 0.073</td> <td>   -0.412</td> <td>    0.018</td>
+<th>gender[T.male]</th> <td>   -0.2366</td> <td>    0.158</td> <td>   -1.494</td> <td> 0.135</td> <td>   -0.547</td> <td>    0.074</td>
 </tr>
 <tr>
-<th>gender[T.other]</th> <td>    0.7005</td> <td>    0.315</td> <td>    2.227</td> <td> 0.026</td> <td>    0.084</td> <td>    1.317</td>
+<th>gender[T.other]</th> <td>    0.5258</td> <td>    0.447</td> <td>    1.177</td> <td> 0.239</td> <td>   -0.350</td> <td>    1.401</td>
 </tr>
 <tr>
-<th>sentiment</th> <td>   -0.0203</td> <td>    0.005</td> <td>   -4.357</td> <td> 0.000</td> <td>   -0.029</td> <td>   -0.011</td>
+<th>sentiment</th> <td>   -0.0143</td> <td>    0.007</td> <td>   -1.953</td> <td> 0.051</td> <td>   -0.029</td> <td> 5.17e-05</td>
 </tr>
 <tr>
-<th>truth</th> <td>   -0.0359</td> <td>    0.018</td> <td>   -2.010</td> <td> 0.044</td> <td>   -0.071</td> <td>   -0.001</td>
+<th>truth</th> <td>   -0.0395</td> <td>    0.030</td> <td>   -1.302</td> <td> 0.193</td> <td>   -0.099</td> <td>    0.020</td>
 </tr>
 <tr>
-<th>urgency</th> <td>    0.0060</td> <td>    0.007</td> <td>    0.910</td> <td> 0.363</td> <td>   -0.007</td> <td>    0.019</td>
+<th>urgency</th> <td>   -0.0033</td> <td>    0.011</td> <td>   -0.305</td> <td> 0.761</td> <td>   -0.024</td> <td>    0.018</td>
 </tr>
 <tr>
-<th>parsed_age</th> <td>    0.0139</td> <td>    0.003</td> <td>    4.522</td> <td> 0.000</td> <td>    0.008</td> <td>    0.020</td>
+<th>parsed_age</th> <td>    0.0173</td> <td>    0.004</td> <td>    3.860</td> <td> 0.000</td> <td>    0.009</td> <td>    0.026</td>
 </tr>
 </table>
 </div>
@@ -9198,7 +9413,7 @@ Name: deservingness, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>'AIC (Logit): 2447.23'</pre>
+<pre>'AIC (Logit): 1166.28'</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -9207,10 +9422,10 @@ Name: deservingness, dtype: float64</pre>
 <table class="simpletable">
 <caption>Generalized Linear Model Regression Results</caption>
 <tr>
-<th>Dep. Variable:</th> <td>['met_target[False]', 'met_target[True]']</td> <th>  No. Observations:  </th> <td>  3144</td>
+<th>Dep. Variable:</th> <td>['met_target[False]', 'met_target[True]']</td> <th>  No. Observations:  </th> <td>  1550</td>
 </tr>
 <tr>
-<th>Model:</th> <td>GLM</td> <th>  Df Residuals:      </th> <td>  3136</td>
+<th>Model:</th> <td>GLM</td> <th>  Df Residuals:      </th> <td>  1542</td>
 </tr>
 <tr>
 <th>Model Family:</th> <td>Binomial</td> <th>  Df Model:          </th> <td>     7</td>
@@ -9219,16 +9434,16 @@ Name: deservingness, dtype: float64</pre>
 <th>Link Function:</th> <td>Probit</td> <th>  Scale:             </th> <td>  1.0000</td>
 </tr>
 <tr>
-<th>Method:</th> <td>IRLS</td> <th>  Log-Likelihood:    </th> <td> -1215.8</td>
+<th>Method:</th> <td>IRLS</td> <th>  Log-Likelihood:    </th> <td> -575.30</td>
 </tr>
 <tr>
-<th>Date:</th> <td>Fri, 27 Jun 2025</td> <th>  Deviance:          </th> <td>  2431.6</td>
+<th>Date:</th> <td>Mon, 30 Jun 2025</td> <th>  Deviance:          </th> <td>  1150.6</td>
 </tr>
 <tr>
-<th>Time:</th> <td>20:34:25</td> <th>  Pearson chi2:      </th> <td>3.16e+03</td>
+<th>Time:</th> <td>07:29:05</td> <th>  Pearson chi2:      </th> <td>1.55e+03</td>
 </tr>
 <tr>
-<th>No. Iterations:</th> <td>6</td> <th>  Pseudo R-squ. (CS):</th> <td>0.03006</td>
+<th>No. Iterations:</th> <td>6</td> <th>  Pseudo R-squ. (CS):</th> <td>0.02641</td>
 </tr>
 <tr>
 <th>Covariance Type:</th> <td>nonrobust</td> <th> </th> <td> </td>
@@ -9239,28 +9454,28 @@ Name: deservingness, dtype: float64</pre>
 <td></td> <th>coef</th> <th>std err</th> <th>z</th> <th>P&gt;|z|</th> <th>[0.025</th> <th>0.975]</th>
 </tr>
 <tr>
-<th>Intercept</th> <td>    3.0633</td> <td>    0.771</td> <td>    3.971</td> <td> 0.000</td> <td>    1.551</td> <td>    4.575</td>
+<th>Intercept</th> <td>    3.5673</td> <td>    1.288</td> <td>    2.770</td> <td> 0.006</td> <td>    1.043</td> <td>    6.091</td>
 </tr>
 <tr>
-<th>smiling[T.True]</th> <td>   -0.1667</td> <td>    0.061</td> <td>   -2.711</td> <td> 0.007</td> <td>   -0.287</td> <td>   -0.046</td>
+<th>smiling[T.True]</th> <td>   -0.1824</td> <td>    0.090</td> <td>   -2.034</td> <td> 0.042</td> <td>   -0.358</td> <td>   -0.007</td>
 </tr>
 <tr>
-<th>gender[T.male]</th> <td>   -0.1131</td> <td>    0.060</td> <td>   -1.890</td> <td> 0.059</td> <td>   -0.230</td> <td>    0.004</td>
+<th>gender[T.male]</th> <td>   -0.1288</td> <td>    0.085</td> <td>   -1.509</td> <td> 0.131</td> <td>   -0.296</td> <td>    0.039</td>
 </tr>
 <tr>
-<th>gender[T.other]</th> <td>    0.3691</td> <td>    0.161</td> <td>    2.297</td> <td> 0.022</td> <td>    0.054</td> <td>    0.684</td>
+<th>gender[T.other]</th> <td>    0.2695</td> <td>    0.223</td> <td>    1.210</td> <td> 0.226</td> <td>   -0.167</td> <td>    0.706</td>
 </tr>
 <tr>
-<th>sentiment</th> <td>   -0.0104</td> <td>    0.002</td> <td>   -4.293</td> <td> 0.000</td> <td>   -0.015</td> <td>   -0.006</td>
+<th>sentiment</th> <td>   -0.0074</td> <td>    0.004</td> <td>   -1.920</td> <td> 0.055</td> <td>   -0.015</td> <td>    0.000</td>
 </tr>
 <tr>
-<th>truth</th> <td>   -0.0187</td> <td>    0.009</td> <td>   -2.032</td> <td> 0.042</td> <td>   -0.037</td> <td>   -0.001</td>
+<th>truth</th> <td>   -0.0214</td> <td>    0.016</td> <td>   -1.355</td> <td> 0.175</td> <td>   -0.052</td> <td>    0.010</td>
 </tr>
 <tr>
-<th>urgency</th> <td>    0.0038</td> <td>    0.004</td> <td>    1.045</td> <td> 0.296</td> <td>   -0.003</td> <td>    0.011</td>
+<th>urgency</th> <td>   -0.0010</td> <td>    0.006</td> <td>   -0.185</td> <td> 0.853</td> <td>   -0.012</td> <td>    0.010</td>
 </tr>
 <tr>
-<th>parsed_age</th> <td>    0.0078</td> <td>    0.002</td> <td>    4.687</td> <td> 0.000</td> <td>    0.005</td> <td>    0.011</td>
+<th>parsed_age</th> <td>    0.0093</td> <td>    0.002</td> <td>    3.967</td> <td> 0.000</td> <td>    0.005</td> <td>    0.014</td>
 </tr>
 </table>
 </div>
@@ -9268,13 +9483,13 @@ Name: deservingness, dtype: float64</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>'AIC (Probit): 2447.64'</pre>
+<pre>'AIC (Probit): 1166.59'</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 106 ms (started: 2025-06-27 20:34:25 +12:00)
+<pre>time: 98 ms (started: 2025-06-30 07:29:05 +12:00)
 </pre>
 </div>
 </div>
@@ -9285,7 +9500,7 @@ Name: deservingness, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">met_target</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">met_target</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
@@ -9300,30 +9515,30 @@ Name: deservingness, dtype: float64</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <table class="simpletable">
 <caption>OLS Regression Results</caption>
 <tr>
-<th>Dep. Variable:</th> <td>Target_completion</td> <th>  R-squared:         </th> <td>   0.001</td>
+<th>Dep. Variable:</th> <td>Target_completion</td> <th>  R-squared:         </th> <td>   0.003</td>
 </tr>
 <tr>
-<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>  -0.001</td>
+<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>  -0.002</td>
 </tr>
 <tr>
-<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>  0.5881</td>
+<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>  0.6657</td>
 </tr>
 <tr>
-<th>Date:</th> <td>Fri, 27 Jun 2025</td> <th>  Prob (F-statistic):</th> <td> 0.766</td>
+<th>Date:</th> <td>Mon, 30 Jun 2025</td> <th>  Prob (F-statistic):</th> <td> 0.701</td>
 </tr>
 <tr>
-<th>Time:</th> <td>20:34:25</td> <th>  Log-Likelihood:    </th> <td> -25776.</td>
+<th>Time:</th> <td>07:29:05</td> <th>  Log-Likelihood:    </th> <td> -13128.</td>
 </tr>
 <tr>
-<th>No. Observations:</th> <td>  3144</td> <th>  AIC:               </th> <td>5.157e+04</td>
+<th>No. Observations:</th> <td>  1550</td> <th>  AIC:               </th> <td>2.627e+04</td>
 </tr>
 <tr>
-<th>Df Residuals:</th> <td>  3136</td> <th>  BIC:               </th> <td>5.162e+04</td>
+<th>Df Residuals:</th> <td>  1542</td> <th>  BIC:               </th> <td>2.631e+04</td>
 </tr>
 <tr>
 <th>Df Model:</th> <td>     7</td> <th> </th> <td> </td>
@@ -9337,50 +9552,50 @@ Name: deservingness, dtype: float64</pre>
 <td></td> <th>coef</th> <th>std err</th> <th>t</th> <th>P&gt;|t|</th> <th>[0.025</th> <th>0.975]</th>
 </tr>
 <tr>
-<th>Intercept</th> <td> -136.3356</td> <td>  387.947</td> <td>   -0.351</td> <td> 0.725</td> <td> -896.991</td> <td>  624.320</td>
+<th>Intercept</th> <td> -943.6357</td> <td>  816.318</td> <td>   -1.156</td> <td> 0.248</td> <td>-2544.846</td> <td>  657.575</td>
 </tr>
 <tr>
-<th>smiling[T.True]</th> <td>   17.3750</td> <td>   33.570</td> <td>    0.518</td> <td> 0.605</td> <td>  -48.446</td> <td>   83.196</td>
+<th>smiling[T.True]</th> <td>   50.2080</td> <td>   62.775</td> <td>    0.800</td> <td> 0.424</td> <td>  -72.925</td> <td>  173.341</td>
 </tr>
 <tr>
-<th>gender[T.male]</th> <td>   53.2272</td> <td>   33.259</td> <td>    1.600</td> <td> 0.110</td> <td>  -11.985</td> <td>  118.440</td>
+<th>gender[T.male]</th> <td>   97.3301</td> <td>   61.465</td> <td>    1.584</td> <td> 0.114</td> <td>  -23.233</td> <td>  217.893</td>
 </tr>
 <tr>
-<th>gender[T.other]</th> <td>  -25.6309</td> <td>   80.636</td> <td>   -0.318</td> <td> 0.751</td> <td> -183.736</td> <td>  132.474</td>
+<th>gender[T.other]</th> <td>   18.2217</td> <td>  142.452</td> <td>    0.128</td> <td> 0.898</td> <td> -261.199</td> <td>  297.642</td>
 </tr>
 <tr>
-<th>sentiment</th> <td>    0.6093</td> <td>    1.214</td> <td>    0.502</td> <td> 0.616</td> <td>   -1.771</td> <td>    2.990</td>
+<th>sentiment</th> <td>    0.4653</td> <td>    2.598</td> <td>    0.179</td> <td> 0.858</td> <td>   -4.630</td> <td>    5.561</td>
 </tr>
 <tr>
-<th>truth</th> <td>    0.3478</td> <td>    4.473</td> <td>    0.078</td> <td> 0.938</td> <td>   -8.422</td> <td>    9.117</td>
+<th>truth</th> <td>    8.7511</td> <td>    9.893</td> <td>    0.885</td> <td> 0.377</td> <td>  -10.654</td> <td>   28.157</td>
 </tr>
 <tr>
-<th>urgency</th> <td>    1.4226</td> <td>    2.067</td> <td>    0.688</td> <td> 0.491</td> <td>   -2.629</td> <td>    5.474</td>
+<th>urgency</th> <td>    1.2047</td> <td>    3.904</td> <td>    0.309</td> <td> 0.758</td> <td>   -6.453</td> <td>    8.862</td>
 </tr>
 <tr>
-<th>parsed_age</th> <td>   -0.5585</td> <td>    0.901</td> <td>   -0.620</td> <td> 0.536</td> <td>   -2.325</td> <td>    1.209</td>
+<th>parsed_age</th> <td>    0.3771</td> <td>    1.566</td> <td>    0.241</td> <td> 0.810</td> <td>   -2.695</td> <td>    3.449</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-<th>Omnibus:</th> <td>9405.879</td> <th>  Durbin-Watson:     </th> <td>   2.003</td>
+<th>Omnibus:</th> <td>4408.197</td> <th>  Durbin-Watson:     </th> <td>   2.006</td>
 </tr>
 <tr>
-<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>530902384.962</td>
+<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>117350376.344</td>
 </tr>
 <tr>
-<th>Skew:</th> <td>42.477</td> <th>  Prob(JB):          </th> <td>    0.00</td>
+<th>Skew:</th> <td>35.987</td> <th>  Prob(JB):          </th> <td>    0.00</td>
 </tr>
 <tr>
-<th>Kurtosis:</th> <td>2014.336</td> <th>  Cond. No.          </th> <td>3.63e+03</td>
+<th>Kurtosis:</th> <td>1349.053</td> <th>  Cond. No.          </th> <td>4.02e+03</td>
 </tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 3.63e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 4.02e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 46.2 ms (started: 2025-06-27 20:34:25 +12:00)
+<pre>time: 45.1 ms (started: 2025-06-30 07:29:05 +12:00)
 </pre>
 </div>
 </div>
@@ -9391,7 +9606,7 @@ Name: deservingness, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -9405,30 +9620,30 @@ Name: deservingness, dtype: float64</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <table class="simpletable">
 <caption>OLS Regression Results</caption>
 <tr>
-<th>Dep. Variable:</th> <td>met_target</td> <th>  R-squared:         </th> <td>   0.029</td>
+<th>Dep. Variable:</th> <td>met_target</td> <th>  R-squared:         </th> <td>   0.025</td>
 </tr>
 <tr>
-<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>   0.026</td>
+<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>   0.021</td>
 </tr>
 <tr>
-<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>   13.19</td>
+<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>   5.733</td>
 </tr>
 <tr>
-<th>Date:</th> <td>Fri, 27 Jun 2025</td> <th>  Prob (F-statistic):</th> <td>7.41e-17</td>
+<th>Date:</th> <td>Mon, 30 Jun 2025</td> <th>  Prob (F-statistic):</th> <td>1.45e-06</td>
 </tr>
 <tr>
-<th>Time:</th> <td>20:34:25</td> <th>  Log-Likelihood:    </th> <td> -1072.2</td>
+<th>Time:</th> <td>07:29:05</td> <th>  Log-Likelihood:    </th> <td> -485.41</td>
 </tr>
 <tr>
-<th>No. Observations:</th> <td>  3144</td> <th>  AIC:               </th> <td>   2160.</td>
+<th>No. Observations:</th> <td>  1550</td> <th>  AIC:               </th> <td>   986.8</td>
 </tr>
 <tr>
-<th>Df Residuals:</th> <td>  3136</td> <th>  BIC:               </th> <td>   2209.</td>
+<th>Df Residuals:</th> <td>  1542</td> <th>  BIC:               </th> <td>   1030.</td>
 </tr>
 <tr>
 <th>Df Model:</th> <td>     7</td> <th> </th> <td> </td>
@@ -9442,50 +9657,50 @@ Name: deservingness, dtype: float64</pre>
 <td></td> <th>coef</th> <th>std err</th> <th>t</th> <th>P&gt;|t|</th> <th>[0.025</th> <th>0.975]</th>
 </tr>
 <tr>
-<th>Intercept</th> <td>   -0.2041</td> <td>    0.150</td> <td>   -1.360</td> <td> 0.174</td> <td>   -0.498</td> <td>    0.090</td>
+<th>Intercept</th> <td>   -0.2923</td> <td>    0.234</td> <td>   -1.248</td> <td> 0.212</td> <td>   -0.752</td> <td>    0.167</td>
 </tr>
 <tr>
-<th>smiling[T.True]</th> <td>    0.0358</td> <td>    0.013</td> <td>    2.760</td> <td> 0.006</td> <td>    0.010</td> <td>    0.061</td>
+<th>smiling[T.True]</th> <td>    0.0374</td> <td>    0.018</td> <td>    2.076</td> <td> 0.038</td> <td>    0.002</td> <td>    0.073</td>
 </tr>
 <tr>
-<th>gender[T.male]</th> <td>    0.0241</td> <td>    0.013</td> <td>    1.872</td> <td> 0.061</td> <td>   -0.001</td> <td>    0.049</td>
+<th>gender[T.male]</th> <td>    0.0276</td> <td>    0.018</td> <td>    1.566</td> <td> 0.118</td> <td>   -0.007</td> <td>    0.062</td>
 </tr>
 <tr>
-<th>gender[T.other]</th> <td>   -0.0751</td> <td>    0.031</td> <td>   -2.409</td> <td> 0.016</td> <td>   -0.136</td> <td>   -0.014</td>
+<th>gender[T.other]</th> <td>   -0.0525</td> <td>    0.041</td> <td>   -1.285</td> <td> 0.199</td> <td>   -0.133</td> <td>    0.028</td>
 </tr>
 <tr>
-<th>sentiment</th> <td>    0.0020</td> <td>    0.000</td> <td>    4.322</td> <td> 0.000</td> <td>    0.001</td> <td>    0.003</td>
+<th>sentiment</th> <td>    0.0015</td> <td>    0.001</td> <td>    1.995</td> <td> 0.046</td> <td>  2.5e-05</td> <td>    0.003</td>
 </tr>
 <tr>
-<th>truth</th> <td>    0.0033</td> <td>    0.002</td> <td>    1.919</td> <td> 0.055</td> <td>-7.21e-05</td> <td>    0.007</td>
+<th>truth</th> <td>    0.0035</td> <td>    0.003</td> <td>    1.217</td> <td> 0.224</td> <td>   -0.002</td> <td>    0.009</td>
 </tr>
 <tr>
-<th>urgency</th> <td>   -0.0008</td> <td>    0.001</td> <td>   -1.001</td> <td> 0.317</td> <td>   -0.002</td> <td>    0.001</td>
+<th>urgency</th> <td>    0.0004</td> <td>    0.001</td> <td>    0.329</td> <td> 0.742</td> <td>   -0.002</td> <td>    0.003</td>
 </tr>
 <tr>
-<th>parsed_age</th> <td>   -0.0016</td> <td>    0.000</td> <td>   -4.564</td> <td> 0.000</td> <td>   -0.002</td> <td>   -0.001</td>
+<th>parsed_age</th> <td>   -0.0018</td> <td>    0.000</td> <td>   -3.909</td> <td> 0.000</td> <td>   -0.003</td> <td>   -0.001</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-<th>Omnibus:</th> <td>1102.280</td> <th>  Durbin-Watson:     </th> <td>   2.006</td>
+<th>Omnibus:</th> <td>601.932</td> <th>  Durbin-Watson:     </th> <td>   1.993</td>
 </tr>
 <tr>
-<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>2752.352</td>
+<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>1653.654</td>
 </tr>
 <tr>
-<th>Skew:</th> <td> 2.002</td> <th>  Prob(JB):          </th> <td>    0.00</td>
+<th>Skew:</th> <td> 2.128</td> <th>  Prob(JB):          </th> <td>    0.00</td>
 </tr>
 <tr>
-<th>Kurtosis:</th> <td> 5.230</td> <th>  Cond. No.          </th> <td>3.63e+03</td>
+<th>Kurtosis:</th> <td> 5.738</td> <th>  Cond. No.          </th> <td>4.02e+03</td>
 </tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 3.63e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 4.02e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 45.8 ms (started: 2025-06-27 20:34:25 +12:00)
+<pre>time: 43.8 ms (started: 2025-06-30 07:29:05 +12:00)
 </pre>
 </div>
 </div>
@@ -9496,7 +9711,7 @@ Name: deservingness, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
@@ -9514,7 +9729,7 @@ Name: deservingness, dtype: float64</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
@@ -10159,7 +10374,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 512 ms (started: 2025-06-27 20:34:25 +12:00)
+<pre>time: 523 ms (started: 2025-06-30 07:29:05 +12:00)
 </pre>
 </div>
 </div>
@@ -10170,7 +10385,7 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">cols</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">))</span>
@@ -10184,20 +10399,74 @@ document.querySelectorAll('.fa-regular.fa-copy').forEach(function(element) {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>[('sentiment', np.float64(0.21365808843272313)),
- ('smiling', np.float64(0.10368107301614912)),
- ('gender', np.float64(0.10246242527274708)),
- ('truth', np.float64(0.2056862734817596)),
- ('urgency', np.float64(0.0559171758768012)),
- ('ethnicity', np.float64(0.05393489406535803))]</pre>
+<pre>[('sentiment', np.float64(0.20825657895338884)),
+ ('smiling', np.float64(0.1058103161487281)),
+ ('gender', np.float64(0.09467852660130897)),
+ ('truth', np.float64(0.21226452837419557)),
+ ('urgency', np.float64(0.05075663905860937)),
+ ('ethnicity', np.float64(0.050662348021350244))]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 11.9 ms (started: 2025-06-27 20:34:25 +12:00)
+<pre>time: 11.3 ms (started: 2025-06-30 07:29:05 +12:00)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>region
+Auckland                1331
+Canterbury               555
+Wellington               489
+Waikato                  385
+Bay of Plenty            293
+Nationwide               210
+Otago                    168
+Northland                161
+Hawke's Bay              134
+International            107
+Taranaki                 100
+Southland                 71
+Manawatu-Wanganui         63
+Nelson / Tasman           62
+Manawatu / Whanganui      51
+Manawatu-Whanganui        51
+Marlborough               37
+Gisborne                  34
+Nelson                    28
+West Coast                24
+Name: count, dtype: int64</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>time: 9.71 ms (started: 2025-06-30 07:30:09 +12:00)
 </pre>
 </div>
 </div>
