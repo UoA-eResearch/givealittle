@@ -7541,7 +7541,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 2.08 s (started: 2025-06-25 14:26:30 +12:00)
+<pre>time: 2.06 s (started: 2025-07-22 14:44:14 +12:00)
 </pre>
 </div>
 </div>
@@ -7556,6 +7556,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"givealittle_health.xlsx"</span><span class="p">)</span>
+
 <span class="k">def</span><span class="w"> </span><span class="nf">get_text</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
   <span class="n">text</span> <span class="o">=</span> <span class="s2">""</span>
   <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]):</span>
@@ -7911,7 +7912,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 5.49 s (started: 2025-06-25 14:26:32 +12:00)
+<pre>time: 5.54 s (started: 2025-07-22 14:44:16 +12:00)
 </pre>
 </div>
 </div>
@@ -7964,7 +7965,7 @@ You have video processor config saved in `preprocessor.json` file which is depre
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>time: 37.7 s (started: 2025-06-25 14:26:38 +12:00)
+<pre>time: 48.8 s (started: 2025-07-22 14:44:22 +12:00)
 </pre>
 </div>
 </div>
@@ -8038,6 +8039,11 @@ You have video processor config saved in `preprocessor.json` file which is depre
 <span class="s2">                    face_visible: true | false</span>
 <span class="s2">                    facial_expression: smiling | neutral | serious | emotional | not_detectable</span>
 <span class="s2">                    image_quality: high | medium | low</span>
+<span class="s2">                    progression: a number from 0-100, indicating how advanced the condition is, where 100 is the most advanced, and 0 is the least advanced</span>
+<span class="s2">                    treatment: a number from 0-100, indicating how much treatment the person has received, where 100 is the most treatment, and 0 is the least treatment</span>
+<span class="s2">                    treatment_effectiveness: a number from 0-100, indicating how effective the treatment has been, where 100 is the most effective, and 0 is the least effective</span>
+<span class="s2">                    treatment_side_effects: a number from 0-100, indicating how severe the side effects of the treatment have been</span>
+<span class="s2">                 </span>
 
 <span class="s2">                    Do not include comments in your JSON response. Only respond with the JSON object. Make sure the JSON is valid</span>
 <span class="s2">                """</span><span class="p">},</span>
@@ -8073,6 +8079,7 @@ You have video processor config saved in `preprocessor.json` file which is depre
     <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">output_text</span> <span class="o">=</span> <span class="n">output_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"```json"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"```"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Output:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">output_text</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">output_text</span><span class="p">)</span>
     <span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
@@ -8125,18 +8132,48 @@ Location: Porirua, Wellington
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1600 tokens in input
-286 tokens in output
+<pre>1748 tokens in input
+324 tokens in output
 Output:
+{
+  "condition": "C4 and C5 spinal injury",
+  "ICD10": "G83.0",
+  "ICD": "Chapter G00-G99 - Diseases of the nervous system",
+  "name": "Ben Stowers",
+  "gender": "Male",
+  "age": "Indeterminate/Unknown",
+  "age_group": "Indeterminate/Unknown",
+  "ethnicity": "Māori (based on visual appearance)",
+  "urgency": 90,
+  "sentiment": 70,
+  "truth": 95,
+  "notes": "Age and age group were not explicitly mentioned in the text, so they are marked as 'indeterminate/unknown'. Ethnicity was inferred from the image.",
+  "smiling": true,
+  "deservingness": 95,
+  "attractiveness": 70,
+  "use": "medical expenses, travel expenses, lost wages",
+  "region": "Wellington",
+  "narrative_clarity": 85,
+  "narrative_quality": 80,
+  "emotional_tone": "hopeful",
+  "image_type": "portrait",
+  "face_visible": true,
+  "facial_expression": "smiling",
+  "image_quality": "high",
+  "progression": 50,
+  "treatment": 50,
+  "treatment_effectiveness": 50,
+  "treatment_side_effects": 30
+}
 {'ICD': 'Chapter G00-G99 - Diseases of the nervous system',
  'ICD10': 'G83.0',
- 'age': 'Indeterminate/unknown',
- 'age_group': 'Indeterminate/unknown',
+ 'age': 'Indeterminate/Unknown',
+ 'age_group': 'Indeterminate/Unknown',
  'attractiveness': 70,
  'condition': 'C4 and C5 spinal injury',
  'deservingness': 95,
  'emotional_tone': 'hopeful',
- 'ethnicity': 'Māori (based on appearance in the image)',
+ 'ethnicity': 'Māori (based on visual appearance)',
  'face_visible': True,
  'facial_expression': 'smiling',
  'gender': 'Male',
@@ -8148,9 +8185,13 @@ Output:
  'notes': 'Age and age group were not explicitly mentioned in the text, so '
           "they are marked as 'indeterminate/unknown'. Ethnicity was inferred "
           'from the image.',
+ 'progression': 50,
  'region': 'Wellington',
  'sentiment': 70,
  'smiling': True,
+ 'treatment': 50,
+ 'treatment_effectiveness': 50,
+ 'treatment_side_effects': 30,
  'truth': 95,
  'urgency': 90,
  'use': 'medical expenses, travel expenses, lost wages'}
@@ -8185,9 +8226,39 @@ Location: Nationwide
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1499 tokens in input
-277 tokens in output
+<pre>1647 tokens in input
+300 tokens in output
 Output:
+{
+  "condition": "Batten Disease CLN1",
+  "ICD10": "E75.3",
+  "ICD": "Chapter E00-E89 - Endocrine, nutritional and metabolic diseases",
+  "name": "Summer",
+  "gender": "Female",
+  "age": 11,
+  "age_group": "0-14",
+  "ethnicity": "Caucasian (assumed based on image)",
+  "urgency": 95,
+  "sentiment": 80,
+  "truth": 90,
+  "notes": "No specific warnings or errors detected.",
+  "smiling": true,
+  "deservingness": 95,
+  "attractiveness": 70,
+  "use": "medical expenses, experimental therapies, travel expenses, lost wages",
+  "region": "Nationwide",
+  "narrative_clarity": 85,
+  "narrative_quality": 80,
+  "emotional_tone": "hopeful",
+  "image_type": "portrait",
+  "face_visible": true,
+  "facial_expression": "smiling",
+  "image_quality": "high",
+  "progression": 80,
+  "treatment": 10,
+  "treatment_effectiveness": 0,
+  "treatment_side_effects": 0
+}
 {'ICD': 'Chapter E00-E89 - Endocrine, nutritional and metabolic diseases',
  'ICD10': 'E75.3',
  'age': 11,
@@ -8205,11 +8276,14 @@ Output:
  'name': 'Summer',
  'narrative_clarity': 85,
  'narrative_quality': 80,
- 'notes': 'The text mentions a rare terminal disease with no cure or '
-          'treatment, emphasizing the urgency and severity of the situation.',
+ 'notes': 'No specific warnings or errors detected.',
+ 'progression': 80,
  'region': 'Nationwide',
  'sentiment': 80,
  'smiling': True,
+ 'treatment': 10,
+ 'treatment_effectiveness': 0,
+ 'treatment_side_effects': 0,
  'truth': 90,
  'urgency': 95,
  'use': 'medical expenses, experimental therapies, travel expenses, lost wages'}
@@ -8251,9 +8325,39 @@ Location: Cromwell, Otago
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1703 tokens in input
-250 tokens in output
+<pre>1851 tokens in input
+303 tokens in output
 Output:
+{
+  "condition": "Breast Cancer",
+  "ICD10": "C50",
+  "ICD": "Chapter C00-D49 - Neoplasms",
+  "name": "Esther",
+  "gender": "Female",
+  "age": 31,
+  "age_group": "15-64",
+  "ethnicity": "Pacific Islander (assumed based on the image and description)",
+  "urgency": 90,
+  "sentiment": 70,
+  "truth": 95,
+  "notes": "The text provides clear details about the campaign and the condition, but some assumptions were made regarding ethnicity.",
+  "smiling": true,
+  "deservingness": 95,
+  "attractiveness": 70,
+  "use": "medical expenses",
+  "region": "Otago",
+  "narrative_clarity": 85,
+  "narrative_quality": 80,
+  "emotional_tone": "hopeful",
+  "image_type": "portrait",
+  "face_visible": true,
+  "facial_expression": "smiling",
+  "image_quality": "high",
+  "progression": 70,
+  "treatment": 50,
+  "treatment_effectiveness": 60,
+  "treatment_side_effects": 30
+}
 {'ICD': 'Chapter C00-D49 - Neoplasms',
  'ICD10': 'C50',
  'age': 31,
@@ -8262,7 +8366,7 @@ Output:
  'condition': 'Breast Cancer',
  'deservingness': 95,
  'emotional_tone': 'hopeful',
- 'ethnicity': 'Pacific Islander (likely)',
+ 'ethnicity': 'Pacific Islander (assumed based on the image and description)',
  'face_visible': True,
  'facial_expression': 'smiling',
  'gender': 'Female',
@@ -8271,10 +8375,15 @@ Output:
  'name': 'Esther',
  'narrative_clarity': 85,
  'narrative_quality': 80,
- 'notes': 'Ethnicity inferred from the image; no explicit mention in text.',
+ 'notes': 'The text provides clear details about the campaign and the '
+          'condition, but some assumptions were made regarding ethnicity.',
+ 'progression': 70,
  'region': 'Otago',
  'sentiment': 70,
  'smiling': True,
+ 'treatment': 50,
+ 'treatment_effectiveness': 60,
+ 'treatment_side_effects': 30,
  'truth': 95,
  'urgency': 90,
  'use': 'medical expenses'}
@@ -8311,33 +8420,67 @@ Location: Auckland
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1529 tokens in input
-293 tokens in output
+<pre>1677 tokens in input
+334 tokens in output
 Output:
+{
+  "condition": "Mental Health Disorders",
+  "ICD10": "F32.9",
+  "ICD": "Chapter F01-F99 - Mental, Behavioral and Neurodevelopmental disorders",
+  "name": "Not specified",
+  "gender": "Other/unknown",
+  "age": "Not specified",
+  "age_group": "indeterminate/unknown",
+  "ethnicity": "Not specified in text; guessing from image: Māori or Pacific Islander (based on common representation in New Zealand)",
+  "urgency": 90,
+  "sentiment": 70,
+  "truth": 95,
+  "notes": "The text does not specify a particular individual but focuses on a service for women. Ethnicity is inferred based on common demographics in New Zealand.",
+  "smiling": false,
+  "deservingness": 90,
+  "attractiveness": 50,
+  "use": "medical expenses, lost wages",
+  "region": "Auckland",
+  "narrative_clarity": 80,
+  "narrative_quality": 75,
+  "emotional_tone": "hopeful",
+  "image_type": "symbolic",
+  "face_visible": false,
+  "facial_expression": "not_detectable",
+  "image_quality": "high",
+  "progression": 50,
+  "treatment": 50,
+  "treatment_effectiveness": 70,
+  "treatment_side_effects": 0
+}
 {'ICD': 'Chapter F01-F99 - Mental, Behavioral and Neurodevelopmental disorders',
  'ICD10': 'F32.9',
  'age': 'Not specified',
  'age_group': 'indeterminate/unknown',
  'attractiveness': 50,
  'condition': 'Mental Health Disorders',
- 'deservingness': 95,
+ 'deservingness': 90,
  'emotional_tone': 'hopeful',
  'ethnicity': 'Not specified in text; guessing from image: Māori or Pacific '
-              'Islander (based on cultural context)',
+              'Islander (based on common representation in New Zealand)',
  'face_visible': False,
  'facial_expression': 'not_detectable',
  'gender': 'Other/unknown',
  'image_quality': 'high',
  'image_type': 'symbolic',
  'name': 'Not specified',
- 'narrative_clarity': 85,
- 'narrative_quality': 80,
+ 'narrative_clarity': 80,
+ 'narrative_quality': 75,
  'notes': 'The text does not specify a particular individual but focuses on a '
-          'service for women. Ethnicity was inferred based on the cultural '
-          'context of New Zealand.',
+          'service for women. Ethnicity is inferred based on common '
+          'demographics in New Zealand.',
+ 'progression': 50,
  'region': 'Auckland',
  'sentiment': 70,
  'smiling': False,
+ 'treatment': 50,
+ 'treatment_effectiveness': 70,
+ 'treatment_side_effects': 0,
  'truth': 95,
  'urgency': 90,
  'use': 'medical expenses, lost wages'}
@@ -8370,9 +8513,39 @@ Location: Nationwide
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1667 tokens in input
-264 tokens in output
+<pre>1815 tokens in input
+304 tokens in output
 Output:
+{
+  "condition": "Goldenhar Syndrome",
+  "ICD10": "Q87.3",
+  "ICD": "Chapter Q00-Q99 - Congenital malformations, deformations and chromosomal abnormalities",
+  "name": "Not specified",
+  "gender": "Female",
+  "age": 14,
+  "age_group": "0-14",
+  "ethnicity": "Caucasian (assumed based on image)",
+  "urgency": 80,
+  "sentiment": 70,
+  "truth": 90,
+  "notes": "No explicit mention of ethnicity in text, inferred from image.",
+  "smiling": false,
+  "deservingness": 95,
+  "attractiveness": 50,
+  "use": "medical expenses",
+  "region": "Nationwide",
+  "narrative_clarity": 85,
+  "narrative_quality": 80,
+  "emotional_tone": "hopeful",
+  "image_type": "symbolic",
+  "face_visible": true,
+  "facial_expression": "not_detectable",
+  "image_quality": "medium",
+  "progression": 70,
+  "treatment": 60,
+  "treatment_effectiveness": 70,
+  "treatment_side_effects": 50
+}
 {'ICD': 'Chapter Q00-Q99 - Congenital malformations, deformations and '
         'chromosomal abnormalities',
  'ICD10': 'Q87.3',
@@ -8392,15 +8565,19 @@ Output:
  'narrative_clarity': 85,
  'narrative_quality': 80,
  'notes': 'No explicit mention of ethnicity in text, inferred from image.',
+ 'progression': 70,
  'region': 'Nationwide',
  'sentiment': 70,
  'smiling': False,
+ 'treatment': 60,
+ 'treatment_effectiveness': 70,
+ 'treatment_side_effects': 50,
  'truth': 90,
- 'urgency': 85,
+ 'urgency': 80,
  'use': 'medical expenses'}
 
 
-time: 2min 23s (started: 2025-06-25 14:27:16 +12:00)
+time: 2min 37s (started: 2025-07-22 14:45:11 +12:00)
 </pre>
 </div>
 </div>

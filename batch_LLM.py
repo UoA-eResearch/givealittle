@@ -171,6 +171,15 @@ for row in tqdm(df.itertuples(), total=len(df)):
             results.append(row_dict)
             break
         except Exception as e:
+          try:
+            result = eval(output_text)
+            row_dict = row._asdict()
+            row_dict.update(result)
+            #pprint(result)
+            #print("\n")
+            results.append(row_dict)
+            break
+          except Exception as e2:
             print(f"Unable to parse: {result}")
 
     if row.Index % 100 == 0:
