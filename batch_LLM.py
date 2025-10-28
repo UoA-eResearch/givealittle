@@ -6,16 +6,16 @@ from pprint import pprint
 import json5 as json # This is a more forgiving JSON parser that can handle comments, single quotes, and trailing commas
 import torch
 from PIL import Image
-from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
-from qwen_vl_utils import process_vision_info
+from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor
 import torch
 from tqdm.auto import tqdm
 import time
 import os
 
 df = pd.read_excel("givealittle_health.xlsx")
-done = pd.read_excel("LLM_results.xlsx")
-df = df[~df.uri.isin(done.uri)]  # Remove rows that are already done
+#done = pd.read_excel("LLM_results.xlsx")
+done = pd.DataFrame()  # Empty dataframe for now
+#df = df[~df.uri.isin(done.uri)]  # Remove rows that are already done
 
 def get_text(row):
   text = ""
@@ -97,19 +97,26 @@ prompt = """
     face_visible: true | false
     facial_expression: smiling | neutral | serious | emotional | not_detectable
     image_quality: high | medium | low
+    progression: a number from 0-100, indicating how advanced the condition is, where 100 is the most advanced, and 0 is the least advanced
+    treatment: a number from 0-100, indicating how much treatment the person has received, where 100 is the most treatment, and 0 is the least treatment
+    treatment_effectiveness: a number from 0-100, indicating how effective the treatment has been, where 100 is the most effective, and 0 is the least effective
+    treatment_side_effects: a number from 0-100, indicating how severe the side effects of the treatment have been
+    site: If the campaign is for cancer, what is the primary cancer site?
+    stage: If the campaign is for cancer, what stage is the cancer at?
+    reason: Summarise how donated funds will be used and the reason for requesting donations
 
     Do not include comments in your JSON response. Only respond with the JSON object. Make sure the JSON is valid
 """
 
 # Loading this model uses 64.2GB VRAM, so the model can be loaded on a single A100 80GB GPU.
-model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-     "Qwen/Qwen2.5-VL-32B-Instruct",
-     torch_dtype=torch.bfloat16,
+model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
+     "Qwen/Qwen3-VL-30B-A3B-Instruct",
+     dtype=torch.bfloat16,
      attn_implementation="flash_attention_2",
-     device_map="cuda",
+     device_map="auto",
 )
 
-processor = AutoProcessor.from_pretrained("Qwen/Qwen2.5-VL-32B-Instruct")
+processor = AutoProcessor.from_pretrained("Qwen/Qwen3-VL-30B-A3B-Instruct")
 
 results = []
 # This will take a long time to run, so be patient. It processes 11,213 rows in about 62 hours.
@@ -136,18 +143,14 @@ for row in tqdm(df.itertuples(), total=len(df)):
         }
     ]
     try:
-        text = processor.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True
-        )
-        image_inputs, video_inputs = process_vision_info(messages)
-        inputs = processor(
-            text=[text],
-            images=image_inputs,
-            videos=video_inputs,
-            padding=True,
-            return_tensors="pt",
-        )
-        inputs = inputs.to("cuda")
+      inputs = processor.apply_chat_template(
+          messages,
+          tokenize=True,
+          add_generation_prompt=True,
+          return_dict=True,
+          return_tensors="pt"
+      )
+      inputs = inputs.to(model.device)
     except Exception as e:
         print(f"Error processing row {row.Index}: {e}")
         continue
