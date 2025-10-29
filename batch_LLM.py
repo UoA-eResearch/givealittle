@@ -137,7 +137,7 @@ for row in tqdm(df.itertuples(), total=len(df)):
             "role": "user",
             "content": [
                 {"type": "text", "text": prompt},
-                {"type": "image", "image": "file://" + filepath},
+                {"type": "image", "image": filepath},
                 {"type": "text", "text": row.text}
             ]
         }
