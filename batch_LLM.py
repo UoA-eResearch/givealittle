@@ -6,16 +6,18 @@ from pprint import pprint
 import json5 as json # This is a more forgiving JSON parser that can handle comments, single quotes, and trailing commas
 import torch
 from PIL import Image
-from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor
+from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor, BitsAndBytesConfig
 import torch
 from tqdm.auto import tqdm
 import time
 import os
 
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
 df = pd.read_excel("givealittle_health.xlsx")
-#done = pd.read_excel("LLM_results.xlsx")
-done = pd.DataFrame()  # Empty dataframe for now
-#df = df[~df.uri.isin(done.uri)]  # Remove rows that are already done
+done = pd.read_excel("LLM_results.xlsx")
+#done = pd.DataFrame()  # Empty dataframe for now
+df = df[~df.uri.isin(done.uri)]  # Remove rows that are already done
 
 def get_text(row):
   text = ""
@@ -108,12 +110,11 @@ prompt = """
     Do not include comments in your JSON response. Only respond with the JSON object. Make sure the JSON is valid
 """
 
-# Loading this model uses 64.2GB VRAM, so the model can be loaded on a single A100 80GB GPU.
 model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
      "Qwen/Qwen3-VL-30B-A3B-Instruct",
      dtype=torch.bfloat16,
      attn_implementation="flash_attention_2",
-     device_map="auto",
+     device_map="auto"
 )
 
 processor = AutoProcessor.from_pretrained("Qwen/Qwen3-VL-30B-A3B-Instruct")
