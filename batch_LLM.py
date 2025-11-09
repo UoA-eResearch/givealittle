@@ -114,7 +114,8 @@ model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
      "Qwen/Qwen3-VL-30B-A3B-Instruct",
      dtype=torch.bfloat16,
      attn_implementation="flash_attention_2",
-     device_map="auto"
+     device_map="auto",
+     quantization_config=BitsAndBytesConfig(load_in_4bit=True)
 )
 
 processor = AutoProcessor.from_pretrained("Qwen/Qwen3-VL-30B-A3B-Instruct")
@@ -157,16 +158,16 @@ for row in tqdm(df.itertuples(), total=len(df)):
         continue
 
     for retry in range(3):
-        generated_ids = model.generate(**inputs, max_new_tokens=5000)
-        generated_ids_trimmed = [
-            out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
-        ]
-        output_text = processor.batch_decode(
-            generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
-        )[0]
-        output_text = output_text.replace("```json", "").replace("```", "").strip()
-        #print("Output:")
         try:
+            generated_ids = model.generate(**inputs, max_new_tokens=5000)
+            generated_ids_trimmed = [
+                out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+            ]
+            output_text = processor.batch_decode(
+                generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+            )[0]
+            output_text = output_text.replace("```json", "").replace("```", "").strip()
+            #print("Output:")
             result = json.loads(output_text)
             row_dict = row._asdict()
             row_dict.update(result)
